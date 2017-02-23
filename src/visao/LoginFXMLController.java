@@ -1,34 +1,30 @@
 
 package visao;
 
-
-import java.awt.Button;
-import java.awt.TextField;
-import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.stage.Stage;
+import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
+
+
+
 
 
 public class LoginFXMLController implements Initializable {
 
-    Stage PalcoOrigem;
-     //====================Componentes Visuais===========
-    @FXML
-    private Button ButtonLogin;
     
+     //====================Componentes Visuais===========
+
     @FXML
     private TextField CampoNome;
     
     @FXML
     private TextField CampoSenha;
     
-    public void setPalcoOrigem(Stage PalcoOrigem){
-        this.PalcoOrigem = PalcoOrigem;
-    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -45,8 +41,9 @@ public class LoginFXMLController implements Initializable {
     
     //=========================Tratamento de Eventos==================
     @FXML
-    private void buttonLogin (ActionEvent event){
+    private void LoginOnAction (ActionEvent event){
         this.Login();
     }
+
     
 }
