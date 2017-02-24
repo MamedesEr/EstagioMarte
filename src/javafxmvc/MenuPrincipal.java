@@ -22,7 +22,7 @@ public class MenuPrincipal extends Application{
    @Override
     public void start(Stage stage) throws IOException {
         Stage stageTemp = new Stage(StageStyle.UNIFIED);
-        Parent parent = FXMLLoader.load(getClass().getResource("LoginFXML.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("view/LoginFXML.fxml"));
         Scene scene = new Scene(parent);
         stageTemp.setScene(scene);
         stageTemp.setTitle("Menu Principal");
