@@ -6,6 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="179.0" prefWidth="344.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <StackPane prefHeight="150.0" prefWidth="200.0">
@@ -30,7 +31,7 @@
                   </GridPane>
                   <StackPane>
                      <children>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="login" textAlignment="JUSTIFY" StackPane.alignment="CENTER_RIGHT" />
+                        <Button fx:id="ButtonLongin" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="login" textAlignment="JUSTIFY" StackPane.alignment="CENTER_RIGHT" />
                      </children>
                   </StackPane>
                </children>
