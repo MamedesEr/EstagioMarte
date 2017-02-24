@@ -9,6 +9,9 @@ public class Cargo {
     private int idCargo;
     private String descricao;
 
+    public Cargo() {
+    }
+    
     public Cargo(int idCargo, String descricao) {
         this.idCargo = idCargo;
         this.descricao = descricao;
