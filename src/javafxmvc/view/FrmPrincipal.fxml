@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="8.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Pictures/download.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="22.0" layoutY="101.0" prefHeight="68.0" prefWidth="86.0" text="Emprestimo" textAlignment="CENTER" />
+      <Button layoutX="22.0" layoutY="176.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="86.0" text="Devolução" textAlignment="CENTER" />
+      <Button layoutX="22.0" layoutY="501.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="86.0" text="Sair" textAlignment="CENTER" />
+      <Button disable="true" layoutX="22.0" layoutY="250.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="86.0" text="Cadastro" textAlignment="CENTER" />
+   </children>
+</AnchorPane>
