@@ -18,6 +18,9 @@ public class Emprestimo {
     private Time hrDevolucao;
     private Date dtPrevisaoEntrega;
     private Time hrPrevisaoEntrega;
+    private Usuario usuario;
+    private Chave chave;
+    private Pessoa pessoa;
 
     public Emprestimo() {
     }
@@ -95,6 +98,30 @@ public class Emprestimo {
 
     public void setDtPrevisaoEntrega(Date dtPrevisaoEntrega) {
         this.dtPrevisaoEntrega = dtPrevisaoEntrega;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Chave getChave() {
+        return chave;
+    }
+
+    public void setChave(Chave chave) {
+        this.chave = chave;
+    }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
     
 }
