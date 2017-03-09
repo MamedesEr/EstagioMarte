@@ -13,6 +13,8 @@ public class Usuario {
     private String cpf;
     private String telefone;
     private String email;
+    private Cargo cargo;
+    private Departamento departamento;
     
     public Usuario(){
         
@@ -82,6 +84,22 @@ public class Usuario {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public Cargo getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(Cargo cargo) {
+        this.cargo = cargo;
+    }
+
+    public Departamento getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(Departamento departamento) {
+        this.departamento = departamento;
     }
 
 }
