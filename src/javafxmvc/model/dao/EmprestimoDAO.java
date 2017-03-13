@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafxmvc.model.domain.Chave;
-
 import javafxmvc.model.domain.Emprestimo;
 import javafxmvc.model.domain.Pessoa;
 import javafxmvc.model.domain.Usuario;
@@ -41,10 +40,10 @@ public class EmprestimoDAO
     public boolean inserir(Emprestimo emprestimo)
     {
         String sql = "INSERT INTO emprestimo( dt_emprestimo, hr_emprestimo, descricao, dt_devolucao,"
-                + " hr_devolucao, dt_prev_entrega hr_prev_entrega;)VALUES(?)";
+                + " hr_devolucao, dt_prev_entrega hr_prev_entrega;)VALUES(?,?,?,?,?,?,?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setDate    (1,emprestimo.getDtEmprestimo() );
+            stmt.setDate    (1,emprestimo.getDtEmprestimo());
             stmt.setTime    (2,emprestimo.getHrEmprestimo());
             stmt.setString  (3,emprestimo.getDescricao());
             stmt.setDate    (4, emprestimo.getDtDevolucao());
@@ -108,13 +107,14 @@ public class EmprestimoDAO
                 Chave chave = new Chave();
                 Pessoa pessoa = new Pessoa();
                 Emprestimo emprestimo = new Emprestimo();
+                
                 emprestimo.setIdEmprestimo(resultado.getInt("id_emprestimo"));
                 emprestimo.setDescricao(resultado.getString("descricao"));
                 emprestimo.setDtDevolucao(resultado.getDate("dt_devolucao"));
                 emprestimo.setHrDevolucao(resultado.getTime("hr_devolucao"));
                 emprestimo.setDtEmprestimo(resultado.getDate("dt_emprestimo"));
                 emprestimo.setHrEmprestimo(resultado.getTime("hr_emprestimo"));
-                emprestimo.setDtPrevisaoEntrega(resultado.getDate("hr_prev_entrega"));
+                emprestimo.setDtPrevisaoEntrega(resultado.getDate("dt_prev_entrega"));
                 emprestimo.setHrPrevisaoEntrega(resultado.getTime("hr_prev_devolucao"));
                 
                 UsuarioDAO usuarioDAO = new UsuarioDAO();
@@ -123,7 +123,7 @@ public class EmprestimoDAO
                 
                 PessoaDAO pessoaDAO = new PessoaDAO();
                 pessoaDAO.setConnection(connection);                
-              //  pessoa = pessoaDAO.buscar(pessoa);
+                pessoa = pessoaDAO.buscar(pessoa);
                 
                 ChaveDAO chaveDao = new ChaveDAO();
                 chaveDao.setConnection(connection);
