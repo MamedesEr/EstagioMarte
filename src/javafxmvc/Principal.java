@@ -24,8 +24,8 @@ public class Principal extends Application {
     public void start(Stage stage) {
         login = stage; //Para fechar a tela depois quando abrir a Tela Principal
         BorderPane FrmLogin = null;
-        //Image applicationIcon = new Image(getClass().getResourceAsStream("imagem/teste.jpg"));
-        //stage.getIcons().add(applicationIcon);
+        Image applicationIcon = new Image(getClass().getResourceAsStream("imagem/ifmt.png"));
+        stage.getIcons().add(applicationIcon);
         try {
             FrmLogin = FXMLLoader.load(getClass().getResource("view/FrmLogin.fxml"));
         } catch (Exception ex) {

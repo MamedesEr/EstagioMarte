@@ -53,14 +53,14 @@ public class FXMLFrmLoginController implements Initializable{
     
     void chama_tela_login() throws IOException{
         Stage stage = new Stage();
-        Image applicationIcon = new Image(getClass().getResourceAsStream("/javafxmvc/imagem/teste.jpg"));
+        Image applicationIcon = new Image(getClass().getResourceAsStream("/javafxmvc/imagem/ifmt.png"));
         stage.getIcons().add(applicationIcon);
-        //Parent root = FXMLLoader.load(FXMLVBoxMainController.class.getClassLoader().getResource("javafxmvc/view/FXMLVBoxMain.fxml"));
+        Parent root = FXMLLoader.load(FXMLFrmPrincipalController.class.getClassLoader().getResource("javafxmvc/view/FrmPrincipal.fxml"));
         
-        //Scene scene = new Scene(root);
+        Scene scene = new Scene(root);
         
-        //stage.setScene(scene);
-        stage.setTitle(" Sistema A Dança do Guerreiro ");
+        stage.setScene(scene);
+        stage.setTitle(" Sistema Controle de chaves ");
         stage.setResizable(false);
         stage.show();
         
@@ -68,12 +68,11 @@ public class FXMLFrmLoginController implements Initializable{
     @FXML
     void button_entrar(ActionEvent event) throws IOException {
         confirmaOperacao();
-        chama_tela_login();
         Principal.login.close();//Fecha a Tela de Login   
     }
     
     
-    public void confirmaOperacao(){
+    public void confirmaOperacao() throws IOException{
         PreparedStatement comando = null;
         String senha = null;
         String login = null;
@@ -99,12 +98,10 @@ public class FXMLFrmLoginController implements Initializable{
                     if (resultado.getString("senha").equals(senha)) {
                         Alert dialogoInfo = new Alert(Alert.AlertType.INFORMATION);
                         dialogoInfo.setTitle("Diálogo de informação");
-                        dialogoInfo.setHeaderText("Login realizador com sucesso!!!");
+                        dialogoInfo.setHeaderText("Login realizado com sucesso!!!");
                         dialogoInfo.setContentText("Bem vindo, "+resultado.getString("login")+"!");
                         dialogoInfo.showAndWait();
-                        //PrincipalTela tela = new PrincipalTela();
-                        //tela.setVisible(true);
-                        //this.dispose();
+                        chama_tela_login();
                     } else {
                         Alert dialogoErro = new Alert(Alert.AlertType.ERROR);
                         dialogoErro.setTitle("Diálogo de Error");
