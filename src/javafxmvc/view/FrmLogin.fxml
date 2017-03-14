@@ -21,8 +21,8 @@
                   <TextField fx:id="txtLogin" layoutX="131.0" layoutY="188.0" prefHeight="25.0" prefWidth="188.0" />
                   <PasswordField fx:id="txtSenha" layoutX="131.0" layoutY="235.0" onAction="#button_entrar" prefHeight="25.0" prefWidth="188.0" />
                   <Group />
-                  <Button fx:id="btnCancelar" layoutX="255.0" layoutY="290.0" mnemonicParsing="false" onAction="#button_cancelar" prefHeight="25.0" prefWidth="64.0" text="Cancelar" />
-                  <Button fx:id="btnEntrar" layoutX="45.0" layoutY="288.0" mnemonicParsing="false" onAction="#button_entrar" prefHeight="25.0" prefWidth="64.0" text="Entrar" />
+                  <Button fx:id="btnCancelar" layoutX="225.0" layoutY="290.0" mnemonicParsing="false" onAction="#button_cancelar" prefHeight="31.0" prefWidth="92.0" text="Cancelar" />
+                  <Button fx:id="btnEntrar" layoutX="48.0" layoutY="290.0" mnemonicParsing="false" onAction="#button_entrar" prefHeight="31.0" prefWidth="92.0" text="Entrar" />
                </children>
             </AnchorPane>
          </children>
