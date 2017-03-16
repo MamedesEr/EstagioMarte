@@ -1,28 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="380.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmvc.controller.FXMLFrmLoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmvc.controller.FXMLFrmLoginController">
    <center>
       <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <AnchorPane prefHeight="400.0" prefWidth="386.0">
                <children>
-                  <ImageView fx:id="imgGrupo" fitHeight="158.0" fitWidth="316.0" layoutX="32.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imgGrupo" fitHeight="119.0" fitWidth="267.0" layoutX="49.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../imagem/ifmt.png" />
                      </image></ImageView>
-                  <Label layoutX="51.0" layoutY="192.0" text="Login:" />
-                  <Label layoutX="50.0" layoutY="239.0" text="Senha:" />
-                  <TextField fx:id="txtLogin" layoutX="131.0" layoutY="188.0" prefHeight="25.0" prefWidth="188.0" />
-                  <PasswordField fx:id="txtSenha" layoutX="131.0" layoutY="235.0" onAction="#button_entrar" prefHeight="25.0" prefWidth="188.0" />
+                  <Label layoutX="53.0" layoutY="137.0" text="Login:">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label layoutX="52.0" layoutY="178.0" text="Senha:">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <TextField fx:id="txtLogin" layoutX="131.0" layoutY="135.0" prefHeight="25.0" prefWidth="188.0" />
+                  <PasswordField fx:id="txtSenha" layoutX="131.0" layoutY="175.0" onAction="#button_entrar" prefHeight="25.0" prefWidth="188.0" />
                   <Group />
-                  <Button fx:id="btnCancelar" layoutX="225.0" layoutY="290.0" mnemonicParsing="false" onAction="#button_cancelar" prefHeight="31.0" prefWidth="92.0" text="Cancelar" />
-                  <Button fx:id="btnEntrar" layoutX="48.0" layoutY="290.0" mnemonicParsing="false" onAction="#button_entrar" prefHeight="31.0" prefWidth="92.0" text="Entrar" />
+                  <Group>
+                     <children>
+                        <Button fx:id="btnCancelar" layoutX="225.0" layoutY="234.0" mnemonicParsing="false" onAction="#button_cancelar" prefHeight="31.0" prefWidth="92.0" text="Cancelar" textFill="#cd221f">
+                           <font>
+                              <Font name="Times New Roman Bold" size="16.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="btnEntrar" layoutX="47.0" layoutY="234.0" mnemonicParsing="false" onAction="#button_entrar" prefHeight="31.0" prefWidth="92.0" text="Entrar">
+                           <font>
+                              <Font name="Times New Roman Bold" size="16.0" />
+                           </font>
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0" startX="1.0" startY="0.7857142857142856">
+                                 <stops>
+                                    <Stop color="#26904b" />
+                                    <Stop color="#1f6b3a" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                        </Button>
+                     </children>
+                  </Group>
                </children>
             </AnchorPane>
          </children>

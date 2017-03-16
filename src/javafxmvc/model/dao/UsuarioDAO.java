@@ -40,6 +40,8 @@ public class UsuarioDAO {
             stmt.setString(4, usuario.getCpf());
             stmt.setString(5, usuario.getTelefone());
             stmt.setString(6, usuario.getEmail());
+            stmt.setInt(7, usuario.getDepartamento().getIdDepartamento());
+            stmt.setInt(8, usuario.getCargo().getIdCargo());
             stmt.execute();
             return true;
         } catch (SQLException ex) {

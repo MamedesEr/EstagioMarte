@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
@@ -7,24 +10,76 @@
 
 <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fitHeight="147.0" fitWidth="344.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="82.0" fitWidth="223.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../imagem/ifmt.png" />
          </image>
       </ImageView>
-      <SplitPane dividerPositions="0.20075757575757575" layoutX="2.0" layoutY="143.0" prefHeight="456.0" prefWidth="794.0">
+      <SplitPane dividerPositions="0.20075757575757575" layoutX="2.0" layoutY="83.0" prefHeight="524.0" prefWidth="806.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="454.0" prefWidth="161.0">
                <children>
-                  <Button fx:id="btnEmprestimo" layoutX="3.0" layoutY="26.0" prefHeight="68.0" prefWidth="148.0" text="Emprestimo" textAlignment="CENTER" />
-                  <Button fx:id="btnDevolucao" layoutX="3.0" layoutY="111.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="148.0" text="Devolução" textAlignment="CENTER" />
-                  <Button fx:id="btnManutencao" disable="true" layoutX="3.0" layoutY="204.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="148.0" text="Cadastro" textAlignment="CENTER" />
-                  <Button fx:id="btnSair" layoutX="3.0" layoutY="299.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="148.0" text="Sair" textAlignment="CENTER" />
+                  <Group>
+                     <children>
+                        <Button fx:id="btnEmprestimo" disable="true" layoutX="3.0" layoutY="25.0" prefHeight="68.0" prefWidth="148.0" text="Empréstimo" textAlignment="CENTER">
+                           <font>
+                              <Font name="Times New Roman Bold" size="18.0" />
+                           </font>
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0" startX="1.0" startY="0.9523809523809523">
+                                 <stops>
+                                    <Stop color="#34972b" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                        </Button>
+                        <Button fx:id="btnDevolucao" disable="true" layoutX="3.0" layoutY="111.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="148.0" text="Devolução" textAlignment="CENTER">
+                           <font>
+                              <Font name="Times New Roman Bold" size="18.0" />
+                           </font>
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0" startX="1.0" startY="0.9523809523809523">
+                                 <stops>
+                                    <Stop color="#1f16d3" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                        </Button>
+                        <Button fx:id="btnSair" layoutX="4.0" layoutY="450.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="148.0" text="Sair" textAlignment="CENTER">
+                           <font>
+                              <Font name="Times New Roman Bold" size="18.0" />
+                           </font>
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0" startX="1.0" startY="0.9523809523809523">
+                                 <stops>
+                                    <Stop color="#cd1515" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                        </Button>
+                        <Button fx:id="btnManutencao" disable="true" layoutX="3.0" layoutY="196.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="148.0" text="Manutenção" textAlignment="CENTER">
+                           <font>
+                              <Font name="Times New Roman Bold" size="18.0" />
+                           </font>
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0" startX="1.0" startY="0.9523809523809523">
+                                 <stops>
+                                    <Stop color="#c67110" />
+                                    <Stop color="WHITE" offset="1.0" />
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                        </Button>
+                     </children>
+                  </Group>
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="453.0" prefWidth="630.0">
                <children>
-                  <TableView fx:id="tableViewChaves" prefHeight="454.0" prefWidth="637.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-7.0" AnchorPane.topAnchor="0.0">
+                  <TableView fx:id="tableViewChaves" layoutY="48.0" prefHeight="460.0" prefWidth="637.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-7.0" AnchorPane.topAnchor="48.0">
                     <columns>
                       <TableColumn fx:id="tableColumnChaves" prefWidth="75.0" text="Chaves" />
                       <TableColumn fx:id="tableColumnStatus" prefWidth="75.0" text="Status" />
@@ -33,14 +88,54 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
+                  <TextField fx:id="txtPesquisar" layoutX="59.0" layoutY="14.0" prefHeight="25.0" prefWidth="353.0" promptText="Digite parte do nome da chave" />
+                  <Button fx:id="btnPesquisar" layoutX="429.0" layoutY="14.0" mnemonicParsing="false" text="Pesquisar">
+                     <font>
+                        <Font name="Times New Roman Bold" size="14.0" />
+                     </font>
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0" startX="1.0" startY="0.9523809523809523">
+                           <stops>
+                              <Stop color="#4a4646" />
+                              <Stop color="WHITE" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Button>
+                  <Label layoutX="14.0" layoutY="18.0" text="Chave">
+                     <textFill>
+                        <LinearGradient endX="1.0" endY="1.0" startX="1.0" startY="0.9523809523809523">
+                           <stops>
+                              <Stop color="#cd1515" />
+                              <Stop color="WHITE" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
         </items>
       </SplitPane>
-      <ImageView fitHeight="141.0" fitWidth="162.0" layoutX="634.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="82.0" fitWidth="129.0" layoutX="713.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../imagem/DaeeIfmt.png" />
          </image>
       </ImageView>
+      <Label layoutX="229.0" layoutY="27.0" text="Bem Vindo ao sistema de controle de chaves">
+         <font>
+            <Font name="Times New Roman Bold Italic" size="24.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0" startX="1.0" startY="0.6476190476190475">
+               <stops>
+                  <Stop color="#34972b" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
    </children>
 </AnchorPane>
