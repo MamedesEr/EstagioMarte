@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane id="AnchorPane" prefHeight="465.0" prefWidth="690.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="visao.bairro.CadastroBairroController">
+    <stylesheets>
+        <URL value="@/visao/css/cadastro.css" />
+    </stylesheets>
+   <children>
+      <AnchorPane id="painelRodape" fx:id="painelRodape" layoutX="116.0" layoutY="498.0" maxHeight="40.0" minHeight="40.0" prefHeight="40.0" styleClass="painel-rodape" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Button id="botaoSair" fx:id="botaoSair" layoutX="470.0" layoutY="3.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="130.0" styleClass="botao-sair" text="Sair" AnchorPane.bottomAnchor="2.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="2.0" />
+            <Label id="labelRodape" fx:id="labelRodape" layoutX="35.0" layoutY="6.0" styleClass="label-rodape" text="MensagemRodape" AnchorPane.bottomAnchor="2.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="140.0" AnchorPane.topAnchor="2.0">
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding></Label>
+         </children>
+      </AnchorPane>
+      <ToolBar id="barraBotoes" layoutX="14.0" layoutY="14.0" maxHeight="80.0" minHeight="60.0" prefHeight="80.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <Button id="botaoIncluir" fx:id="botaoIncluir" contentDisplay="BOTTOM" maxHeight="70.0" maxWidth="100.0" minHeight="70.0" minWidth="100.0" prefHeight="70.0" prefWidth="100.0" styleClass="botao-incluir" text="_Incluir" />
+            <Button id="botaoAlterar" fx:id="botaoAlterar" contentDisplay="BOTTOM" maxHeight="70.0" maxWidth="100.0" minHeight="70.0" minWidth="100.0" prefHeight="70.0" prefWidth="100.0" styleClass="botao-alterar" text="_Alterar" />
+            <Button id="botaoExcluir" fx:id="botaoExcluir" contentDisplay="BOTTOM" maxHeight="70.0" maxWidth="100.0" minHeight="70.0" minWidth="100.0" prefHeight="70.0" prefWidth="100.0" styleClass="botao-excluir" text="_Excluir" />
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
+            <Button id="botaoSalvar" fx:id="botaoSalvar" contentDisplay="BOTTOM" maxHeight="70.0" maxWidth="100.0" minHeight="70.0" minWidth="100.0" prefHeight="70.0" prefWidth="100.0" styleClass="botao-salvar" text="_Salvar" />
+            <Button id="botaoCancelar" fx:id="botaoCancelar" contentDisplay="BOTTOM" maxHeight="70.0" maxWidth="100.0" minHeight="70.0" minWidth="100.0" prefHeight="70.0" prefWidth="100.0" styleClass="botao-cancelar" text="_Cancelar" />
+        </items>
+      </ToolBar>
+      <TabPane id="abaCadastro" fx:id="tabDados" layoutX="1.0" layoutY="60.0" prefHeight="345.0" prefWidth="690.0" styleClass="aba-cadastro" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="40.0" AnchorPane.topAnchor="80.0">
+        <tabs>
+          <Tab id="tabConsulta" styleClass="tab-consulta" text="Consulta">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane hgap="2.0" layoutX="72.0" layoutY="31.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="197.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="536.0" minWidth="10.0" prefWidth="471.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Digite o nome do Departamento" />
+                              <TextField fx:id="campoPesquisaDepartamento" maxWidth="350.0" minWidth="300.0" onKeyReleased="#campoPesquisaCidadeOnKeyPressed" prefHeight="25.0" prefWidth="350.0" GridPane.columnIndex="1" />
+                           </children>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </GridPane>
+                        <TableView id="tabelaDados" fx:id="tabelaDados" layoutX="110.0" layoutY="71.0" prefHeight="240.0" prefWidth="680.0" styleClass="tabela-dados" AnchorPane.bottomAnchor="1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="71.0" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab id="tabCampos" styleClass="tab-campos" text="Edição de Dados">
+               <content>
+                  <GridPane id="gridCampos" fx:id="gridCampos" maxHeight="216.0" minHeight="70.0" prefHeight="216.0" prefWidth="680.0" styleClass="grid-campos">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="291.0" minWidth="10.0" prefWidth="99.0" />
+                      <ColumnConstraints fillWidth="false" hgrow="SOMETIMES" maxWidth="578.0" minWidth="10.0" prefWidth="576.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label styleClass="label-campo" text="Código" />
+                        <Label text="Sigla" GridPane.rowIndex="2" />
+                        <Label text="Nome" GridPane.rowIndex="1" />
+                        <TextField id="campoCodigo" fx:id="campoCodigo" prefHeight="25.0" prefWidth="122.0" styleClass="campo-dados" GridPane.columnIndex="1" />
+                        <TextField id="campoNome" fx:id="campoNome" prefHeight="25.0" prefWidth="426.0" styleClass="campo-dados" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField id="campoNome" fx:id="campoSigla" prefHeight="25.0" prefWidth="123.0" styleClass="campo-dados" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label text="Chefia" GridPane.rowIndex="3" />
+                        <TextField id="campoNome" fx:id="campoChefia" prefHeight="25.0" prefWidth="428.0" styleClass="campo-dados" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label text="Telefone" GridPane.rowIndex="4" />
+                        <TextField id="campoNome" fx:id="campoTelefonia" prefHeight="25.0" prefWidth="433.0" styleClass="campo-dados" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label text="Email" GridPane.rowIndex="5" />
+                        <TextField id="campoNome" fx:id="campoEmail" prefHeight="25.0" prefWidth="433.0" styleClass="campo-dados" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                        <Label text="Observaçao" GridPane.rowIndex="6" />
+                        <TextField id="campoNome" fx:id="campoObservacao" prefHeight="25.0" prefWidth="433.0" styleClass="campo-dados" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                     </children>
+                     <padding>
+                        <Insets left="5.0" top="10.0" />
+                     </padding>
+                  </GridPane>
+               </content>
+          </Tab>
+        </tabs>
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding>
+      </TabPane>
+   </children>
+</AnchorPane>
