@@ -8,15 +8,17 @@ public class Chave {
     private int idChave;
     private String identificador;
     private String descricao;
+    private String status;
     
     public Chave(){
         
     }
     
-    public Chave(int idChave, String identificador, String descricao) {
+    public Chave(int idChave, String identificador, String descricao, String status) {
         this.idChave = idChave;
         this.identificador = identificador;
         this.descricao = descricao;
+        this.status = status;
     }
 
     public String getDescricao() {
@@ -41,6 +43,14 @@ public class Chave {
 
     public void setIdentificador(String identificador) {
         this.identificador = identificador;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
     
 }

@@ -8,7 +8,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmvc.controller.FXMLFrmPrincipalController">
    <children>
       <ImageView fitHeight="82.0" fitWidth="223.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -47,7 +47,7 @@
                               </LinearGradient>
                            </textFill>
                         </Button>
-                        <Button fx:id="btnSair" layoutX="4.0" layoutY="450.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="148.0" text="Sair" textAlignment="CENTER">
+                        <Button fx:id="btnSair" layoutX="4.0" layoutY="450.0" mnemonicParsing="false" onAction="#btnSair_onAction" prefHeight="68.0" prefWidth="148.0" text="Sair" textAlignment="CENTER">
                            <font>
                               <Font name="Times New Roman Bold" size="18.0" />
                            </font>
@@ -88,8 +88,8 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <TextField fx:id="txtPesquisar" layoutX="59.0" layoutY="14.0" prefHeight="25.0" prefWidth="353.0" promptText="Digite parte do nome da chave" />
-                  <Button fx:id="btnPesquisar" layoutX="429.0" layoutY="14.0" mnemonicParsing="false" text="Pesquisar">
+                  <TextField fx:id="txtPesquisar" layoutX="59.0" layoutY="14.0" onAction="#btnPesquisar_onAction" prefHeight="25.0" prefWidth="353.0" promptText="Digite parte do nome da chave" />
+                  <Button fx:id="btnPesquisar" layoutX="429.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnPesquisar_onAction" text="Pesquisar">
                      <font>
                         <Font name="Times New Roman Bold" size="14.0" />
                      </font>

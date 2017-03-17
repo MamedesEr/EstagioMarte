@@ -27,11 +27,13 @@ public class ChaveDAO {
     }
     
     public boolean inserir(Chave chave) {
-        String sql = "INSERT INTO chave(identificador, descricao)"
-                +    "VALUES(?,?)";
+        String sql = "INSERT INTO chave(identificador, descricao, status)"
+                +    "VALUES(?,?,?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setString(1, chave.getDescricao());
+            stmt.setString(1, chave.getIdentificador());
+            stmt.setString(2, chave.getDescricao());
+            stmt.setString(3, chave.getStatus());
             stmt.execute();
             return true;
         } catch (SQLException ex) {
@@ -40,13 +42,14 @@ public class ChaveDAO {
         }
     }
     public boolean alterar(Chave chave) {
-        String sql = "UPDATE chave SET identificador=?, descricao=?"
+        String sql = "UPDATE chave SET identificador=?, descricao=?, status=?"
                 + " WHERE id_cargo=?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, chave.getIdentificador());
             stmt.setString(2, chave.getDescricao());
-            stmt.setInt(3, chave.getIdChave());
+            stmt.setString(3, chave.getStatus());
+            stmt.setInt(4, chave.getIdChave());
             stmt.execute();
             return true;
         } catch (SQLException ex) {
@@ -77,6 +80,7 @@ public class ChaveDAO {
                 chave.setIdChave(resultado.getInt("id_chave"));
                 chave.setIdentificador(resultado.getString("identificador"));
                 chave.setDescricao(resultado.getString("descricao"));
+                chave.setStatus(resultado.getString("status"));
                 retorno.add(chave);
             }
         } catch (SQLException ex) {
@@ -95,6 +99,7 @@ public class ChaveDAO {
             if (resultado.next()) {
                 chave.setIdentificador(resultado.getString("identificador"));
                 chave.setDescricao(resultado.getString("descricao"));
+                chave.setStatus(resultado.getString("status"));
                 retorno = chave;
             }
         } catch (SQLException ex) {
@@ -115,6 +120,7 @@ public class ChaveDAO {
                 chave.setIdChave(resultado.getInt("id_chave"));
                 chave.setIdentificador(resultado.getString("identificador"));
                 chave.setDescricao(resultado.getString("descricao"));
+                chave.setStatus(resultado.getString("status"));
                 retorno.add(chave);
             }
         } catch (SQLException ex) {
