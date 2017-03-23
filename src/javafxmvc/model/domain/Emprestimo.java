@@ -2,6 +2,7 @@ package javafxmvc.model.domain;
 
 import java.sql.Date;
 import java.sql.Time;
+import java.time.LocalDate;
 import java.util.logging.Logger;
 
 /**
@@ -11,12 +12,12 @@ import java.util.logging.Logger;
 public class Emprestimo {
     
     private int idEmprestimo;
-    private Date dtEmprestimo;
+    private LocalDate dtEmprestimo;
     private Time hrEmprestimo;
     private String descricao;
-    private Date dtDevolucao;
+    private LocalDate dtDevolucao;
     private Time hrDevolucao;
-    private Date dtPrevisaoEntrega;
+    private LocalDate dtPrevisaoEntrega;
     private Time hrPrevisaoEntrega;
     private Usuario usuario;
     private Chave chave;
@@ -25,7 +26,7 @@ public class Emprestimo {
     public Emprestimo() {
     }
 
-    public Emprestimo(int idEmprestimo, Date dtEmprestimo, Time hrEmprestimo, String descricao, Date dtDevolucao, Time hrDevolucao, Date dtPrevisaoEntrega, Time hrPrevisaoEntrega) {
+    public Emprestimo(int idEmprestimo, LocalDate dtEmprestimo, Time hrEmprestimo, String descricao, LocalDate dtDevolucao, Time hrDevolucao, LocalDate dtPrevisaoEntrega, Time hrPrevisaoEntrega, Usuario usuario, Chave chave, Pessoa pessoa) {
         this.idEmprestimo = idEmprestimo;
         this.dtEmprestimo = dtEmprestimo;
         this.hrEmprestimo = hrEmprestimo;
@@ -34,14 +35,9 @@ public class Emprestimo {
         this.hrDevolucao = hrDevolucao;
         this.dtPrevisaoEntrega = dtPrevisaoEntrega;
         this.hrPrevisaoEntrega = hrPrevisaoEntrega;
-    }
-
-    public Time getHrPrevisaoEntrega() {
-        return hrPrevisaoEntrega;
-    }
-
-    public void setHrPrevisaoEntrega(Time hrPrevisaoEntrega) {
-        this.hrPrevisaoEntrega = hrPrevisaoEntrega;
+        this.usuario = usuario;
+        this.chave = chave;
+        this.pessoa = pessoa;
     }
 
     public int getIdEmprestimo() {
@@ -52,11 +48,11 @@ public class Emprestimo {
         this.idEmprestimo = idEmprestimo;
     }
 
-    public Date getDtEmprestimo() {
+    public LocalDate getDtEmprestimo() {
         return dtEmprestimo;
     }
 
-    public void setDtEmprestimo(Date dtEmprestimo) {
+    public void setDtEmprestimo(LocalDate dtEmprestimo) {
         this.dtEmprestimo = dtEmprestimo;
     }
 
@@ -76,11 +72,11 @@ public class Emprestimo {
         this.descricao = descricao;
     }
 
-    public Date getDtDevolucao() {
+    public LocalDate getDtDevolucao() {
         return dtDevolucao;
     }
 
-    public void setDtDevolucao(Date dtDevolucao) {
+    public void setDtDevolucao(LocalDate dtDevolucao) {
         this.dtDevolucao = dtDevolucao;
     }
 
@@ -92,12 +88,20 @@ public class Emprestimo {
         this.hrDevolucao = hrDevolucao;
     }
 
-    public Date getDtPrevisaoEntrega() {
+    public LocalDate getDtPrevisaoEntrega() {
         return dtPrevisaoEntrega;
     }
 
-    public void setDtPrevisaoEntrega(Date dtPrevisaoEntrega) {
+    public void setDtPrevisaoEntrega(LocalDate dtPrevisaoEntrega) {
         this.dtPrevisaoEntrega = dtPrevisaoEntrega;
+    }
+
+    public Time getHrPrevisaoEntrega() {
+        return hrPrevisaoEntrega;
+    }
+
+    public void setHrPrevisaoEntrega(Time hrPrevisaoEntrega) {
+        this.hrPrevisaoEntrega = hrPrevisaoEntrega;
     }
 
     public Usuario getUsuario() {

@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package javafxmvc.model.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -40,16 +36,19 @@ public class EmprestimoDAO
     public boolean inserir(Emprestimo emprestimo)
     {
         String sql = "INSERT INTO emprestimo(dt_emprestimo, hr_emprestimo, descricao, dt_devolucao,"
-                + " hr_devolucao, dt_prev_entrega hr_prev_entrega)VALUES(?,?,?,?,?,?,?)";
+                + " hr_devolucao, dt_prev_entrega hr_prev_entrega, id_usuario_emprestou, id_pessoa)"
+                + "VALUES(?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setDate    (1,emprestimo.getDtEmprestimo());
+            stmt.setDate    (1,Date.valueOf(emprestimo.getDtEmprestimo()));
             stmt.setTime    (2,emprestimo.getHrEmprestimo());
             stmt.setString  (3,emprestimo.getDescricao());
-            stmt.setDate    (4, emprestimo.getDtDevolucao());
+            stmt.setDate    (4, Date.valueOf(emprestimo.getDtDevolucao()));
             stmt.setTime    (5, emprestimo.getHrDevolucao());
-            stmt.setDate    (6, emprestimo.getDtPrevisaoEntrega());
+            stmt.setDate    (6, Date.valueOf(emprestimo.getDtPrevisaoEntrega()));
             stmt.setTime    (7, emprestimo.getHrPrevisaoEntrega());
+            stmt.setInt     (8, emprestimo.getUsuario().getIdUsuario());
+            stmt.setInt     (9, emprestimo.getPessoa().getIdPessoa());
             stmt.execute    ();
             return true;
         } catch (SQLException ex)
@@ -66,12 +65,12 @@ public class EmprestimoDAO
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString  (1, emprestimo.getDescricao());
             stmt.setInt     (2, emprestimo.getIdEmprestimo());
-            stmt.setDate    (3,emprestimo.getDtEmprestimo() );
-            stmt.setTime    (4,emprestimo.getHrEmprestimo());
-            stmt.setString  (5,emprestimo.getDescricao());
-            stmt.setDate    (6, emprestimo.getDtDevolucao());
+            stmt.setDate    (3, Date.valueOf(emprestimo.getDtEmprestimo()));
+            stmt.setTime    (4, emprestimo.getHrEmprestimo());
+            stmt.setString  (5, emprestimo.getDescricao());
+            stmt.setDate    (6, Date.valueOf(emprestimo.getDtDevolucao()));
             stmt.setTime    (7, emprestimo.getHrDevolucao());
-            stmt.setDate    (8, emprestimo.getDtPrevisaoEntrega());
+            stmt.setDate    (8, Date.valueOf(emprestimo.getDtPrevisaoEntrega()));
             stmt.setTime    (9, emprestimo.getHrPrevisaoEntrega());
             
             stmt.execute();
@@ -110,11 +109,11 @@ public class EmprestimoDAO
                 
                 emprestimo.setIdEmprestimo(resultado.getInt("id_emprestimo"));
                 emprestimo.setDescricao(resultado.getString("descricao"));
-                emprestimo.setDtDevolucao(resultado.getDate("dt_devolucao"));
+                emprestimo.setDtDevolucao(resultado.getDate("dt_devolucao").toLocalDate());
                 emprestimo.setHrDevolucao(resultado.getTime("hr_devolucao"));
-                emprestimo.setDtEmprestimo(resultado.getDate("dt_emprestimo"));
+                emprestimo.setDtEmprestimo(resultado.getDate("dt_emprestimo").toLocalDate());
                 emprestimo.setHrEmprestimo(resultado.getTime("hr_emprestimo"));
-                emprestimo.setDtPrevisaoEntrega(resultado.getDate("dt_prev_entrega"));
+                emprestimo.setDtPrevisaoEntrega(resultado.getDate("dt_prev_entrega").toLocalDate());
                 emprestimo.setHrPrevisaoEntrega(resultado.getTime("hr_prev_devolucao"));
                 
                 UsuarioDAO usuarioDAO = new UsuarioDAO();
@@ -152,11 +151,11 @@ public class EmprestimoDAO
             ResultSet resultado = stmt.executeQuery();
             if (resultado.next()) {
                 emprestimo.setDescricao(resultado.getString("descricao"));
-                emprestimo.setDtDevolucao(resultado.getDate("dt_devolucao"));
+                emprestimo.setDtDevolucao(resultado.getDate("dt_devolucao").toLocalDate());
                 emprestimo.setHrDevolucao(resultado.getTime("hr_devolucao"));
-                emprestimo.setDtEmprestimo(resultado.getDate("dt_emprestimo"));
+                emprestimo.setDtEmprestimo(resultado.getDate("dt_emprestimo").toLocalDate());
                 emprestimo.setHrEmprestimo(resultado.getTime("hr_emprestimo"));
-                emprestimo.setDtPrevisaoEntrega(resultado.getDate("hr_prev_entrega"));
+                emprestimo.setDtPrevisaoEntrega(resultado.getDate("hr_prev_entrega").toLocalDate());
                 emprestimo.setHrPrevisaoEntrega(resultado.getTime("hr_prev_devolucao"));
                 
                 retorno = emprestimo;
@@ -179,11 +178,11 @@ public class EmprestimoDAO
                 Emprestimo emprestimo = new Emprestimo();
                 emprestimo.setIdEmprestimo      (resultado.getInt("id_emprestimo"));
                 emprestimo.setDescricao         (resultado.getString("descricao"));
-                emprestimo.setDtEmprestimo      (resultado.getDate("dt_emprestimo"));
+                emprestimo.setDtEmprestimo      (resultado.getDate("dt_emprestimo").toLocalDate());
                 emprestimo.setHrEmprestimo      (resultado.getTime("hr_emprestimo"));
-                emprestimo.setDtDevolucao       (resultado.getDate("dt_devolucao"));
+                emprestimo.setDtDevolucao       (resultado.getDate("dt_devolucao").toLocalDate());
                 emprestimo.setHrDevolucao       (resultado.getTime("hr_devolucao"));
-                emprestimo.setDtPrevisaoEntrega (resultado.getDate("dt_prev_entrega"));
+                emprestimo.setDtPrevisaoEntrega (resultado.getDate("dt_prev_entrega").toLocalDate());
                 emprestimo.setHrPrevisaoEntrega (resultado.getTime("hr_prev_entrega"));
                 retorno.add(emprestimo);
             }

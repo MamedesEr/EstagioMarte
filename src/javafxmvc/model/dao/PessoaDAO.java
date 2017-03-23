@@ -87,7 +87,7 @@ public class PessoaDAO
     
     public List<Pessoa> listar() 
     {
-        String sql = "SELECT * FROM pessoa ORDER BY nome";
+        String sql = "SELECT * FROM Pessoa ORDER BY nome";
         List<Pessoa> retorno = new ArrayList<>();
         try 
         {
