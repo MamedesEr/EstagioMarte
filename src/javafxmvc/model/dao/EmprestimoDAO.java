@@ -35,20 +35,15 @@ public class EmprestimoDAO
     
     public boolean inserir(Emprestimo emprestimo)
     {
-        String sql = "INSERT INTO emprestimo(dt_emprestimo, hr_emprestimo, descricao, dt_devolucao,"
-                + " hr_devolucao, dt_prev_entrega hr_prev_entrega, id_usuario_emprestou, id_pessoa)"
-                + "VALUES(?,?,?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO emprestimo(dt_emprestimo, hr_emprestimo, id_usuario_emprestou, id_chave, id_pessoa)"
+                + "VALUES(?,?,?,?,?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setDate    (1,Date.valueOf(emprestimo.getDtEmprestimo()));
             stmt.setTime    (2,emprestimo.getHrEmprestimo());
-            stmt.setString  (3,emprestimo.getDescricao());
-            stmt.setDate    (4, Date.valueOf(emprestimo.getDtDevolucao()));
-            stmt.setTime    (5, emprestimo.getHrDevolucao());
-            stmt.setDate    (6, Date.valueOf(emprestimo.getDtPrevisaoEntrega()));
-            stmt.setTime    (7, emprestimo.getHrPrevisaoEntrega());
-            stmt.setInt     (8, emprestimo.getUsuario().getIdUsuario());
-            stmt.setInt     (9, emprestimo.getPessoa().getIdPessoa());
+            stmt.setInt     (3,emprestimo.getUsuario().getIdUsuario());
+            stmt.setInt     (4,emprestimo.getChave().getIdChave());
+            stmt.setInt     (5,emprestimo.getPessoa().getIdPessoa());
             stmt.execute    ();
             return true;
         } catch (SQLException ex)

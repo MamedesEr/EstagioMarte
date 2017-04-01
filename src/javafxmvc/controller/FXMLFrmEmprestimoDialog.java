@@ -2,6 +2,7 @@ package javafxmvc.controller;
 
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -61,7 +62,6 @@ public class FXMLFrmEmprestimoDialog implements Initializable{
     private Usuario usuario;
     private Chave chave;
     private Emprestimo emprestimo;
-    private Pessoa pessoa;
     
     
     @Override
@@ -145,5 +145,13 @@ public class FXMLFrmEmprestimoDialog implements Initializable{
             alert.show();
             return false;
         }
+    }
+
+    public Emprestimo getEmprestimo() {
+        return emprestimo;
+    }
+
+    public void setEmprestimo(Emprestimo emprestimo) {
+        this.emprestimo = emprestimo;
     }
 }

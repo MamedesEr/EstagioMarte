@@ -28,6 +28,8 @@ import javafxmvc.model.database.Database;
 import javafxmvc.model.database.DatabaseFactory;
 import javafxmvc.model.domain.Chave;
 import javafxmvc.model.domain.Emprestimo;
+import javafxmvc.model.domain.Pessoa;
+import javafxmvc.model.domain.Usuario;
 
 /**
  *
@@ -73,7 +75,6 @@ public class FXMLFrmPrincipalController implements Initializable{
     private final Connection connection = database.conectar();
     private final ChaveDAO chaveDAO = new ChaveDAO();
     private final EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
-    private Chave chave;
     String estado;
     
     
@@ -126,7 +127,9 @@ public class FXMLFrmPrincipalController implements Initializable{
     @FXML
     void btnEmprestimo_onAction (ActionEvent evento) throws IOException {
         Emprestimo emprestimo = new Emprestimo();
+        Pessoa pessoa = new Pessoa();
         Chave chave = new Chave();
+        Usuario usuario = new Usuario();
         boolean buttonConfirmarClicked = showFXMLFrmEmprestimoDialog(emprestimo);
         if (buttonConfirmarClicked) {
             try {
@@ -162,7 +165,7 @@ public class FXMLFrmPrincipalController implements Initializable{
         // Setando a Venda no Controller.
         FXMLFrmEmprestimoDialog controller = loader.getController();
         controller.setDialogStage(dialogStage);
-        //controller.set(emprestimo);
+        controller.setEmprestimo(emprestimo);
         // Mostra o Dialog e espera até que o usuário o feche
         dialogStage.showAndWait();
         return controller.isButtonConfirmarClicked();
