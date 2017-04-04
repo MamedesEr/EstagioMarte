@@ -93,3 +93,9 @@
     -fx-background-repeat: no-repeat;
     -fx-background-position: 2,0;  
 }
+
+.button.confirmar{
+    -fx-background-image: url(bt_confirmar.png);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 2,0;  
+}

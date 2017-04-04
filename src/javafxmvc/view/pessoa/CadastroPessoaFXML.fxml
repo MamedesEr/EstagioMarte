@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableView?>
@@ -19,8 +14,9 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="465.0" prefWidth="690.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="visao.bairro.CadastroBairroController">
+<AnchorPane id="AnchorPane" prefHeight="465.0" prefWidth="690.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="visao.bairro.CadastroBairroController">
     <stylesheets>
         <URL value="@/visao/css/cadastro.css" />
     </stylesheets>
@@ -34,17 +30,16 @@
                </padding></Label>
          </children>
       </AnchorPane>
-      <ToolBar id="barraBotoes" layoutX="14.0" layoutY="14.0" maxHeight="80.0" minHeight="60.0" prefHeight="80.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <ToolBar id="barraBotoes" layoutY="45.0" maxHeight="92.0" minHeight="60.0" prefHeight="80.0" prefWidth="691.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0">
         <items>
-          <Button id="botaoIncluir" fx:id="botaoIncluir" contentDisplay="BOTTOM" maxHeight="70.0" maxWidth="100.0" minHeight="70.0" minWidth="100.0" prefHeight="70.0" prefWidth="100.0" styleClass="botao-incluir" text="_Incluir" />
-            <Button id="botaoAlterar" fx:id="botaoAlterar" contentDisplay="BOTTOM" maxHeight="70.0" maxWidth="100.0" minHeight="70.0" minWidth="100.0" prefHeight="70.0" prefWidth="100.0" styleClass="botao-alterar" text="_Alterar" />
-            <Button id="botaoExcluir" fx:id="botaoExcluir" contentDisplay="BOTTOM" maxHeight="70.0" maxWidth="100.0" minHeight="70.0" minWidth="100.0" prefHeight="70.0" prefWidth="100.0" styleClass="botao-excluir" text="_Excluir" />
-            <Separator orientation="VERTICAL" prefHeight="200.0" />
-            <Button id="botaoSalvar" fx:id="botaoSalvar" contentDisplay="BOTTOM" maxHeight="70.0" maxWidth="100.0" minHeight="70.0" minWidth="100.0" prefHeight="70.0" prefWidth="100.0" styleClass="botao-salvar" text="_Salvar" />
-            <Button id="botaoCancelar" fx:id="botaoCancelar" contentDisplay="BOTTOM" maxHeight="70.0" maxWidth="100.0" minHeight="70.0" minWidth="100.0" prefHeight="70.0" prefWidth="100.0" styleClass="botao-cancelar" text="_Cancelar" />
+          <Button id="botaoIncluir" fx:id="botaoIncluir" contentDisplay="BOTTOM" maxHeight="70.0" maxWidth="100.0" minHeight="70.0" minWidth="100.0" prefHeight="70.0" prefWidth="100.0" styleClass="botao-incluir" text="Incluir" />
+            <Button id="botaoAlterar" fx:id="botaoAlterar" contentDisplay="BOTTOM" maxHeight="70.0" maxWidth="100.0" minHeight="70.0" minWidth="100.0" prefHeight="70.0" prefWidth="100.0" styleClass="botao-alterar" text="Alterar" />
+            <Button id="botaoExcluir" fx:id="botaoExcluir" contentDisplay="BOTTOM" maxHeight="70.0" maxWidth="100.0" minHeight="70.0" minWidth="100.0" prefHeight="70.0" prefWidth="100.0" styleClass="botao-excluir" text="Excluir" />
+            <Button id="botaoSalvar" fx:id="botaoSalvar" contentDisplay="BOTTOM" maxHeight="70.0" maxWidth="100.0" minHeight="70.0" minWidth="100.0" prefHeight="70.0" prefWidth="100.0" styleClass="botao-salvar" text="Salvar" />
+            <Button id="botaoCancelar" fx:id="botaoCancelar" contentDisplay="BOTTOM" maxHeight="70.0" maxWidth="100.0" minHeight="70.0" minWidth="100.0" prefHeight="70.0" prefWidth="100.0" styleClass="botao-cancelar" text="Cancelar" />
         </items>
       </ToolBar>
-      <TabPane id="abaCadastro" fx:id="tabDados" layoutX="1.0" layoutY="60.0" prefHeight="345.0" prefWidth="690.0" styleClass="aba-cadastro" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="40.0" AnchorPane.topAnchor="80.0">
+      <TabPane id="abaCadastro" fx:id="tabDados" layoutX="1.0" layoutY="126.0" prefHeight="299.0" prefWidth="690.0" styleClass="aba-cadastro" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="40.0" AnchorPane.topAnchor="126.0">
         <tabs>
           <Tab id="tabConsulta" styleClass="tab-consulta" text="Consulta">
             <content>
@@ -115,5 +110,10 @@
             <Insets left="5.0" right="5.0" />
          </padding>
       </TabPane>
+      <Label alignment="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="691.0" text="Cadastro de Pessoa">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
