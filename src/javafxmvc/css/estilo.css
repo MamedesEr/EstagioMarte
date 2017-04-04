@@ -8,35 +8,43 @@
     
     -fx-text-fill: #ffffff;    
     
-    -fx-pref-height: 68px;
-    -fx-pref-width: 148px;
 }
 
 .button.entrar{
+    -fx-pref-height: 68px;
+    -fx-pref-width: 148px;
     -fx-background-image: url(bt_entrar.png);
     -fx-background-repeat: no-repeat;
     -fx-background-position: 2,0;  
 }
 
 .button.cancelar{
+    -fx-pref-height: 68px;
+    -fx-pref-width: 148px;    
     -fx-background-image: url(bt_cancelar.png);
     -fx-background-repeat: no-repeat;
     -fx-background-position: 2,0;  
 }
 
 .button.emprestimo{
+    -fx-pref-height: 68px;
+    -fx-pref-width: 148px;    
     -fx-background-image: url(bt_emprestimo.png);
     -fx-background-repeat: no-repeat;
     -fx-background-position: 2,0;  
 }
 
 .button.devolucao{
+    -fx-pref-height: 68px;
+    -fx-pref-width: 148px;    
     -fx-background-image: url(bt_devolucao.png);
     -fx-background-repeat: no-repeat;
     -fx-background-position: 2,0;  
 }
 
 .button.sair{
+    -fx-pref-height: 68px;
+    -fx-pref-width: 148px;    
     -fx-background-image: url(bt_sair.png);
     -fx-background-repeat: no-repeat;
     -fx-background-position: 2,0;  
@@ -52,49 +60,64 @@
 }
 
 .button.manutencao{
+    -fx-pref-height: 68px;
+    -fx-pref-width: 148px;    
     -fx-background-image: url(bt_manutencao.png);
     -fx-background-repeat: no-repeat;
     -fx-background-position: 2,0;  
 }
 
 .button.voltar{
+    -fx-pref-height: 68px;
+    -fx-pref-width: 148px;    
     -fx-background-image: url(bt_voltar.png);
     -fx-background-repeat: no-repeat;
     -fx-background-position: 2,0;  
 }
 
 .button.cadastro{
+    -fx-pref-height: 68px;
+    -fx-pref-width: 148px;    
     -fx-background-image: url(bt_cadastro.png);
     -fx-background-repeat: no-repeat;
     -fx-background-position: 2,0;  
 }
 
 .button.pessoa{
+    -fx-pref-height: 68px;
+    -fx-pref-width: 148px;    
     -fx-background-image: url(bt_pessoa.png);
     -fx-background-repeat: no-repeat;
     -fx-background-position: 2,0;  
 }
 
 .button.cargo{
+    -fx-pref-height: 68px;
+    -fx-pref-width: 148px;    
     -fx-background-image: url(bt_cargo.png);
     -fx-background-repeat: no-repeat;
     -fx-background-position: 2,0;  
 }
 
 .button.departamento{
-    
+    -fx-pref-height: 68px;
+    -fx-pref-width: 148px;    
     -fx-background-image: url(bt_departamento.png);
     -fx-background-repeat: no-repeat;
     -fx-background-position: 2,0;  
 }
 
 .button.chave{
+    -fx-pref-height: 68px;
+    -fx-pref-width: 148px;    
     -fx-background-image: url(bt_chave.png);
     -fx-background-repeat: no-repeat;
     -fx-background-position: 2,0;  
 }
 
 .button.confirmar{
+    -fx-pref-height: 68px;
+    -fx-pref-width: 148px;    
     -fx-background-image: url(bt_confirmar.png);
     -fx-background-repeat: no-repeat;
     -fx-background-position: 2,0;  
