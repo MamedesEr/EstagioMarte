@@ -35,15 +35,19 @@ public class EmprestimoDAO
     
     public boolean inserir(Emprestimo emprestimo)
     {
-        String sql = "INSERT INTO emprestimo(dt_emprestimo, hr_emprestimo, id_usuario_emprestou, id_chave, id_pessoa)"
-                + "VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO emprestimo(dt_emprestimo, hr_emprestimo, descricao, dt_prev_entrega, hr_prev_devoluca,"
+                + " id_usuario_emprestou, id_chave, id_pessoa)"
+                + "VALUES(?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setDate    (1,Date.valueOf(emprestimo.getDtEmprestimo()));
             stmt.setTime    (2,emprestimo.getHrEmprestimo());
-            stmt.setInt     (3,emprestimo.getUsuario().getIdUsuario());
-            stmt.setInt     (4,emprestimo.getChave().getIdChave());
-            stmt.setInt     (5,emprestimo.getPessoa().getIdPessoa());
+            stmt.setString  (3,emprestimo.getDescricao());
+            stmt.setDate    (4,Date.valueOf(emprestimo.getDtPrevisaoEntrega()));
+            stmt.setTime    (5,emprestimo.getHrPrevisaoEntrega());
+            stmt.setInt     (6,emprestimo.getUsuario().getIdUsuario());
+            stmt.setInt     (7,emprestimo.getChave().getIdChave());
+            stmt.setInt     (8,emprestimo.getPessoa().getIdPessoa());
             stmt.execute    ();
             return true;
         } catch (SQLException ex)
@@ -54,20 +58,15 @@ public class EmprestimoDAO
     }
     public boolean alterar(Emprestimo emprestimo)   
     {
-        String sql = "UPDATE emprestimo SET descricao=?"
+        String sql = "UPDATE emprestimo SET descricao=?, dt_devolucao=?, hr_devolucao=?, id_usuario_recebeu=?"
                 + " WHERE id_emprestimo=?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString  (1, emprestimo.getDescricao());
-            stmt.setInt     (2, emprestimo.getIdEmprestimo());
-            stmt.setDate    (3, Date.valueOf(emprestimo.getDtEmprestimo()));
-            stmt.setTime    (4, emprestimo.getHrEmprestimo());
-            stmt.setString  (5, emprestimo.getDescricao());
-            stmt.setDate    (6, Date.valueOf(emprestimo.getDtDevolucao()));
-            stmt.setTime    (7, emprestimo.getHrDevolucao());
-            stmt.setDate    (8, Date.valueOf(emprestimo.getDtPrevisaoEntrega()));
-            stmt.setTime    (9, emprestimo.getHrPrevisaoEntrega());
-            
+            stmt.setDate    (2, Date.valueOf(emprestimo.getDtDevolucao()));
+            stmt.setTime    (3, emprestimo.getHrDevolucao());
+            stmt.setInt     (4, emprestimo.getUsuario().getIdUsuario());
+            stmt.setInt     (5, emprestimo.getIdEmprestimo());
             stmt.execute();
             return true;
         } catch (SQLException ex)   
@@ -76,19 +75,7 @@ public class EmprestimoDAO
             return false;
         }
     }
-    public boolean remover(Emprestimo emprestimo)
-    {
-        String sql = "DELETE FROM emprestimo WHERE id_emprestimo =?";
-        try {
-            PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setInt(1, emprestimo.getIdEmprestimo());
-            stmt.execute();
-            return true;
-        } catch (SQLException ex) {
-            Logger.getLogger(EmprestimoDAO.class.getName()).log(Level.SEVERE, null, ex);
-            return false;
-        }
-    }
+  
     public List<Emprestimo> listar()
     {
         String sql = "SELECT * FROM emprestimo ORDER BY descricao";
