@@ -66,7 +66,7 @@ public class FXMLFrmLoginController implements Initializable{
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
-        stage.setTitle(" Sistema Controle de chaves ");
+        stage.setTitle("Sistema Controle de chaves");
         stage.setResizable(false);
         stage.show();
         
@@ -75,7 +75,7 @@ public class FXMLFrmLoginController implements Initializable{
     @FXML
     void button_entrar(ActionEvent event) throws IOException {
         confirmaOperacao();
-        Principal.login.close();//Fecha a Tela de Login
+        
     }
     
     
@@ -89,7 +89,7 @@ public class FXMLFrmLoginController implements Initializable{
             senha = txtSenha.getText();
         }catch(Exception ex){
             Alert msg_erro = new Alert(Alert.AlertType.ERROR);
-            msg_erro.setTitle("Erro ao Logar no Sistema");
+            msg_erro.setTitle("Erro ao logar no sistema");
             msg_erro.setHeaderText("Ação inconsistente");
             msg_erro.setContentText("Por favor corrija");
             msg_erro.showAndWait();   
@@ -110,31 +110,66 @@ public class FXMLFrmLoginController implements Initializable{
                         dialogoInfo.showAndWait();
                         id_usuario = resultado.getInt("id_usuario");
                         chama_tela_login();
+                        Principal.login.close();
                     } else {
                         Alert dialogoErro = new Alert(Alert.AlertType.ERROR);
-                        dialogoErro.setTitle("Diálogo de Error");
-                        dialogoErro.setHeaderText(senha);
-                        dialogoErro.setContentText("A senha esta incorreta!");
+                        dialogoErro.setTitle("Mensagem de error:");
+                        dialogoErro.setHeaderText("Senha incorreta!");
+                        dialogoErro.setContentText("Digite sua senha corretamente.");
                         dialogoErro.showAndWait();
                         txtSenha.setText("");
+                        txtSenha.requestFocus();
                     }
                 } else {
                     Alert dialogoErro = new Alert(Alert.AlertType.ERROR);
-                    dialogoErro.setTitle("Diálogo de Error");
-                    dialogoErro.setHeaderText(login);
-                    dialogoErro.setContentText("O usuario não foi encontrado!");
+                    dialogoErro.setTitle("Mensagem de error:");
+                    dialogoErro.setHeaderText("Login não encontrato!");
+                    dialogoErro.setContentText("Digite um login válido.");
                     dialogoErro.showAndWait();
                     txtLogin.setText("");
                     txtSenha.setText("");
+                    txtLogin.requestFocus();
                 }     
             }catch (SQLException ex){
                 Alert dialogoErro = new Alert(Alert.AlertType.ERROR);
-                dialogoErro.setTitle("Diálogo de Error");
+                dialogoErro.setTitle("Mensagem de error:");
                 dialogoErro.setHeaderText(login);
                 dialogoErro.setContentText("Falha ao realizar login");
                 dialogoErro.showAndWait();
             }      
-        }
+        } else{
+            if(login.length()!= 1 && senha.length() != 0){
+              Alert dialogoErro = new Alert(Alert.AlertType.ERROR);
+              dialogoErro.setTitle("Mensagem de error:");
+              dialogoErro.setHeaderText("Campo login é obrigatório!");
+              dialogoErro.setContentText("Digite um login válido.");
+              dialogoErro.showAndWait();
+              txtLogin.setText("");
+              txtSenha.setText("");  
+              txtLogin.requestFocus();
+            } else {
+                if(login.length()!= 0 && senha.length() != 1){
+                  Alert dialogoErro = new Alert(Alert.AlertType.ERROR);
+              dialogoErro.setTitle("Mensagem de error:");
+              dialogoErro.setHeaderText("Campo senha é obrigatório!");
+              dialogoErro.setContentText("Digite sua senha corretamente.");
+              dialogoErro.showAndWait();
+              txtSenha.setText(""); 
+              txtSenha.requestFocus();
+                }else {
+                    if(login.length()!= 1 && senha.length() != 1){
+                        Alert dialogoErro = new Alert(Alert.AlertType.ERROR);
+                        dialogoErro.setTitle("Mensagem de error:");
+                        dialogoErro.setHeaderText("Campo login e senha são obrigatórios!");
+                        dialogoErro.setContentText("Digite seu login e senha corretamente.");
+                        dialogoErro.showAndWait();
+                        txtLogin.setText("");
+                        txtSenha.setText(""); 
+                        txtLogin.requestFocus();
+                    }
+                }
+            }
+        } 
     }
 
     @FXML
