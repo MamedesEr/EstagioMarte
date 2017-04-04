@@ -76,13 +76,14 @@ public class FXMLFrmPrincipalController implements Initializable{
     private final ChaveDAO chaveDAO = new ChaveDAO();
     private final EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
     String estado;
-    
+    int id_chave;
+    int id_usuario;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         chaveDAO.setConnection(connection);
         carregarTableViewChave();
-
+        
         // Listen acionado diante de quaisquer alterações na seleção de itens do TableView
         tableViewChaves.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> selecionarItemTableViewChaves(newValue));
@@ -99,6 +100,11 @@ public class FXMLFrmPrincipalController implements Initializable{
     }
     
     public void selecionarItemTableViewChaves(Chave chave){
+        FXMLFrmLoginController id = new FXMLFrmLoginController();
+        id_usuario = id.retornaID();
+        System.out.println("Id Usuario: "+id_usuario);
+        id_chave = chave.getIdChave();
+        System.out.println("Id chave: "+id_chave);
         if (chave != null) {
             btnEmprestimo.setDisable(false);
             btnDevolucao.setDisable(false);
@@ -135,6 +141,8 @@ public class FXMLFrmPrincipalController implements Initializable{
             try {
                 connection.setAutoCommit(false);
                 emprestimoDAO.setConnection(connection);
+                emprestimo.getChave().setIdChave(id_chave);
+                emprestimo.getUsuario().setIdUsuario(id_usuario);
                 emprestimoDAO.inserir(emprestimo);
                 String status = "Indisponivel";
                 chave.setStatus(status);

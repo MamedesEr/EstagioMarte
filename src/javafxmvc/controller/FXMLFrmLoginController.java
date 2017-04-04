@@ -24,6 +24,7 @@ import javafxmvc.Principal;
 import javafxmvc.model.dao.UsuarioDAO;
 import javafxmvc.model.database.Database;
 import javafxmvc.model.database.DatabaseFactory;
+import javafxmvc.model.domain.Usuario;
 import javax.swing.JOptionPane;
 
 /**
@@ -50,6 +51,11 @@ public class FXMLFrmLoginController implements Initializable{
     private final Database database = DatabaseFactory.getDatabase("postgresql");
     private final Connection connection = database.conectar();
     private final UsuarioDAO usuarioDAO = new UsuarioDAO();
+    static int id_usuario;
+
+    public Integer retornaID(){
+        return id_usuario; 
+    }
     
     void chama_tela_login() throws IOException{
         Stage stage = new Stage();
@@ -65,10 +71,11 @@ public class FXMLFrmLoginController implements Initializable{
         stage.show();
         
     }
+    
     @FXML
     void button_entrar(ActionEvent event) throws IOException {
         confirmaOperacao();
-        Principal.login.close();//Fecha a Tela de Login   
+        Principal.login.close();//Fecha a Tela de Login
     }
     
     
@@ -101,6 +108,7 @@ public class FXMLFrmLoginController implements Initializable{
                         dialogoInfo.setHeaderText("Login realizado com sucesso!!!");
                         dialogoInfo.setContentText("Bem vindo, "+resultado.getString("login")+"!");
                         dialogoInfo.showAndWait();
+                        id_usuario = resultado.getInt("id_usuario");
                         chama_tela_login();
                     } else {
                         Alert dialogoErro = new Alert(Alert.AlertType.ERROR);
@@ -128,7 +136,7 @@ public class FXMLFrmLoginController implements Initializable{
             }      
         }
     }
-   
+
     @FXML
     void button_cancelar(ActionEvent event) {
         System.exit(0);

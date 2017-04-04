@@ -59,8 +59,6 @@ public class FXMLFrmEmprestimoDialog implements Initializable{
     
     private Stage dialogStage;
     private boolean buttonConfirmarClicked = false;
-    private Usuario usuario;
-    private Chave chave;
     private Emprestimo emprestimo;
     
     
@@ -82,22 +80,6 @@ public class FXMLFrmEmprestimoDialog implements Initializable{
 
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public Chave getChave() {
-        return chave;
-    }
-
-    public void setChave(Chave chave) {
-        this.chave = chave;
     }
     
     public boolean isButtonConfirmarClicked() {
