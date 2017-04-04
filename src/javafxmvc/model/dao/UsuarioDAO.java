@@ -128,13 +128,13 @@ public class UsuarioDAO {
     public Usuario buscar(Usuario usuario) {
         String sql = "SELECT * FROM usuario WHERE id_usuario=?";
         Usuario retorno = new Usuario();
-        Departamento departamento = new Departamento();
-        Cargo cargo = new Cargo();
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setInt(1, usuario.getIdUsuario());
             ResultSet resultado = stmt.executeQuery();
             if (resultado.next()) {
+                Departamento departamento = new Departamento();
+                Cargo cargo = new Cargo();
                 usuario.setIdUsuario(resultado.getInt("id_usuario"));
                 usuario.setLogin(resultado.getString("login"));
                 usuario.setSenha(resultado.getString("senha"));
@@ -144,6 +144,9 @@ public class UsuarioDAO {
                 usuario.setEmail(resultado.getString("email"));
                 departamento.setIdDepartamento(resultado.getInt("id_departamento"));
                 cargo.setIdCargo(resultado.getInt("id_cargo"));
+                usuario.setDepartamento(departamento);
+                usuario.setCargo(cargo);
+                retorno = usuario;
             }
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);

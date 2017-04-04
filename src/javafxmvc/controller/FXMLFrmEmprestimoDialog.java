@@ -17,6 +17,8 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafxmvc.model.dao.ChaveDAO;
+import javafxmvc.model.dao.EmprestimoDAO;
 import javafxmvc.model.dao.PessoaDAO;
 import javafxmvc.model.dao.UsuarioDAO;
 import javafxmvc.model.database.Database;
@@ -56,10 +58,11 @@ public class FXMLFrmEmprestimoDialog implements Initializable{
     private final Database database = DatabaseFactory.getDatabase("postgresql");
     private final Connection connection = database.conectar();
     private final PessoaDAO pessoaDAO = new PessoaDAO();
+    private final EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
     
     private Stage dialogStage;
     private boolean buttonConfirmarClicked = false;
-    private Emprestimo emprestimo;
+    Emprestimo emprestimo;
     
     
     @Override
@@ -93,10 +96,37 @@ public class FXMLFrmEmprestimoDialog implements Initializable{
             emprestimo.setPessoa((Pessoa)comboBoxPessoa.getSelectionModel().getSelectedItem());
             emprestimo.setDtEmprestimo(datePickerDataEmprestimo.getValue());
             emprestimo.setHrEmprestimo(Time.valueOf(txtHoraEmprestimo.getText()));
+            
+            FXMLFrmLoginController id = new FXMLFrmLoginController();     
+            FXMLFrmPrincipalController id_chave = new FXMLFrmPrincipalController();
+            
+            Usuario usuario = new Usuario();
+            usuario.setIdUsuario(id.retornaID());
+            
+            Chave chave = new Chave();
+            chave.setIdChave(id_chave.retornaIdChave());
+            
+            UsuarioDAO usuarioDAO = new UsuarioDAO();
+            usuarioDAO.setConnection(connection);
+            usuario = usuarioDAO.buscar(usuario);
+            
+            ChaveDAO chaveDAO = new ChaveDAO();
+            chaveDAO.setConnection(connection);
+            chave = chaveDAO.buscar(chave);
+            
+            emprestimo.setUsuario(usuario);
+            emprestimo.setChave(chave);
+            
+            String status = "Indisponível";
+            chave.setStatus(status);
+            chaveDAO.alterar(chave);
+            
+            emprestimoDAO.setConnection(connection);
+            emprestimoDAO.inserir(emprestimo);
+            
             buttonConfirmarClicked = true;
             dialogStage.close();
-        }
-        
+        } 
     }
 
     @FXML

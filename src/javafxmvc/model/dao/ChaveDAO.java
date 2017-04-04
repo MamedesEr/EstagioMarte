@@ -43,7 +43,7 @@ public class ChaveDAO {
     }
     public boolean alterar(Chave chave) {
         String sql = "UPDATE chave SET identificador=?, descricao=?, status=?"
-                + " WHERE id_cargo=?";
+                + " WHERE id_chave=?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, chave.getIdentificador());

@@ -76,8 +76,12 @@ public class FXMLFrmPrincipalController implements Initializable{
     private final ChaveDAO chaveDAO = new ChaveDAO();
     private final EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
     String estado;
-    int id_chave;
+    static int id_chave;
     int id_usuario;
+    
+    public Integer retornaIdChave(){
+        return id_chave;
+    }
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -100,14 +104,13 @@ public class FXMLFrmPrincipalController implements Initializable{
     }
     
     public void selecionarItemTableViewChaves(Chave chave){
-        FXMLFrmLoginController id = new FXMLFrmLoginController();
-        id_usuario = id.retornaID();
-        System.out.println("Id Usuario: "+id_usuario);
-        id_chave = chave.getIdChave();
-        System.out.println("Id chave: "+id_chave);
         if (chave != null) {
-            btnEmprestimo.setDisable(false);
-            btnDevolucao.setDisable(false);
+            if(chave.getStatus().equals("Indisponível")){
+                btnDevolucao.setDisable(false);
+            }else{
+                btnEmprestimo.setDisable(false);
+            }
+            id_chave = chave.getIdChave();
         }
     }
     
@@ -133,23 +136,14 @@ public class FXMLFrmPrincipalController implements Initializable{
     @FXML
     void btnEmprestimo_onAction (ActionEvent evento) throws IOException {
         Emprestimo emprestimo = new Emprestimo();
-        Pessoa pessoa = new Pessoa();
-        Chave chave = new Chave();
-        Usuario usuario = new Usuario();
         boolean buttonConfirmarClicked = showFXMLFrmEmprestimoDialog(emprestimo);
         if (buttonConfirmarClicked) {
             try {
                 connection.setAutoCommit(false);
-                emprestimoDAO.setConnection(connection);
-                emprestimo.getChave().setIdChave(id_chave);
-                emprestimo.getUsuario().setIdUsuario(id_usuario);
-                emprestimoDAO.inserir(emprestimo);
-                String status = "Indisponivel";
-                chave.setStatus(status);
-                chaveDAO.setConnection(connection);
-                chaveDAO.inserir(chave);
                 connection.commit();
                 carregarTableViewChave();
+                btnEmprestimo.setDisable(true);
+                btnDevolucao.setDisable(true);
             } catch (SQLException ex) {
                 try {
                     connection.rollback();
