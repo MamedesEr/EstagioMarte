@@ -7,6 +7,10 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafxmvc.model.dao.ChaveDAO;
 import javafxmvc.model.dao.EmprestimoDAO;
@@ -19,6 +23,21 @@ import javafxmvc.model.domain.Pessoa;
 import javafxmvc.model.domain.Usuario;
 
 public class FXMLFrmDevolucaoDialog implements Initializable{
+    
+    @FXML
+    private DatePicker datePickerDataDevolucao;
+
+    @FXML
+    private Button buttonCancelar;
+
+    @FXML
+    private Button buttonConfirmar;
+
+    @FXML
+    private TextField txtHoraDevolucao;
+
+    @FXML
+    private TextArea txtDescricao;
     
      //Atributos para manipulação de Banco de Dados
     private final Database database = DatabaseFactory.getDatabase("postgresql");
@@ -50,8 +69,9 @@ public class FXMLFrmDevolucaoDialog implements Initializable{
     public void handleButtonConfirmar() {
         
         if (validarEntradaDeDados()) {
-            //emprestimo.setDtEmprestimo(datePickerDataEmprestimo.getValue());
-            //emprestimo.setHrEmprestimo(Time.valueOf(txtHoraEmprestimo.getText()));
+            emprestimo.setDtDevolucao(datePickerDataDevolucao.getValue());
+            emprestimo.setHrDevolucao(Time.valueOf(txtHoraDevolucao.getText()));
+            emprestimo.setDescricao(txtDescricao.getText());
             
             FXMLFrmLoginController id = new FXMLFrmLoginController();     
             FXMLFrmPrincipalController id_chave = new FXMLFrmPrincipalController();
@@ -93,11 +113,11 @@ public class FXMLFrmDevolucaoDialog implements Initializable{
     //Validar entrada de dados para o cadastro
     private boolean validarEntradaDeDados() {
         String errorMessage = "";
-        /*
-        if (datePickerDataEmprestimo.getValue() == null) {
+        
+        if (datePickerDataDevolucao.getValue() == null) {
             errorMessage += "Data inválida!\n";
         }
-        if (txtHoraEmprestimo.getText()== null) {
+        if (txtHoraDevolucao.getText()== null) {
             errorMessage += "Hora inválida!\n";
         }
         if (errorMessage.length() == 0) {
@@ -105,13 +125,12 @@ public class FXMLFrmDevolucaoDialog implements Initializable{
         } else {
             // Mostrando a mensagem de erro
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Erro no cadastro");
+            alert.setTitle("Erro na Devolução");
             alert.setHeaderText("Campos inválidos, por favor, corrija...");
             alert.setContentText(errorMessage);
             alert.show();
             return false;
-        }*/
-        return false; //Tirar apos colocar a validação
+        }
     }
 
     public Emprestimo getEmprestimo() {

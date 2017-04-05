@@ -155,6 +155,28 @@ public class FXMLFrmPrincipalController implements Initializable{
         }
     }
     
+    @FXML
+    void btnDevolucao_onAction (ActionEvent evento) throws IOException {
+        Emprestimo emprestimo = new Emprestimo();
+        boolean buttonConfirmarClicked = showFXMLFrmDevolucaoDialog(emprestimo);
+        if (buttonConfirmarClicked) {
+            try {
+                connection.setAutoCommit(false);
+                connection.commit();
+                carregarTableViewChave();
+                btnEmprestimo.setDisable(true);
+                btnDevolucao.setDisable(true);
+            } catch (SQLException ex) {
+                try {
+                    connection.rollback();
+                } catch (SQLException ex1) {
+                    Logger.getLogger(FXMLFrmPrincipalController.class.getName()).log(Level.SEVERE, null, ex1);
+                }
+                Logger.getLogger(FXMLFrmPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
     public boolean showFXMLFrmEmprestimoDialog(Emprestimo emprestimo) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(FXMLFrmEmprestimoDialog.class.getResource("/javafxmvc/view/FrmEmprestimoDialog.fxml"));
@@ -164,8 +186,28 @@ public class FXMLFrmPrincipalController implements Initializable{
         dialogStage.setTitle("Registro de Emprestimo");
         Scene scene = new Scene(page);
         dialogStage.setScene(scene);
+        dialogStage.setResizable(false);
         // Setando a Venda no Controller.
         FXMLFrmEmprestimoDialog controller = loader.getController();
+        controller.setDialogStage(dialogStage);
+        controller.setEmprestimo(emprestimo);
+        // Mostra o Dialog e espera até que o usuário o feche
+        dialogStage.showAndWait();
+        return controller.isButtonConfirmarClicked();
+    }
+    
+    public boolean showFXMLFrmDevolucaoDialog(Emprestimo emprestimo) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(FXMLFrmDevolucaoDialog.class.getResource("/javafxmvc/view/FrmDevolucaoDialog.fxml"));
+        AnchorPane page = (AnchorPane) loader.load();
+        // Criando um Estágio de Diálogo (Stage Dialog)
+        Stage dialogStage = new Stage();
+        dialogStage.setTitle("Registro de Devolução");
+        Scene scene = new Scene(page);
+        dialogStage.setScene(scene);
+        dialogStage.setResizable(false);
+        // Setando a Venda no Controller.
+        FXMLFrmDevolucaoDialog controller = loader.getController();
         controller.setDialogStage(dialogStage);
         controller.setEmprestimo(emprestimo);
         // Mostra o Dialog e espera até que o usuário o feche

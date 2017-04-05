@@ -14,6 +14,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -33,8 +34,15 @@ import javafxmvc.model.domain.Usuario;
  * @author Mattheus
  */
 public class FXMLFrmEmprestimoDialog implements Initializable{
+    
     @FXML
     private TextField txtHoraEmprestimo;
+
+    @FXML
+    private TextField txtHoraPrevista;
+
+    @FXML
+    private DatePicker datePickerDataPrevista;
 
     @FXML
     private Button buttonCancelar;
@@ -46,8 +54,11 @@ public class FXMLFrmEmprestimoDialog implements Initializable{
     private Button buttonConfirmar;
 
     @FXML
+    private TextArea txtDescricao;
+
+    @FXML
     private ComboBox comboBoxPessoa;
-    
+
     @FXML
     private AnchorPane anchorPane;
     
@@ -96,6 +107,9 @@ public class FXMLFrmEmprestimoDialog implements Initializable{
             emprestimo.setPessoa((Pessoa)comboBoxPessoa.getSelectionModel().getSelectedItem());
             emprestimo.setDtEmprestimo(datePickerDataEmprestimo.getValue());
             emprestimo.setHrEmprestimo(Time.valueOf(txtHoraEmprestimo.getText()));
+            emprestimo.setDescricao(txtDescricao.getText());
+            emprestimo.setDtPrevisaoEntrega(datePickerDataPrevista.getValue());
+            emprestimo.setHrPrevisaoEntrega(Time.valueOf(txtHoraPrevista.getText()));
             
             FXMLFrmLoginController id = new FXMLFrmLoginController();     
             FXMLFrmPrincipalController id_chave = new FXMLFrmPrincipalController();
@@ -122,6 +136,7 @@ public class FXMLFrmEmprestimoDialog implements Initializable{
             chaveDAO.alterar(chave);
             
             emprestimoDAO.setConnection(connection);
+
             emprestimoDAO.inserir(emprestimo);
             
             buttonConfirmarClicked = true;
@@ -151,7 +166,7 @@ public class FXMLFrmEmprestimoDialog implements Initializable{
         } else {
             // Mostrando a mensagem de erro
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Erro no cadastro");
+            alert.setTitle("Erro no Emprestimo");
             alert.setHeaderText("Campos inválidos, por favor, corrija...");
             alert.setContentText(errorMessage);
             alert.show();

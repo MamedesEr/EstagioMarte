@@ -35,7 +35,7 @@ public class EmprestimoDAO
     
     public boolean inserir(Emprestimo emprestimo)
     {
-        String sql = "INSERT INTO emprestimo(dt_emprestimo, hr_emprestimo, descricao, dt_prev_entrega, hr_prev_devoluca,"
+        String sql = "INSERT INTO emprestimo(dt_emprestimo, hr_emprestimo, descricao, dt_prev_entrega, hr_prev_devolucao,"
                 + " id_usuario_emprestou, id_chave, id_pessoa)"
                 + "VALUES(?,?,?,?,?,?,?,?)";
         try {
