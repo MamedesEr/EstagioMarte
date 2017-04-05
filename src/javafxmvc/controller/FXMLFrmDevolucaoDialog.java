@@ -18,10 +18,6 @@ import javafxmvc.model.domain.Emprestimo;
 import javafxmvc.model.domain.Pessoa;
 import javafxmvc.model.domain.Usuario;
 
-/**
- *
- * @author Mattheus
- */
 public class FXMLFrmDevolucaoDialog implements Initializable{
     
      //Atributos para manipulação de Banco de Dados
