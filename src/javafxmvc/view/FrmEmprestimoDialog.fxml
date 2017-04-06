@@ -11,14 +11,14 @@
       <TextField fx:id="txtHoraPrevista" layoutX="405.0" layoutY="79.0" prefHeight="30.0" prefWidth="150.0" />
       <DatePicker fx:id="datePickerDataEmprestimo" layoutX="148.0" layoutY="139.0" prefHeight="30.0" prefWidth="150.0" />
       <DatePicker fx:id="datePickerDataPrevista" layoutX="405.0" layoutY="138.0" prefHeight="30.0" prefWidth="150.0" />
-      <TextArea fx:id="txtDescricao" layoutX="148.0" layoutY="197.0" prefHeight="52.0" prefWidth="408.0" />
-      <Button fx:id="buttonConfirmar" layoutX="97.0" layoutY="280.0" mnemonicParsing="false" onAction="#handleButtonConfirmar" styleClass="confirmar" text="            Confirmar" />
-      <Button fx:id="buttonCancelar" layoutX="355.0" layoutY="280.0" mnemonicParsing="false" onAction="#handleButtonCancelar" styleClass="cancelar" text="           Cancelar" />
+      <TextArea fx:id="txtDescricao" layoutX="148.0" layoutY="198.0" prefHeight="40.0" prefWidth="408.0" />
+      <Button fx:id="buttonConfirmar" layoutX="97.0" layoutY="268.0" mnemonicParsing="false" onAction="#handleButtonConfirmar" styleClass="confirmar" text="            Confirmar" />
+      <Button fx:id="buttonCancelar" layoutX="355.0" layoutY="268.0" mnemonicParsing="false" onAction="#handleButtonCancelar" styleClass="cancelar" text="           Cancelar" />
       <Label alignment="CENTER_RIGHT" layoutX="29.0" layoutY="86.0" prefHeight="17.0" prefWidth="111.0" text="Hora da Retirada:" />
       <Label alignment="CENTER_RIGHT" layoutX="317.0" layoutY="85.0" prefHeight="17.0" prefWidth="80.0" text="Hora Prevista:" />
       <Label alignment="CENTER_RIGHT" layoutX="317.0" layoutY="143.0" prefHeight="17.0" prefWidth="80.0" text="Data Prevista:" />
       <Label layoutX="29.0" layoutY="144.0" text="Data de Empréstimo:" />
       <Label alignment="CENTER_RIGHT" layoutX="28.0" layoutY="26.0" prefHeight="17.0" prefWidth="111.0" text="Pessoa:" />
-      <Label alignment="CENTER_RIGHT" layoutX="29.0" layoutY="212.0" prefHeight="17.0" prefWidth="111.0" text="Descrição:" />
+      <Label alignment="CENTER_RIGHT" layoutX="29.0" layoutY="208.0" prefHeight="17.0" prefWidth="111.0" text="Descrição:" />
    </children>
 </AnchorPane>

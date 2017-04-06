@@ -15,11 +15,11 @@
     <AnchorPane fx:id="ancorpane" layoutY="89.0" prefHeight="465.0" prefWidth="690.0">
          <children>
             <Button fx:id="btnDevolucao" layoutX="143.0" layoutY="112.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="162.0" styleClass="pessoa" text="         Pessoa" textAlignment="CENTER" />
-            <Button fx:id="btnDevolucao1" layoutX="409.0" layoutY="112.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="155.0" styleClass="cargo" text="        Cargo" textAlignment="CENTER" />
-            <Button fx:id="btnDevolucao11" layoutX="409.0" layoutY="283.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="162.0" styleClass="departamento" text="           Departa&#10;           mento" textAlignment="CENTER" />
-            <Button fx:id="btnDevolucao111" layoutX="409.0" layoutY="199.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="162.0" styleClass="chave" text="        Chave" textAlignment="CENTER" />
+            <Button fx:id="btnDevolucao1" layoutX="409.0" layoutY="113.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="155.0" styleClass="cargo" text="        Cargo" textAlignment="CENTER" />
+            <Button fx:id="btnDevolucao11" layoutX="408.0" layoutY="286.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="162.0" styleClass="departamento" text="           Departa&#10;           mento" textAlignment="CENTER" />
+            <Button fx:id="btnDevolucao111" layoutX="409.0" layoutY="200.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="162.0" styleClass="chave" text="        Chave" textAlignment="CENTER" />
             <Button fx:id="btnDevolucao1111" layoutX="143.0" layoutY="199.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="162.0" styleClass="entrar" text="          Usuário" textAlignment="CENTER" />
-            <Button fx:id="btnSair" layoutX="143.0" layoutY="283.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="148.0" styleClass="voltar" text="        Voltar" textAlignment="CENTER" />
+            <Button fx:id="btnSair" layoutX="143.0" layoutY="286.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="148.0" styleClass="voltar" text="        Voltar" textAlignment="CENTER" />
          </children>
       </AnchorPane>
       <ImageView fitHeight="82.0" fitWidth="223.0" pickOnBounds="true" preserveRatio="true">

@@ -130,3 +130,35 @@
     -fx-background-repeat: no-repeat;
     -fx-background-position: 2,0;  
 }
+
+.button.inserir{
+    -fx-pref-height: 68px;
+    -fx-pref-width: 148px;    
+    -fx-background-image: url(bt_inserir.png);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 2,0;  
+}
+
+.button.alterar{
+    -fx-pref-height: 68px;
+    -fx-pref-width: 148px;    
+    -fx-background-image: url(bt_alterar.png);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 2,0;  
+}
+
+.button.excluir{
+    -fx-pref-height: 68px;
+    -fx-pref-width: 148px;    
+    -fx-background-image: url(bt_excluir.png);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 2,0;  
+}
+
+.button.salvar{
+    -fx-pref-height: 68px;
+    -fx-pref-width: 148px;    
+    -fx-background-image: url(bt_salvar.png);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 2,0;  
+}

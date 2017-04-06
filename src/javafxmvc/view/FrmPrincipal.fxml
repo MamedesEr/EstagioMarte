@@ -21,7 +21,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: white;" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmvc.controller.FXMLFrmPrincipalController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="810.0" style="-fx-background-color: white;" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmvc.controller.FXMLFrmPrincipalController">
    <children>
       <ImageView fitHeight="82.0" fitWidth="223.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -86,7 +86,7 @@
                               </LinearGradient>
                            </textFill>
                         </Button>
-                        <Button fx:id="btnSair1" layoutX="2.0" layoutY="283.0" mnemonicParsing="false" onAction="#btnSair_onAction" prefHeight="68.0" prefWidth="148.0" styleClass="ajuda" text="        Ajuda" textAlignment="CENTER">
+                        <Button fx:id="btnAjuda" layoutX="4.0" layoutY="281.0" mnemonicParsing="false" onAction="#btnSair_onAction" prefHeight="68.0" prefWidth="148.0" styleClass="ajuda" text="        Ajuda" textAlignment="CENTER">
                            <font>
                               <Font name="Times New Roman Bold" size="18.0" />
                            </font>
@@ -114,7 +114,7 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <TextField fx:id="txtPesquisar" layoutX="59.0" layoutY="14.0" onAction="#btnPesquisar_onAction" prefHeight="25.0" prefWidth="353.0" promptText="Digite parte do nome da chave" />
+                  <TextField fx:id="txtPesquisar" layoutX="59.0" layoutY="10.0" onAction="#btnPesquisar_onAction" prefHeight="30.0" prefWidth="353.0" promptText="Digite parte do nome da chave" />
                   <Button fx:id="btnPesquisar" layoutX="428.0" layoutY="5.0" mnemonicParsing="false" onAction="#btnPesquisar_onAction" styleClass="pesquisa_pequena" text="    Pesquisar">
                      <font>
                         <Font name="Times New Roman Bold" size="14.0" />
@@ -128,15 +128,7 @@
                         </LinearGradient>
                      </textFill>
                   </Button>
-                  <Label layoutX="14.0" layoutY="18.0" text="Chave">
-                     <textFill>
-                        <LinearGradient endX="1.0" endY="1.0" startX="1.0" startY="0.9523809523809523">
-                           <stops>
-                              <Stop color="#cd1515" />
-                              <Stop color="WHITE" offset="1.0" />
-                           </stops>
-                        </LinearGradient>
-                     </textFill>
+                  <Label layoutX="14.0" layoutY="16.0" text="Chave:">
                      <font>
                         <Font name="Times New Roman" size="14.0" />
                      </font>
@@ -150,7 +142,7 @@
             <Image url="@../imagem/DaeeIfmt.png" />
          </image>
       </ImageView>
-      <Label layoutX="229.0" layoutY="27.0" text="Sistema de Controle de Chaves">
+      <Label layoutX="289.0" layoutY="27.0" text="Sistema de Controle de Chaves">
          <font>
             <Font name="Times New Roman Bold Italic" size="24.0" />
          </font>
