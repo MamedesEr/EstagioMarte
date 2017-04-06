@@ -107,8 +107,11 @@ public class FXMLFrmPrincipalController implements Initializable{
         if (chave != null) {
             if(chave.getStatus().equals("Indisponível")){
                 btnDevolucao.setDisable(false);
-            }else{
+                btnEmprestimo.setDisable(true);
+            }
+            if(chave.getStatus().equals("Disponível")){
                 btnEmprestimo.setDisable(false);
+                btnDevolucao.setDisable(true);
             }
             id_chave = chave.getIdChave();
         }
