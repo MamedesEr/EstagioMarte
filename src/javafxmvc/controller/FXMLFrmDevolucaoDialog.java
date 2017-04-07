@@ -78,11 +78,9 @@ public class FXMLFrmDevolucaoDialog implements Initializable{
             
             Usuario usuario = new Usuario();
             usuario.setIdUsuario(id.retornaID());
-            System.out.println("Usuario: "+usuario.getIdUsuario());
             
             Chave chave = new Chave();
             chave.setIdChave(id_chave.retornaIdChave());
-            System.out.println("Chave: "+chave.getIdChave());
             
             UsuarioDAO usuarioDAO = new UsuarioDAO();
             usuarioDAO.setConnection(connection);
@@ -100,7 +98,6 @@ public class FXMLFrmDevolucaoDialog implements Initializable{
             int id_emprestimo = chave.getId_emprestimo();
             
             emprestimo.setIdEmprestimo(id_emprestimo);
-            System.out.println("Emprestimo: "+id_emprestimo);
             
             emprestimoDAO.setConnection(connection);
             emprestimoDAO.alterar(emprestimo);

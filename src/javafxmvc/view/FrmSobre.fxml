@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmvc.controller.FXMLFrmSobreController">
+   <center>
+      <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <ImageView fx:id="imgDanca" fitHeight="103.0" fitWidth="297.0" layoutX="219.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../imagem/ifmt.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="labelSistema" layoutX="320.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistema">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="233.0" layoutY="181.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ControleDeChavesDAEE 1.0 ">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="labelDesen" layoutX="279.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Desenvolvedores">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="253.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mattheus Nunes Araújo">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="285.0" layoutY="254.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Andrei Dambros">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="268.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mamades Eronildes ">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="290.0" layoutY="357.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Otavio Alves">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="292.0" layoutY="395.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Renan Jesus">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </children>
+      </StackPane>
+   </center>
+</BorderPane>
