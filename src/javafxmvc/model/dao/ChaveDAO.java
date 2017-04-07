@@ -42,14 +42,15 @@ public class ChaveDAO {
         }
     }
     public boolean alterar(Chave chave) {
-        String sql = "UPDATE chave SET identificador=?, descricao=?, status=?"
+        String sql = "UPDATE chave SET identificador=?, descricao=?, status=?, id_emprestimo=?"
                 + " WHERE id_chave=?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, chave.getIdentificador());
             stmt.setString(2, chave.getDescricao());
             stmt.setString(3, chave.getStatus());
-            stmt.setInt(4, chave.getIdChave());
+            stmt.setInt(4, chave.getId_emprestimo());
+            stmt.setInt(5, chave.getIdChave());
             stmt.execute();
             return true;
         } catch (SQLException ex) {
@@ -100,6 +101,7 @@ public class ChaveDAO {
                 chave.setIdentificador(resultado.getString("identificador"));
                 chave.setDescricao(resultado.getString("descricao"));
                 chave.setStatus(resultado.getString("status"));
+                chave.setId_emprestimo(resultado.getInt("id_emprestimo"));
                 retorno = chave;
             }
         } catch (SQLException ex) {

@@ -190,7 +190,7 @@ public class FXMLFrmPrincipalController implements Initializable{
         Scene scene = new Scene(page);
         dialogStage.setScene(scene);
         dialogStage.setResizable(false);
-        // Setando a Venda no Controller.
+        // Setando o emprestimo no Controller.
         FXMLFrmEmprestimoDialog controller = loader.getController();
         controller.setDialogStage(dialogStage);
         controller.setEmprestimo(emprestimo);
@@ -209,7 +209,7 @@ public class FXMLFrmPrincipalController implements Initializable{
         Scene scene = new Scene(page);
         dialogStage.setScene(scene);
         dialogStage.setResizable(false);
-        // Setando a Venda no Controller.
+        // Setando a devolução no Controller.
         FXMLFrmDevolucaoDialog controller = loader.getController();
         controller.setDialogStage(dialogStage);
         controller.setEmprestimo(emprestimo);

@@ -9,18 +9,20 @@ public class Chave {
     private String identificador;
     private String descricao;
     private String status;
+    private int id_emprestimo;
     
     public Chave(){
         
     }
-    
-    public Chave(int idChave, String identificador, String descricao, String status) {
+
+    public Chave(int idChave, String identificador, String descricao, String status, int id_emprestimo) {
         this.idChave = idChave;
         this.identificador = identificador;
         this.descricao = descricao;
         this.status = status;
+        this.id_emprestimo = id_emprestimo;
     }
-
+    
     public String getDescricao() {
         return descricao;
     }
@@ -51,6 +53,14 @@ public class Chave {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public int getId_emprestimo() {
+        return id_emprestimo;
+    }
+
+    public void setId_emprestimo(int id_emprestimo) {
+        this.id_emprestimo = id_emprestimo;
     }
     
 }

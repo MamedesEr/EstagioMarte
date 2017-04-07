@@ -3,9 +3,14 @@ package javafxmvc.controller;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.Date;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Time;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -74,6 +79,7 @@ public class FXMLFrmEmprestimoDialog implements Initializable{
     private Stage dialogStage;
     private boolean buttonConfirmarClicked = false;
     Emprestimo emprestimo;
+    private int id_emprestimo;
     
     
     @Override
@@ -131,17 +137,33 @@ public class FXMLFrmEmprestimoDialog implements Initializable{
             emprestimo.setUsuario(usuario);
             emprestimo.setChave(chave);
             
+            emprestimoDAO.setConnection(connection);
+            emprestimoDAO.inserir(emprestimo);
+            
+            pegarUltimoId();
+            
             String status = "Indisponível";
             chave.setStatus(status);
+            chave.setId_emprestimo(id_emprestimo);
             chaveDAO.alterar(chave);
-            
-            emprestimoDAO.setConnection(connection);
-
-            emprestimoDAO.inserir(emprestimo);
             
             buttonConfirmarClicked = true;
             dialogStage.close();
         } 
+    }
+    
+    public void pegarUltimoId(){
+        PreparedStatement comando = null;
+        try {
+            comando = connection.prepareStatement("SELECT * FROM emprestimo\n" +
+                "WHERE id_emprestimo = (SELECT MAX(id_emprestimo) FROM emprestimo)");
+            ResultSet resultado = comando.executeQuery();
+            if (resultado.next()) {
+                id_emprestimo = resultado.getInt("id_emprestimo");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(FXMLFrmEmprestimoDialog.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
