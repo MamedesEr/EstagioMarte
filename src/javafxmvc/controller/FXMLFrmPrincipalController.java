@@ -22,6 +22,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafxmvc.model.dao.ChaveDAO;
 import javafxmvc.model.dao.EmprestimoDAO;
@@ -43,6 +44,9 @@ public class FXMLFrmPrincipalController implements Initializable{
 
     @FXML
     private AnchorPane anchorPane;
+    
+    @FXML
+    private AnchorPane anchorPaneM;
 
     @FXML
     private Button btnDevolucao;
@@ -221,5 +225,17 @@ public class FXMLFrmPrincipalController implements Initializable{
         // Mostra o Dialog e espera até que o usuário o feche
         dialogStage.showAndWait();
         return controller.isButtonConfirmarClicked();
+    }
+    
+    @FXML
+    void btnManutencao_onAction (ActionEvent evento) throws IOException {
+        AnchorPane a = (AnchorPane) FXMLLoader.load(getClass().getResource("/javafxmvc/view/FrmManutencao.fxml"));
+        anchorPaneM.getChildren().setAll(a);
+    }
+    
+    @FXML
+    void btnAjuda_onAction (ActionEvent evento) throws IOException {
+        BorderPane a = (BorderPane) FXMLLoader.load(getClass().getResource("/javafxmvc/view/FrmSobre.fxml"));
+        anchorPaneM.getChildren().setAll(a);
     }
 }

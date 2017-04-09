@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="690.0" style="-fx-background-color: white;" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmvc.controller.FXMLFrmManutencaoController">
+   <children>
+      <Group layoutX="-5.0" layoutY="-98.0">
+         <children>
+            <Button fx:id="btnPessoa" layoutX="143.0" layoutY="201.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="162.0" styleClass="pessoa" text="         Pessoa" textAlignment="CENTER" />
+            <Button fx:id="btnCargo" layoutX="409.0" layoutY="202.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="155.0" styleClass="cargo" text="        Cargo" textAlignment="CENTER" />
+            <Button fx:id="btnChave" layoutX="409.0" layoutY="289.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="162.0" styleClass="chave" text="        Chave" textAlignment="CENTER" />
+            <Button fx:id="btnVoltar" layoutX="143.0" layoutY="375.0" mnemonicParsing="false" onAction="#btnVoltar_onAction" prefHeight="68.0" prefWidth="148.0" styleClass="voltar" text="        Voltar" textAlignment="CENTER" />
+            <Button fx:id="btnUsuario" layoutX="143.0" layoutY="288.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="162.0" styleClass="entrar" text="          Usuário" textAlignment="CENTER" />
+            <Button fx:id="btnDepartamento" layoutX="408.0" layoutY="375.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="162.0" styleClass="departamento" text="           Departa&#10;           mento" textAlignment="CENTER" />
+         </children>
+      </Group>
+   </children>
+</AnchorPane>

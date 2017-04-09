@@ -73,7 +73,7 @@
                               </LinearGradient>
                            </textFill>
                         </Button>
-                        <Button fx:id="btnManutencao" disable="true" layoutX="3.0" layoutY="196.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="148.0" styleClass="manutencao" text="         Manutenção" textAlignment="CENTER">
+                        <Button fx:id="btnManutencao" layoutX="3.0" layoutY="196.0" mnemonicParsing="false" onAction="#btnManutencao_onAction" prefHeight="68.0" prefWidth="148.0" styleClass="manutencao" text="         Manutenção" textAlignment="CENTER">
                            <font>
                               <Font name="Times New Roman Bold" size="18.0" />
                            </font>
@@ -86,7 +86,7 @@
                               </LinearGradient>
                            </textFill>
                         </Button>
-                        <Button fx:id="btnAjuda" layoutX="4.0" layoutY="281.0" mnemonicParsing="false" onAction="#btnSair_onAction" prefHeight="68.0" prefWidth="148.0" styleClass="ajuda" text="        Ajuda" textAlignment="CENTER">
+                        <Button fx:id="btnAjuda" layoutX="4.0" layoutY="281.0" mnemonicParsing="false" onAction="#btnAjuda_onAction" prefHeight="68.0" prefWidth="148.0" styleClass="ajuda" text="        Ajuda" textAlignment="CENTER">
                            <font>
                               <Font name="Times New Roman Bold" size="18.0" />
                            </font>
@@ -103,7 +103,7 @@
                   </Group>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="453.0" prefWidth="630.0">
+          <AnchorPane fx:id="anchorPaneM" minHeight="0.0" minWidth="0.0" prefHeight="453.0" prefWidth="630.0">
                <children>
                   <TableView fx:id="tableViewChaves" layoutY="48.0" prefHeight="460.0" prefWidth="637.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-7.0" AnchorPane.topAnchor="48.0">
                     <columns>
