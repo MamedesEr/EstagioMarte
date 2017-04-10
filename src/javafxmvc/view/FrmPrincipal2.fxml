@@ -130,7 +130,7 @@
                                        </textFill>
                                     </Button>
                                     <TextField fx:id="txtPesquisar" layoutX="48.0" layoutY="8.0" onAction="#btnPesquisar_onAction" prefHeight="30.0" prefWidth="353.0" promptText="Digite parte do nome da chave" />
-                                    <TableView fx:id="tableViewChaves" prefHeight="460.0" prefWidth="637.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-7.0" AnchorPane.topAnchor="48.0">
+                                    <TableView fx:id="tableViewChaves" prefHeight="460.0" prefWidth="637.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="48.0">
                                       <columns>
                                         <TableColumn fx:id="tableColumnChaves" prefWidth="75.0" text="Chaves" />
                                         <TableColumn fx:id="tableColumnStatus" prefWidth="75.0" text="Status" />
