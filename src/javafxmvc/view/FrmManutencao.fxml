@@ -11,9 +11,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="690.0" style="-fx-background-color: white;" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmvc.controller.FXMLFrmManutencaoController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="453.0" prefWidth="630.0" style="-fx-background-color: white;" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmvc.controller.FXMLFrmManutencaoController">
    <children>
-      <Group layoutX="-5.0" layoutY="-98.0">
+      <Group layoutX="-35.0" layoutY="-96.0">
          <children>
             <Button fx:id="btnPessoa" layoutX="143.0" layoutY="201.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="162.0" styleClass="pessoa" text="         Pessoa" textAlignment="CENTER" />
             <Button fx:id="btnCargo" layoutX="409.0" layoutY="202.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="155.0" styleClass="cargo" text="        Cargo" textAlignment="CENTER" />

@@ -61,8 +61,8 @@ public class FXMLFrmLoginController implements Initializable{
         Stage stage = new Stage();
         Image applicationIcon = new Image(getClass().getResourceAsStream("/javafxmvc/imagem/ifmt.png"));
         stage.getIcons().add(applicationIcon);
-        Parent root = FXMLLoader.load(FXMLFrmPrincipalController.class.getClassLoader().getResource("javafxmvc/view/FrmPrincipal.fxml"));
-        
+        //Parent root = FXMLLoader.load(FXMLFrmPrincipalController.class.getClassLoader().getResource("javafxmvc/view/FrmPrincipal.fxml"));
+        Parent root = FXMLLoader.load(FXMLFrmPrincipalController2.class.getClassLoader().getResource("javafxmvc/view/FrmPrincipal2.fxml"));
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
