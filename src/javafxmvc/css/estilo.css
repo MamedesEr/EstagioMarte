@@ -186,3 +186,12 @@
     -fx-background-repeat: no-repeat;
     -fx-background-position: 2,0;  
 }
+.table-view{
+    -fx-alignment:center
+}
+
+.table-column{
+    -fx-alignment:center 
+}
+
+

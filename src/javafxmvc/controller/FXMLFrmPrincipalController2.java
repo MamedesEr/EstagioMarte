@@ -16,8 +16,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
@@ -25,8 +23,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafxmvc.model.dao.ChaveDAO;
 import javafxmvc.model.dao.EmprestimoDAO;
@@ -37,37 +37,11 @@ import javafxmvc.model.domain.Emprestimo;
 import javafxmvc.model.domain.Pessoa;
 import javafxmvc.model.domain.Usuario;
 
-public class FXMLFrmPrincipalController implements Initializable{
-
-    @FXML
-    private CheckBox checkBoxIndispinivel;
-
-    @FXML
-    private CheckBox checkBoxDisponivel;    
-    
-    @FXML
-    private TabPane tabPane;
-    
-    @FXML
-    private Tab tabControle;
-    
-    @FXML
-    private AnchorPane anchorPaneControle;
-    
-    @FXML
-    private Tab tabManutencao;
-    
-    @FXML
-    private AnchorPane anchorPaneManutencao;
-
-    @FXML
-    private Tab tabAjuda;
-    
-    @FXML
-    private AnchorPane anchorPaneAjuda;    
-    
-    @FXML
-    private Label lbChave;
+/**
+ *
+ * @author Mattheus
+ */
+public class FXMLFrmPrincipalController2 implements Initializable{
     
     @FXML
     private Button btnEmprestimo;
@@ -75,9 +49,9 @@ public class FXMLFrmPrincipalController implements Initializable{
     @FXML
     private AnchorPane anchorPane;
     
-//    @FXML
-//    private AnchorPane anchorPaneCentral;
-    
+    @FXML
+    private AnchorPane anchorPaneM;
+
     @FXML
     private Button btnDevolucao;
 
@@ -85,13 +59,13 @@ public class FXMLFrmPrincipalController implements Initializable{
     private TextField txtPesquisar;
 
     @FXML
-    private Button btnAjuda;
-    
-    @FXML
     private Button btnSair;
 
     @FXML
     private Button btnManutencao;
+    
+    @FXML
+    private Button btnAjuda;
 
     @FXML
     private TableView<Chave> tableViewChaves;
@@ -104,6 +78,51 @@ public class FXMLFrmPrincipalController implements Initializable{
 
     @FXML
     private TableColumn<Chave, String> tableColumnStatus;
+    
+    @FXML
+    private Tab tabManutencao;
+    
+    @FXML
+    private TabPane tbpPrincipal;
+    
+    @FXML
+    private Tab tabAjuda;
+    
+    @FXML
+    private Tab tabControle;
+    
+    @FXML
+    private Text labelSistema;
+
+    @FXML
+    private Text labelDesen;
+
+    @FXML
+    private ImageView imgDanca;
+    
+    @FXML
+    private Button btnPessoa;
+
+    @FXML
+    private Button btnChave;
+
+    @FXML
+    private Button btnDepartamento;
+
+    @FXML
+    private Button btnVoltar;
+    
+    @FXML
+    private Button btnVoltar1;
+    
+    @FXML
+    private Button btnManual;
+
+    @FXML
+    private Button btnCargo;
+
+    @FXML
+    private Button btnUsuario;
     
     private List <Chave> listChaves;
     private ObservableList <Chave> observableListChaves;
@@ -175,15 +194,6 @@ public class FXMLFrmPrincipalController implements Initializable{
     }
     
     @FXML
-    void btnAjuda_onAction () throws IOException {
-        //Abrindo a aba de cadastro
-        tabPane.getSelectionModel().select(tabAjuda);
-        AnchorPane abrirAnchorPane = (AnchorPane) FXMLLoader.load(getClass().getResource
-                                            ("/javafxmvc/view/FrmAjuda.fxml"));
-        anchorPaneAjuda.getChildren().setAll(abrirAnchorPane);
-    }
-    
-    @FXML
     void btnEmprestimo_onAction (ActionEvent evento) throws IOException {
         Emprestimo emprestimo = new Emprestimo();
         boolean buttonConfirmarClicked = showFXMLFrmEmprestimoDialog(emprestimo);
@@ -198,9 +208,9 @@ public class FXMLFrmPrincipalController implements Initializable{
                 try {
                     connection.rollback();
                 } catch (SQLException ex1) {
-                    Logger.getLogger(FXMLFrmPrincipalController.class.getName()).log(Level.SEVERE, null, ex1);
+                    Logger.getLogger(FXMLFrmPrincipalController2.class.getName()).log(Level.SEVERE, null, ex1);
                 }
-                Logger.getLogger(FXMLFrmPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FXMLFrmPrincipalController2.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }
@@ -220,21 +230,11 @@ public class FXMLFrmPrincipalController implements Initializable{
                 try {
                     connection.rollback();
                 } catch (SQLException ex1) {
-                    Logger.getLogger(FXMLFrmPrincipalController.class.getName()).log(Level.SEVERE, null, ex1);
+                    Logger.getLogger(FXMLFrmPrincipalController2.class.getName()).log(Level.SEVERE, null, ex1);
                 }
-                Logger.getLogger(FXMLFrmPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(FXMLFrmPrincipalController2.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-    }
-    
-    @FXML
-    void btnManutencao_onAction() throws IOException {
-        
-        //Abrindo a aba de cadastro
-        tabPane.getSelectionModel().select(tabManutencao);
-        AnchorPane abrirAnchorPane = (AnchorPane) FXMLLoader.load(getClass().getResource
-                                            ("/javafxmvc/view/FrmCadastro.fxml"));
-        anchorPaneManutencao.getChildren().setAll(abrirAnchorPane);
     }
     
     public boolean showFXMLFrmEmprestimoDialog(Emprestimo emprestimo) throws IOException {
@@ -277,5 +277,36 @@ public class FXMLFrmPrincipalController implements Initializable{
         // Mostra o Dialog e espera até que o usuário o feche
         dialogStage.showAndWait();
         return controller.isButtonConfirmarClicked();
+    }
+    
+    @FXML
+    void btnManutencao_onAction (ActionEvent evento) throws IOException {
+        tbpPrincipal.getSelectionModel().select(tabManutencao);
+        tabManutencao.setDisable(false);
+        tabAjuda.setDisable(true);
+        tabControle.setDisable(true);
+        btnDevolucao.setDisable(true);
+        btnEmprestimo.setDisable(true);
+    }
+    
+    @FXML
+    void btnAjuda_onAction (ActionEvent evento) throws IOException {
+        tbpPrincipal.getSelectionModel().select(tabAjuda);
+        tabAjuda.setDisable(false);
+        tabManutencao.setDisable(true);
+        tabControle.setDisable(true);
+        btnDevolucao.setDisable(true);
+        btnEmprestimo.setDisable(true);
+    }
+    
+    @FXML
+    void btnVoltar_onAction (ActionEvent evento) throws IOException {
+        tbpPrincipal.getSelectionModel().select(tabControle);
+        tabControle.setDisable(false);
+        tabAjuda.setDisable(true);
+        tabManutencao.setDisable(true);
+        btnDevolucao.setDisable(true);
+        btnEmprestimo.setDisable(true);
+        carregarTableViewChave();
     }
 }

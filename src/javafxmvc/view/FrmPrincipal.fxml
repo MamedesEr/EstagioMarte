@@ -31,7 +31,7 @@
       </ImageView>
       <SplitPane dividerPositions="0.20075757575757575" layoutX="2.0" layoutY="83.0" prefHeight="552.0" prefWidth="806.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="454.0" prefWidth="161.0">
+          <AnchorPane prefHeight="454.0" prefWidth="161.0">
                <children>
                   <Group AnchorPane.topAnchor="25.0">
                      <children>
