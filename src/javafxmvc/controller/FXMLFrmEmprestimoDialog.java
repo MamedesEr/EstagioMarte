@@ -32,7 +32,9 @@ import javafxmvc.model.database.DatabaseFactory;
 import javafxmvc.model.domain.Chave;
 import javafxmvc.model.domain.Emprestimo;
 import javafxmvc.model.domain.Pessoa;
+import javafxmvc.model.domain.TextFieldFormatter;
 import javafxmvc.model.domain.Usuario;
+
 
 /**
  *
@@ -171,6 +173,25 @@ public class FXMLFrmEmprestimoDialog implements Initializable{
         getDialogStage().close();
     }
     
+    @FXML
+    public void tfHoraRetiradaReleased(){
+        TextFieldFormatter tff = new TextFieldFormatter();
+        tff.setMask("##:##:##");
+        tff.setCaracteresValidos("0123456789");
+        tff.setTf(txtHoraEmprestimo);
+        tff.formatter();
+    }
+    
+    @FXML
+    public void tfHoraPrevistaRelased(){
+    TextFieldFormatter tff = new TextFieldFormatter();
+        tff.setMask("##:##:##");
+        tff.setCaracteresValidos("0123456789");
+        tff.setTf(txtHoraPrevista);
+        tff.formatter();    
+    } 
+    
+    
     //Validar entrada de dados para o cadastro
     private boolean validarEntradaDeDados() {
         String errorMessage = "";
@@ -202,5 +223,9 @@ public class FXMLFrmEmprestimoDialog implements Initializable{
 
     public void setEmprestimo(Emprestimo emprestimo) {
         this.emprestimo = emprestimo;
+    }
+
+    private void TextFieldFormatter() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

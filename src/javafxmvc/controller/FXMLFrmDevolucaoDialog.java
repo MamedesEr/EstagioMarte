@@ -20,6 +20,7 @@ import javafxmvc.model.database.DatabaseFactory;
 import javafxmvc.model.domain.Chave;
 import javafxmvc.model.domain.Emprestimo;
 import javafxmvc.model.domain.Pessoa;
+import javafxmvc.model.domain.TextFieldFormatter;
 import javafxmvc.model.domain.Usuario;
 
 public class FXMLFrmDevolucaoDialog implements Initializable{
@@ -113,6 +114,16 @@ public class FXMLFrmDevolucaoDialog implements Initializable{
     @FXML
     public void handleButtonCancelar() {
         getDialogStage().close();
+    }
+    
+    @FXML
+    public void tfHoradevolucaoReleased(){
+        TextFieldFormatter tff =new TextFieldFormatter();
+        tff.setMask("##:##:##");
+        tff.setCaracteresValidos("0123456789");
+        tff.setTf(txtHoraDevolucao);
+        tff.formatter(); 
+         
     }
     
     //Validar entrada de dados para o cadastro

@@ -7,8 +7,8 @@
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="590.0" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmvc.controller.FXMLFrmEmprestimoDialog">
    <children>
       <ComboBox fx:id="comboBoxPessoa" layoutX="148.0" layoutY="21.0" prefHeight="30.0" prefWidth="408.0" promptText="Selecionar a pessoa ..." />
-      <TextField fx:id="txtHoraEmprestimo" layoutX="148.0" layoutY="80.0" prefHeight="30.0" prefWidth="150.0" />
-      <TextField fx:id="txtHoraPrevista" layoutX="405.0" layoutY="79.0" prefHeight="30.0" prefWidth="150.0" />
+      <TextField fx:id="txtHoraEmprestimo" layoutX="148.0" layoutY="80.0" onKeyReleased="#tfHoraRetiradaReleased" prefHeight="30.0" prefWidth="150.0" />
+      <TextField fx:id="txtHoraPrevista" layoutX="405.0" layoutY="79.0" onKeyReleased="#tfHoraPrevistaRelased" prefHeight="30.0" prefWidth="150.0" />
       <DatePicker fx:id="datePickerDataEmprestimo" layoutX="148.0" layoutY="139.0" prefHeight="30.0" prefWidth="150.0" />
       <DatePicker fx:id="datePickerDataPrevista" layoutX="405.0" layoutY="138.0" prefHeight="30.0" prefWidth="150.0" />
       <TextArea fx:id="txtDescricao" layoutX="148.0" layoutY="198.0" prefHeight="40.0" prefWidth="408.0" />

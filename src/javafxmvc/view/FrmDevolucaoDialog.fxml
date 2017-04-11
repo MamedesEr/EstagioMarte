@@ -6,7 +6,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="269.0" prefWidth="590.0" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmvc.controller.FXMLFrmDevolucaoDialog">
    <children>
-      <TextField fx:id="txtHoraDevolucao" layoutX="135.0" layoutY="35.0" prefHeight="30.0" prefWidth="150.0" />
+      <TextField fx:id="txtHoraDevolucao" layoutX="135.0" layoutY="35.0" onKeyReleased="#tfHoradevolucaoReleased" prefHeight="30.0" prefWidth="150.0" />
       <DatePicker fx:id="datePickerDataDevolucao" layoutX="414.0" layoutY="34.0" prefHeight="30.0" prefWidth="150.0" />
       <TextArea fx:id="txtDescricao" layoutX="135.0" layoutY="91.0" prefHeight="40.0" prefWidth="428.0" />
       <Button fx:id="buttonConfirmar" layoutX="97.0" layoutY="169.0" mnemonicParsing="false" onAction="#handleButtonConfirmar" styleClass="confirmar" text="            Confirmar" />
