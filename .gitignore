@@ -48,3 +48,5 @@ Temporary Items
 /build/
 /dist/
 /nbproject/private/
+/Email/nbproject/private/
+/Email/dist/
