@@ -14,6 +14,6 @@
       <TextArea fx:id="txtDescricao" layoutX="112.0" layoutY="71.0" prefHeight="40.0" prefWidth="250.0" />
       <TextField fx:id="txtIdentificador" layoutX="112.0" layoutY="23.0" prefHeight="30.0" prefWidth="250.0" />
       <Label alignment="CENTER_RIGHT" layoutX="32.0" layoutY="27.0" prefHeight="17.0" prefWidth="73.0" text="Identificador:" />
-      <Label alignment="CENTER_RIGHT" layoutX="32.0" layoutY="79.0" prefHeight="17.0" prefWidth="73.0" text="Descrição:" />
+      <Label alignment="CENTER_RIGHT" layoutX="32.0" layoutY="81.0" prefHeight="17.0" prefWidth="73.0" text="Descrição:" />
    </children>
 </AnchorPane>

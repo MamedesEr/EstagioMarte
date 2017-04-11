@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
@@ -21,20 +22,20 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="810.0" style="-fx-background-color: white;" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmvc.controller.FXMLFrmPrincipalController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="635.0" prefWidth="810.0" style="-fx-background-color: white;" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmvc.controller.FXMLFrmPrincipalController">
    <children>
       <ImageView fitHeight="82.0" fitWidth="223.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../imagem/ifmt.png" />
          </image>
       </ImageView>
-      <SplitPane dividerPositions="0.20075757575757575" layoutX="2.0" layoutY="83.0" prefHeight="524.0" prefWidth="806.0">
+      <SplitPane dividerPositions="0.20075757575757575" layoutX="2.0" layoutY="83.0" prefHeight="552.0" prefWidth="806.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="454.0" prefWidth="161.0">
                <children>
-                  <Group>
+                  <Group AnchorPane.topAnchor="25.0">
                      <children>
-                        <Button fx:id="btnEmprestimo" disable="true" layoutX="3.0" layoutY="25.0" onAction="#btnEmprestimo_onAction" prefHeight="68.0" prefWidth="148.0" styleClass="emprestimo" text="         Empréstimo" textAlignment="CENTER">
+                        <Button fx:id="btnEmprestimo" disable="true" layoutX="3.0" layoutY="107.0" onAction="#btnEmprestimo_onAction" prefHeight="68.0" prefWidth="148.0" styleClass="emprestimo" text="         Empréstimo" textAlignment="CENTER">
                            <font>
                               <Font name="Times New Roman Bold" size="18.0" />
                            </font>
@@ -47,7 +48,7 @@
                               </LinearGradient>
                            </textFill>
                         </Button>
-                        <Button fx:id="btnDevolucao" disable="true" layoutX="3.0" layoutY="111.0" mnemonicParsing="false" onAction="#btnDevolucao_onAction" prefHeight="68.0" prefWidth="148.0" styleClass="devolucao" text="         Devolução" textAlignment="CENTER">
+                        <Button fx:id="btnDevolucao" disable="true" layoutX="3.0" layoutY="189.0" mnemonicParsing="false" onAction="#btnDevolucao_onAction" prefHeight="68.0" prefWidth="148.0" styleClass="devolucao" text="         Devolução" textAlignment="CENTER">
                            <font>
                               <Font name="Times New Roman Bold" size="18.0" />
                            </font>
@@ -60,7 +61,7 @@
                               </LinearGradient>
                            </textFill>
                         </Button>
-                        <Button fx:id="btnSair" layoutX="4.0" layoutY="450.0" mnemonicParsing="false" onAction="#btnSair_onAction" prefHeight="68.0" prefWidth="148.0" styleClass="sair" text="        Sair" textAlignment="CENTER">
+                        <Button fx:id="btnSair" layoutX="4.0" layoutY="479.0" mnemonicParsing="false" onAction="#btnSair_onAction" prefHeight="68.0" prefWidth="148.0" styleClass="sair" text="     Sair" textAlignment="CENTER">
                            <font>
                               <Font name="Times New Roman Bold" size="18.0" />
                            </font>
@@ -73,7 +74,7 @@
                               </LinearGradient>
                            </textFill>
                         </Button>
-                        <Button fx:id="btnManutencao" disable="true" layoutX="3.0" layoutY="196.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="148.0" styleClass="manutencao" text="         Manutenção" textAlignment="CENTER">
+                        <Button fx:id="btnManutencao" layoutX="3.0" layoutY="271.0" mnemonicParsing="false" onAction="#btnManutencao_onAction" prefHeight="68.0" prefWidth="148.0" styleClass="manutencao" text="         Manutenção" textAlignment="CENTER">
                            <font>
                               <Font name="Times New Roman Bold" size="18.0" />
                            </font>
@@ -86,7 +87,7 @@
                               </LinearGradient>
                            </textFill>
                         </Button>
-                        <Button fx:id="btnAjuda" layoutX="4.0" layoutY="281.0" mnemonicParsing="false" onAction="#btnSair_onAction" prefHeight="68.0" prefWidth="148.0" styleClass="ajuda" text="        Ajuda" textAlignment="CENTER">
+                        <Button fx:id="btnAjuda" layoutX="4.0" layoutY="353.0" mnemonicParsing="false" onAction="#btnAjuda_onAction" prefHeight="68.0" prefWidth="148.0" styleClass="ajuda" text="        Ajuda" textAlignment="CENTER">
                            <font>
                               <Font name="Times New Roman Bold" size="18.0" />
                            </font>
@@ -99,42 +100,63 @@
                               </LinearGradient>
                            </textFill>
                         </Button>
+                        <Button layoutX="3.0" layoutY="25.0" mnemonicParsing="false" styleClass="voltar" text="        Voltar" />
                      </children>
                   </Group>
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="453.0" prefWidth="630.0">
-               <children>
-                  <TableView fx:id="tableViewChaves" layoutY="48.0" prefHeight="460.0" prefWidth="637.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-7.0" AnchorPane.topAnchor="48.0">
-                    <columns>
-                      <TableColumn fx:id="tableColumnChaves" prefWidth="75.0" text="Chaves" />
-                      <TableColumn fx:id="tableColumnStatus" prefWidth="75.0" text="Status" />
-                    </columns>
-                     <columnResizePolicy>
-                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                     </columnResizePolicy>
-                  </TableView>
-                  <TextField fx:id="txtPesquisar" layoutX="59.0" layoutY="10.0" onAction="#btnPesquisar_onAction" prefHeight="30.0" prefWidth="353.0" promptText="Digite parte do nome da chave" />
-                  <Button fx:id="btnPesquisar" layoutX="428.0" layoutY="5.0" mnemonicParsing="false" onAction="#btnPesquisar_onAction" styleClass="pesquisa_pequena" text="    Pesquisar">
-                     <font>
-                        <Font name="Times New Roman Bold" size="14.0" />
-                     </font>
-                     <textFill>
-                        <LinearGradient endX="1.0" endY="1.0" startX="1.0" startY="0.9523809523809523">
-                           <stops>
-                              <Stop color="#4a4646" />
-                              <Stop color="WHITE" offset="1.0" />
-                           </stops>
-                        </LinearGradient>
-                     </textFill>
-                  </Button>
-                  <Label layoutX="14.0" layoutY="16.0" text="Chave:">
-                     <font>
-                        <Font name="Times New Roman" size="14.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
+            <TabPane fx:id="tabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab fx:id="tabControle" text="   Controle   ">
+                     <content>
+                      <AnchorPane fx:id="anchorPaneControle" minHeight="0.0" minWidth="0.0" prefHeight="522.0" prefWidth="225.0">
+                           <children>
+                              <TableView fx:id="tableViewChaves" layoutY="82.0" prefHeight="434.0" prefWidth="630.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="82.0">
+                                <columns>
+                                  <TableColumn fx:id="tableColumnChaves" prefWidth="75.0" text="Chaves" />
+                                  <TableColumn fx:id="tableColumnStatus" prefWidth="75.0" text="Status" />
+                                </columns>
+                                 <columnResizePolicy>
+                                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                 </columnResizePolicy>
+                              </TableView>
+                              <TextField fx:id="txtPesquisar" layoutX="81.0" layoutY="10.0" onAction="#btnPesquisar_onAction" prefHeight="30.0" prefWidth="353.0" promptText="Digite parte do nome da chave" />
+                              <Button fx:id="btnPesquisar" layoutX="450.0" layoutY="5.0" mnemonicParsing="false" onAction="#btnPesquisar_onAction" styleClass="pesquisa_pequena" text="    Pesquisar">
+                                 <font>
+                                    <Font name="Times New Roman Bold" size="14.0" />
+                                 </font>
+                                 <textFill>
+                                    <LinearGradient endX="1.0" endY="1.0" startX="1.0" startY="0.9523809523809523">
+                                       <stops>
+                                          <Stop color="#4a4646" />
+                                          <Stop color="WHITE" offset="1.0" />
+                                       </stops>
+                                    </LinearGradient>
+                                 </textFill>
+                              </Button>
+                              <Label fx:id="lbChave" layoutX="36.0" layoutY="16.0" text="Chave:">
+                                 <font>
+                                    <Font name="Times New Roman" size="14.0" />
+                                 </font>
+                              </Label>
+                              <CheckBox fx:id="checkBoxDisponivel" layoutX="81.0" layoutY="52.0" mnemonicParsing="false" text="Chave Disponível" />
+                              <CheckBox fx:id="checkBoxIndispinivel" layoutX="313.0" layoutY="52.0" mnemonicParsing="false" text="Chave Indisponível" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                </Tab>
+                <Tab fx:id="tabManutencao" text="Manutenção">
+                  <content>
+                    <AnchorPane fx:id="anchorPaneManutencao" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </Tab>
+                  <Tab fx:id="tabAjuda" text="     Ajuda      ">
+                    <content>
+                      <AnchorPane fx:id="anchorPaneAjuda" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
         </items>
       </SplitPane>
       <ImageView fitHeight="82.0" fitWidth="129.0" layoutX="726.0" pickOnBounds="true" preserveRatio="true">
@@ -142,7 +164,7 @@
             <Image url="@../imagem/DaeeIfmt.png" />
          </image>
       </ImageView>
-      <Label layoutX="289.0" layoutY="27.0" text="Sistema de Controle de Chaves">
+      <Label layoutX="304.0" layoutY="27.0" text="Sistema de Controle de Chaves">
          <font>
             <Font name="Times New Roman Bold Italic" size="24.0" />
          </font>

@@ -16,6 +16,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -32,24 +36,56 @@ import javafxmvc.model.domain.Emprestimo;
 import javafxmvc.model.domain.Pessoa;
 import javafxmvc.model.domain.Usuario;
 
-/**
- *
- * @author Mattheus
- */
 public class FXMLFrmPrincipalController implements Initializable{
+
+    @FXML
+    private CheckBox checkBoxIndispinivel;
+
+    @FXML
+    private CheckBox checkBoxDisponivel;    
+    
+    @FXML
+    private TabPane tabPane;
+    
+    @FXML
+    private Tab tabControle;
+    
+    @FXML
+    private AnchorPane anchorPaneControle;
+    
+    @FXML
+    private Tab tabManutencao;
+    
+    @FXML
+    private AnchorPane anchorPaneManutencao;
+
+    @FXML
+    private Tab tabAjuda;
+    
+    @FXML
+    private AnchorPane anchorPaneAjuda;    
+    
+    @FXML
+    private Label lbChave;
     
     @FXML
     private Button btnEmprestimo;
 
     @FXML
     private AnchorPane anchorPane;
-
+    
+//    @FXML
+//    private AnchorPane anchorPaneCentral;
+    
     @FXML
     private Button btnDevolucao;
 
     @FXML
     private TextField txtPesquisar;
 
+    @FXML
+    private Button btnAjuda;
+    
     @FXML
     private Button btnSair;
 
@@ -138,6 +174,15 @@ public class FXMLFrmPrincipalController implements Initializable{
     }
     
     @FXML
+    void btnAjuda_onAction () throws IOException {
+        //Abrindo a aba de cadastro
+        tabPane.getSelectionModel().select(tabAjuda);
+        AnchorPane abrirAnchorPane = (AnchorPane) FXMLLoader.load(getClass().getResource
+                                            ("/javafxmvc/view/FrmAjuda.fxml"));
+        anchorPaneAjuda.getChildren().setAll(abrirAnchorPane);
+    }
+    
+    @FXML
     void btnEmprestimo_onAction (ActionEvent evento) throws IOException {
         Emprestimo emprestimo = new Emprestimo();
         boolean buttonConfirmarClicked = showFXMLFrmEmprestimoDialog(emprestimo);
@@ -179,6 +224,16 @@ public class FXMLFrmPrincipalController implements Initializable{
                 Logger.getLogger(FXMLFrmPrincipalController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+    
+    @FXML
+    void btnManutencao_onAction() throws IOException {
+        
+        //Abrindo a aba de cadastro
+        tabPane.getSelectionModel().select(tabManutencao);
+        AnchorPane abrirAnchorPane = (AnchorPane) FXMLLoader.load(getClass().getResource
+                                            ("/javafxmvc/view/FrmCadastro.fxml"));
+        anchorPaneManutencao.getChildren().setAll(abrirAnchorPane);
     }
     
     public boolean showFXMLFrmEmprestimoDialog(Emprestimo emprestimo) throws IOException {

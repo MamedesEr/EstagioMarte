@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorPane" prefHeight="525.0" prefWidth="640.0" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmvc.controller.FXMLFrmCadastroChaveController">
+   <children>
+      <AnchorPane fx:id="anchorPaneBotoes" layoutY="22.0" prefHeight="75.0" prefWidth="640.0" style="-fx-background-color: #ebebe0;" AnchorPane.topAnchor="22.0">
+         <children>
+            <Button fx:id="btnInserir" layoutX="11.0" layoutY="3.0" mnemonicParsing="false" styleClass="inserir" text="           Inserir">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Button fx:id="btnAlterar" layoutX="245.0" layoutY="3.0" mnemonicParsing="false" styleClass="alterar" text="           Alterar">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+            <Button fx:id="btnExcluir" layoutX="481.0" layoutY="3.0" mnemonicParsing="false" styleClass="excluir" text="           Excluir" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchorPaneRodape" layoutY="420.0" prefHeight="80.0" prefWidth="640.0" style="-fx-background-color: #ebebe0;" AnchorPane.bottomAnchor="0.0">
+         <children>
+            <Button fx:id="btnVoltar" layoutX="479.0" layoutY="4.0" mnemonicParsing="false" onAction="#btnVoltar_onAction" styleClass="voltar" text="         Voltar" />
+         </children>
+      </AnchorPane>
+      <TabPane fx:id="tabPane" layoutY="97.0" prefHeight="348.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="tabConsulta" text="    Consulta    ">
+            <content>
+              <AnchorPane fx:id="anchorPaneConsulta" minHeight="0.0" minWidth="0.0" prefHeight="310.0" prefWidth="640.0" style="-fx-background-color: #ebebe0;">
+                     <children>
+                        <Label fx:id="lbDigite" layoutX="11.0" layoutY="15.0" prefHeight="17.0" prefWidth="84.0" text="Digite a chave:" />
+                        <TextField fx:id="txtPesquisa" layoutX="93.0" layoutY="10.0" prefHeight="30.0" prefWidth="381.0" />
+                        <Button fx:id="btnPesquisa" layoutX="481.0" layoutY="6.0" mnemonicParsing="false" styleClass="pesquisa_pequena" text="     Pesquisar" />
+                        <TableView fx:id="tableView" layoutX="3.0" layoutY="50.0" prefHeight="261.0" prefWidth="634.0">
+                           <columns>
+                              <TableColumn fx:id="tableColumnCodigo" prefWidth="193.0" text="Código" />
+                              <TableColumn fx:id="tableColumnIdentificador" prefWidth="231.0" text="Identificador" />
+                              <TableColumn fx:id="tableColumnStatus" prefWidth="208.0" text="Status" />
+                           </columns></TableView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="tabAlterar" text="     Dados      ">
+            <content>
+              <AnchorPane fx:id="anchorPaneAlterar" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #ebebe0;">
+                     <children>
+                        <Label fx:id="lbCodigo" alignment="CENTER_RIGHT" layoutX="12.0" layoutY="77.0" prefHeight="17.0" prefWidth="80.0" text="Código:" />
+                        <TextField fx:id="txtCodigo" disable="true" layoutX="99.0" layoutY="72.0" prefHeight="30.0" prefWidth="360.0" />
+                        <AnchorPane layoutX="480.0" prefHeight="319.0" prefWidth="160.0" style="-fx-background-color: #ebebe0;">
+                           <children>
+                              <Button fx:id="btnSalvar" layoutX="1.0" layoutY="64.0" mnemonicParsing="false" onAction="#btnSalvar_onAction" styleClass="salvar" text="        Salvar" />
+                              <Button fx:id="btnCancelar" layoutX="1.0" layoutY="187.0" mnemonicParsing="false" onAction="#btnCancelar_onAction" styleClass="cancelar" text="            Cancelar" />
+                           </children>
+                        </AnchorPane>
+                        <TextField fx:id="txtIdentificador" layoutX="99.0" layoutY="119.0" prefHeight="30.0" prefWidth="360.0" />
+                        <Label fx:id="lbIdentificador" alignment="CENTER_RIGHT" layoutX="11.0" layoutY="124.0" prefHeight="17.0" prefWidth="81.0" text="Identificador:" />
+                        <TextField fx:id="txtDescricao" layoutX="99.0" layoutY="164.0" prefHeight="30.0" prefWidth="360.0" />
+                        <Label fx:id="lbDescricao" alignment="CENTER_RIGHT" layoutX="11.0" layoutY="169.0" prefHeight="17.0" prefWidth="81.0" text="Descrição:" />
+                        <Label fx:id="lbStatus" alignment="CENTER_RIGHT" layoutX="12.0" layoutY="215.0" prefHeight="17.0" prefWidth="81.0" text="Status:" />
+                        <ComboBox fx:id="comboBoxStatus" editable="true" layoutX="99.0" layoutY="210.0" prefHeight="30.0" prefWidth="360.0" promptText="Disponível" />
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+      <Label fx:id="lbUsuario" alignment="CENTER" layoutY="-2.0" prefHeight="25.0" prefWidth="640.0" style="-fx-background-color: #ebebe0;" text=" Dados de Chave">
+         <font>
+            <Font name="Times New Roman" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

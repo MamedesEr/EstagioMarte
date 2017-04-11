@@ -123,6 +123,14 @@
     -fx-background-position: 2,0;  
 }
 
+.button.usuario{
+    -fx-pref-height: 68px;
+    -fx-pref-width: 148px;    
+    -fx-background-image: url(bt_usuario.png);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 2,0;  
+}
+
 .button.confirmar{
     -fx-pref-height: 68px;
     -fx-pref-width: 148px;    
@@ -159,6 +167,22 @@
     -fx-pref-height: 68px;
     -fx-pref-width: 148px;    
     -fx-background-image: url(bt_salvar.png);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 2,0;  
+}
+
+.button.tutorial{
+    -fx-pref-height: 68px;
+    -fx-pref-width: 148px;    
+    -fx-background-image: url(bt_tutorial.png);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 2,0;  
+}
+
+.button.sobre{
+    -fx-pref-height: 68px;
+    -fx-pref-width: 148px;    
+    -fx-background-image: url(bt_sobre.png);
     -fx-background-repeat: no-repeat;
     -fx-background-position: 2,0;  
 }
