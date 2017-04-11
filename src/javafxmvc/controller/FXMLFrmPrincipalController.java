@@ -92,6 +92,9 @@ public class FXMLFrmPrincipalController implements Initializable{
 
     @FXML
     private Button btnManutencao;
+    
+    @FXML
+    private Button btnInicio;
 
     @FXML
     private TableView<Chave> tableViewChaves;
@@ -181,6 +184,12 @@ public class FXMLFrmPrincipalController implements Initializable{
         AnchorPane abrirAnchorPane = (AnchorPane) FXMLLoader.load(getClass().getResource
                                             ("/javafxmvc/view/FrmAjuda.fxml"));
         anchorPaneAjuda.getChildren().setAll(abrirAnchorPane);
+        tabAjuda.setDisable(false);
+        tabManutencao.setDisable(true);
+        tabControle.setDisable(true);
+        btnDevolucao.setDisable(true);
+        btnEmprestimo.setDisable(true);
+        btnInicio.setDisable(false);
     }
     
     @FXML
@@ -235,6 +244,24 @@ public class FXMLFrmPrincipalController implements Initializable{
         AnchorPane abrirAnchorPane = (AnchorPane) FXMLLoader.load(getClass().getResource
                                             ("/javafxmvc/view/FrmCadastro.fxml"));
         anchorPaneManutencao.getChildren().setAll(abrirAnchorPane);
+        tabManutencao.setDisable(false);
+        tabAjuda.setDisable(true);
+        tabControle.setDisable(true);
+        btnDevolucao.setDisable(true);
+        btnEmprestimo.setDisable(true);
+        btnInicio.setDisable(false);
+    }
+    
+    @FXML
+    void btnInicio_onAction (ActionEvent evento) throws IOException {
+        tabPane.getSelectionModel().select(tabControle);
+        tabControle.setDisable(false);
+        tabAjuda.setDisable(true);
+        tabManutencao.setDisable(true);
+        btnDevolucao.setDisable(true);
+        btnEmprestimo.setDisable(true);
+        carregarTableViewChave();
+        btnInicio.setDisable(true);
     }
     
     public boolean showFXMLFrmEmprestimoDialog(Emprestimo emprestimo) throws IOException {

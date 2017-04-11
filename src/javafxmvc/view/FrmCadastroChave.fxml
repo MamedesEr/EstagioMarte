@@ -66,7 +66,7 @@
                         <TextField fx:id="txtDescricao" layoutX="99.0" layoutY="164.0" prefHeight="30.0" prefWidth="360.0" />
                         <Label fx:id="lbDescricao" alignment="CENTER_RIGHT" layoutX="11.0" layoutY="169.0" prefHeight="17.0" prefWidth="81.0" text="Descrição:" />
                         <Label fx:id="lbStatus" alignment="CENTER_RIGHT" layoutX="12.0" layoutY="215.0" prefHeight="17.0" prefWidth="81.0" text="Status:" />
-                        <ComboBox fx:id="comboBoxStatus" editable="true" layoutX="99.0" layoutY="210.0" prefHeight="30.0" prefWidth="360.0" promptText="Disponível" />
+                        <ComboBox fx:id="comboBoxStatus" disable="true" editable="true" layoutX="99.0" layoutY="210.0" prefHeight="30.0" prefWidth="360.0" promptText="Disponível" />
                      </children></AnchorPane>
             </content>
           </Tab>

@@ -100,7 +100,7 @@
                               </LinearGradient>
                            </textFill>
                         </Button>
-                        <Button layoutX="3.0" layoutY="25.0" mnemonicParsing="false" styleClass="voltar" text="        Voltar" />
+                        <Button fx:id="btnInicio" disable="true" layoutX="3.0" layoutY="25.0" mnemonicParsing="false" onAction="#btnInicio_onAction" styleClass="voltar" text="        Início" />
                      </children>
                   </Group>
                </children>
@@ -145,12 +145,12 @@
                         </AnchorPane>
                      </content>
                 </Tab>
-                <Tab fx:id="tabManutencao" text="Manutenção">
+                <Tab fx:id="tabManutencao" disable="true" text="Manutenção">
                   <content>
                     <AnchorPane fx:id="anchorPaneManutencao" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                   </content>
                 </Tab>
-                  <Tab fx:id="tabAjuda" text="     Ajuda      ">
+                  <Tab fx:id="tabAjuda" disable="true" text="     Ajuda      ">
                     <content>
                       <AnchorPane fx:id="anchorPaneAjuda" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                     </content>
