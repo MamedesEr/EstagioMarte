@@ -10,27 +10,12 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="690.0" style="-fx-background-color: white;" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="525.0" prefWidth="640.0" style="-fx-background-color: white;" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmvc.controller.FXMLFrmCadastroController">
    <children>
-    <AnchorPane fx:id="ancorpane" layoutY="89.0" prefHeight="465.0" prefWidth="690.0">
-         <children>
-            <Button fx:id="btnDevolucao" layoutX="143.0" layoutY="112.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="162.0" styleClass="pessoa" text="         Pessoa" textAlignment="CENTER" />
-            <Button fx:id="btnDevolucao1" layoutX="409.0" layoutY="113.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="155.0" styleClass="cargo" text="        Cargo" textAlignment="CENTER" />
-            <Button fx:id="btnDevolucao11" layoutX="408.0" layoutY="286.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="162.0" styleClass="departamento" text="           Departa&#10;           mento" textAlignment="CENTER" />
-            <Button fx:id="btnDevolucao111" layoutX="409.0" layoutY="200.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="162.0" styleClass="chave" text="        Chave" textAlignment="CENTER" />
-            <Button fx:id="btnDevolucao1111" layoutX="143.0" layoutY="199.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="162.0" styleClass="entrar" text="          Usuário" textAlignment="CENTER" />
-            <Button fx:id="btnSair" layoutX="143.0" layoutY="286.0" mnemonicParsing="false" prefHeight="68.0" prefWidth="148.0" styleClass="voltar" text="        Voltar" textAlignment="CENTER" />
-         </children>
-      </AnchorPane>
-      <ImageView fitHeight="82.0" fitWidth="223.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../imagem/ifmt.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="82.0" fitWidth="129.0" layoutX="595.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../imagem/DaeeIfmt.png" />
-         </image>
-      </ImageView>
+      <Button fx:id="btnUsuario" layoutX="112.0" layoutY="224.0" mnemonicParsing="false" onAction="#btnUsuario_onAction" prefHeight="68.0" prefWidth="162.0" styleClass="usuario" text="           Usuário" textAlignment="CENTER" />
+      <Button fx:id="btnChave" layoutX="378.0" layoutY="223.0" mnemonicParsing="false" onAction="#btnChave_onAction" prefHeight="68.0" prefWidth="162.0" styleClass="chave" text="        Chave" textAlignment="CENTER" />
+      <Button fx:id="btnDepartamento" layoutX="248.0" layoutY="310.0" mnemonicParsing="false" onAction="#btnDepartamento_onAction" prefHeight="68.0" prefWidth="162.0" styleClass="departamento" text="           Departa&#10;           mento" textAlignment="CENTER" />
+      <Button fx:id="btnCargo" layoutX="378.0" layoutY="136.0" mnemonicParsing="false" onAction="#btnCargo_onAction" prefHeight="68.0" prefWidth="155.0" styleClass="cargo" text="        Cargo" textAlignment="CENTER" />
+      <Button fx:id="btnPessoa" layoutX="112.0" layoutY="137.0" mnemonicParsing="false" onAction="#btnPessoa_onAction" prefHeight="68.0" prefWidth="162.0" styleClass="pessoa" text="          Pessoa" textAlignment="CENTER" />
    </children>
 </AnchorPane>

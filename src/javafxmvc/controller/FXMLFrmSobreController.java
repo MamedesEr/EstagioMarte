@@ -1,29 +1,21 @@
 package javafxmvc.controller;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 
-/**
- *
- * @author Mattheus
- */
-public class FXMLFrmSobreController implements Initializable{
-    
+public class FXMLFrmSobreController {
+  
     @FXML
-    private Text labelSistema;
+    private Text lbSistema;
 
     @FXML
-    private Text labelDesen;
+    private BorderPane anchorPane;
 
     @FXML
-    private ImageView imgDanca;
+    private Text lbDesen;
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        
-    }
+    @FXML
+    private ImageView imgDanca;  
 }
