@@ -56,7 +56,7 @@ public class DepartamentoDAO {
             stmt.setString(3, departamento.getChefia());
             stmt.setString(4, departamento.getTelefone());
             stmt.setString(5, departamento.getEmail());
-            stmt.setString(5, departamento.getObservacao());
+            stmt.setString(6, departamento.getObservacao());
             stmt.setInt(7, departamento.getIdDepartamento());
             stmt.execute();
             return true;
