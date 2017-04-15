@@ -12,17 +12,17 @@
    <children>
       <AnchorPane fx:id="anchorPaneBotoes" layoutY="22.0" prefHeight="75.0" prefWidth="640.0" style="-fx-background-color: #ebebe0;" AnchorPane.topAnchor="22.0">
          <children>
-            <Button fx:id="btnInserir" layoutX="11.0" layoutY="3.0" mnemonicParsing="false" styleClass="inserir" text="           Inserir">
+            <Button fx:id="btnInserir" layoutX="11.0" layoutY="3.0" mnemonicParsing="false" onAction="#btnNovoCargo_onAction" styleClass="inserir" text="           Inserir">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button fx:id="btnAlterar" layoutX="245.0" layoutY="3.0" mnemonicParsing="false" styleClass="alterar" text="           Alterar">
+            <Button fx:id="btnAlterar" disable="true" layoutX="245.0" layoutY="3.0" mnemonicParsing="false" onAction="#btnAlterarCargo_onAction" styleClass="alterar" text="           Alterar">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
             </Button>
-            <Button fx:id="btnExcluir" layoutX="481.0" layoutY="3.0" mnemonicParsing="false" styleClass="excluir" text="           Excluir" />
+            <Button fx:id="btnExcluir" disable="true" layoutX="481.0" layoutY="3.0" mnemonicParsing="false" onAction="#btnExcluirAtleta_onAction" styleClass="excluir" text="           Excluir" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="anchorPaneRodape" layoutY="420.0" prefHeight="80.0" prefWidth="640.0" style="-fx-background-color: #ebebe0;" AnchorPane.bottomAnchor="0.0">
@@ -37,18 +37,20 @@
               <AnchorPane fx:id="anchorPaneConsulta" minHeight="0.0" minWidth="0.0" prefHeight="310.0" prefWidth="640.0" style="-fx-background-color: #ebebe0;">
                      <children>
                         <Label fx:id="lbDigite" layoutX="11.0" layoutY="15.0" prefHeight="17.0" prefWidth="83.0" text="Digite o cargo:" />
-                        <TextField fx:id="txtPesquisa" layoutX="94.0" layoutY="10.0" prefHeight="30.0" prefWidth="380.0" />
-                        <Button fx:id="btnPesquisa" layoutX="481.0" layoutY="6.0" mnemonicParsing="false" styleClass="pesquisa_pequena" text="     Pesquisar" />
+                        <TextField fx:id="txtPesquisa" layoutX="94.0" layoutY="10.0" onAction="#btnPesquisar_onAction" prefHeight="30.0" prefWidth="380.0" />
+                        <Button fx:id="btnPesquisa" layoutX="481.0" layoutY="6.0" mnemonicParsing="false" onAction="#btnPesquisar_onAction" styleClass="pesquisa_pequena" text="     Pesquisar" />
                         <TableView fx:id="tableView" layoutX="3.0" layoutY="50.0" prefHeight="261.0" prefWidth="634.0">
                            <columns>
-                              <TableColumn fx:id="tableColumnCodigo" prefWidth="303.0" text="Código" />
                               <TableColumn fx:id="tableColumnDescricao" prefWidth="330.0" text="Descrição" />
-                           </columns></TableView>
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy></TableView>
                      </children>
                   </AnchorPane>
             </content>
           </Tab>
-          <Tab fx:id="tabAlterar" text="       Dados       ">
+          <Tab fx:id="tabAlterar" disable="true" text="       Dados       ">
             <content>
               <AnchorPane fx:id="anchorPaneAlterar" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #ebebe0;">
                      <children>
