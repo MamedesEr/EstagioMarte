@@ -153,7 +153,7 @@ public class FXMLFrmCadastroDepartamentoController implements Initializable {
 
         // Listen acionado diante de quaisquer alterações na seleção de itens do TableView
         tableView.getSelectionModel().selectedItemProperty().addListener(
-                (observable, oldValue, newValue) -> selecionarItemTableViewCargo(newValue));
+                (observable, oldValue, newValue) -> selecionarItemTableViewDepartemento(newValue));
 
     }
     
@@ -168,7 +168,7 @@ public class FXMLFrmCadastroDepartamentoController implements Initializable {
         tableView.setItems(observableListDepartamentos);
     }
     
-    public void selecionarItemTableViewCargo(Departamento departamento){ 
+    public void selecionarItemTableViewDepartemento(Departamento departamento){ 
         if (departamento != null) {
             btnAlterar.setDisable(false);
             btnExcluir.setDisable(false);
@@ -291,7 +291,7 @@ public class FXMLFrmCadastroDepartamentoController implements Initializable {
         String errorMessage = "";
 
         if (txtNome.getText() == null || txtNome.getText().length() == 0) {
-            errorMessage += "Cargo inválido!\n";
+            errorMessage += "Departamento inválido!\n";
         }
         if (errorMessage.length() == 0) {
             return true;
