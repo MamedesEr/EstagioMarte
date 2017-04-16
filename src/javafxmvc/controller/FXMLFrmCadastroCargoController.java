@@ -157,6 +157,8 @@ public class FXMLFrmCadastroCargoController implements Initializable{
         tabAlterar.setDisable(false);
         tabPane.getSelectionModel().select(tabAlterar);
         tabConsulta.setDisable(true);
+        btnExcluir.setDisable(true);
+        btnAlterar.setDisable(true);
         txtAreaDescricao.requestFocus();
     }
     
@@ -168,6 +170,8 @@ public class FXMLFrmCadastroCargoController implements Initializable{
             tabAlterar.setDisable(false);
             tabPane.getSelectionModel().select(tabAlterar);
             tabConsulta.setDisable(true);
+            btnExcluir.setDisable(true);
+            btnInserir.setDisable(true);
             
             txtCodigo.setText(String.valueOf(this.cargo.getIdCargo()));
             txtAreaDescricao.setText(cargo.getDescricao());
@@ -201,6 +205,7 @@ public class FXMLFrmCadastroCargoController implements Initializable{
         tabAlterar.setDisable(true);
         btnAlterar.setDisable(true);
         btnExcluir.setDisable(true);
+        btnInserir.setDisable(false);
         limparTxt();
         carregarTableViewCargo();
     }

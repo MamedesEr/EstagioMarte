@@ -224,6 +224,8 @@ public class FXMLFrmCadastroPessoaController implements Initializable{
         tabAlterar.setDisable(false);
         tabPane.getSelectionModel().select(tabAlterar);
         tabConsulta.setDisable(true);
+        btnExcluir.setDisable(true);
+        btnAlterar.setDisable(true);
         txtNome.requestFocus();
     }
     
@@ -235,12 +237,16 @@ public class FXMLFrmCadastroPessoaController implements Initializable{
             tabAlterar.setDisable(false);
             tabPane.getSelectionModel().select(tabAlterar);
             tabConsulta.setDisable(true);
-            
+            btnExcluir.setDisable(true);
+            btnInserir.setDisable(true);
+     
             txtCodigo.setText(String.valueOf(this.pessoa.getIdPessoa()));
             txtNome.setText(pessoa.getNome());
             txtCPF.setText(pessoa.getCpf());
             txtTelefone.setText(pessoa.getTelefone());
             txtEmail.setText(pessoa.getEmail());
+            comboBoxDepartamento.setValue(this.pessoa.getDepartamento());
+            comboBoxCargo.setValue(this.pessoa.getCargo());
             txtNome.requestFocus();
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -271,6 +277,7 @@ public class FXMLFrmCadastroPessoaController implements Initializable{
         tabAlterar.setDisable(true);
         btnAlterar.setDisable(true);
         btnExcluir.setDisable(true);
+        btnInserir.setDisable(false);
         limparTxt();
         carregarTableViewPessoa();
     }
@@ -351,8 +358,8 @@ public class FXMLFrmCadastroPessoaController implements Initializable{
         txtCPF.setText("");
         txtTelefone.setText("");
         txtEmail.setText("");
-        comboBoxDepartamento.getSelectionModel().clearSelection();
-        comboBoxCargo.getSelectionModel().clearSelection();
+        comboBoxDepartamento.setValue("");
+        comboBoxCargo.setValue("");
     }
     
 }

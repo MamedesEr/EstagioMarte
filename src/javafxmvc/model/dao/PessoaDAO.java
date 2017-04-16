@@ -109,11 +109,15 @@ public class PessoaDAO
                 pessoa.setCpf           (resultado.getString("cpf"));
                 pessoa.setTelefone      (resultado.getString("telefone"));
                 pessoa.setEmail         (resultado.getString("email"));
+                departamento.setIdDepartamento(resultado.getInt("id_departamento"));
+                cargo.setIdCargo(resultado.getInt("id_cargo"));
                 
+                //Obtendo os dados completos de Departamento associada a Pessoa
                 DepartamentoDAO departamentoDAO = new DepartamentoDAO();
                 departamentoDAO.setConnection(connection);                
                 departamento = departamentoDAO.buscar(departamento);
                 
+                //Obtendo os dados completos de cargo associada a Pessoa
                 CargoDAO cargoDAO = new CargoDAO();
                 cargoDAO.setConnection(connection);                
                 cargo = cargoDAO.buscar(cargo);
@@ -138,10 +142,16 @@ public class PessoaDAO
             ResultSet resultado = stmt.executeQuery();
             if (resultado.next()) 
             {
+                Departamento departamento = new Departamento();
+                Cargo cargo = new Cargo();
                 pessoa.setNome      (resultado.getString("nome"));
                 pessoa.setCpf       (resultado.getString("cpf"));
                 pessoa.setTelefone  (resultado.getString("telefone"));
                 pessoa.setEmail     (resultado.getString("email"));
+                departamento.setIdDepartamento(resultado.getInt("id_departamento"));
+                cargo.setIdCargo(resultado.getInt("id_cargo"));
+                pessoa.setDepartamento(departamento);
+                pessoa.setCargo(cargo);
                 retorno = pessoa;
             }
         } catch (SQLException ex) 
@@ -162,28 +172,30 @@ public class PessoaDAO
             ResultSet resultado = stmt.executeQuery();
             while (resultado.next())
             {
-                Pessoa pessoa               = new Pessoa();
-                Emprestimo emprestimo       = new Emprestimo();
-                Cargo cargo                 = new Cargo();
-                Departamento departamento   = new Departamento();
+                Pessoa pessoa = new Pessoa();
+                Departamento departamento = new Departamento();
+                Cargo cargo = new Cargo();
                 
-                pessoa.setIdPessoa  (resultado.getInt("id_pessoa"));
-                pessoa.setNome      (resultado.getString("nome"));
-                pessoa.setCpf       (resultado.getString("cpf"));
-                pessoa.setTelefone  (resultado.getString("telefone"));
-                pessoa.setEmail     (resultado.getString("email"));
+                pessoa.setIdPessoa      (resultado.getInt("id_pessoa"));
+                pessoa.setNome          (resultado.getString("nome"));
+                pessoa.setCpf           (resultado.getString("cpf"));
+                pessoa.setTelefone      (resultado.getString("telefone"));
+                pessoa.setEmail         (resultado.getString("email"));
+                departamento.setIdDepartamento(resultado.getInt("id_departamento"));
+                cargo.setIdCargo(resultado.getInt("id_cargo"));
                 
-                EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
-                emprestimoDAO.setConnection(connection);
-                emprestimo = emprestimoDAO.buscar(emprestimo);
+                //Obtendo os dados completos de Departamento associada a Pessoa
+                DepartamentoDAO departamentoDAO = new DepartamentoDAO();
+                departamentoDAO.setConnection(connection);                
+                departamento = departamentoDAO.buscar(departamento);
                 
+                //Obtendo os dados completos de cargo associada a Pessoa
                 CargoDAO cargoDAO = new CargoDAO();
-                cargoDAO.setConnection(connection);
+                cargoDAO.setConnection(connection);                
                 cargo = cargoDAO.buscar(cargo);
                 
-                DepartamentoDAO departamentoDAO = new DepartamentoDAO();
-                departamentoDAO.setConnection(connection);
-                departamento = departamentoDAO.buscar(departamento);
+                pessoa.setDepartamento(departamento);
+                pessoa.setCargo(cargo);
                 retorno.add(pessoa);
             }
         } catch (SQLException ex) 

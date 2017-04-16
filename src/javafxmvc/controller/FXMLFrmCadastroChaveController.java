@@ -178,6 +178,8 @@ public class FXMLFrmCadastroChaveController implements Initializable{
         tabAlterar.setDisable(false);
         tabPane.getSelectionModel().select(tabAlterar);
         tabConsulta.setDisable(true);
+        btnExcluir.setDisable(true);
+        btnAlterar.setDisable(true);
         txtIdentificador.requestFocus();
     }
     
@@ -189,6 +191,8 @@ public class FXMLFrmCadastroChaveController implements Initializable{
             tabAlterar.setDisable(false);
             tabPane.getSelectionModel().select(tabAlterar);
             tabConsulta.setDisable(true);
+            btnExcluir.setDisable(true);
+            btnInserir.setDisable(true);
             
             txtCodigo.setText(String.valueOf(this.chave.getIdChave()));
             txtIdentificador.setText(chave.getIdentificador());
@@ -223,6 +227,7 @@ public class FXMLFrmCadastroChaveController implements Initializable{
         tabAlterar.setDisable(true);
         btnAlterar.setDisable(true);
         btnExcluir.setDisable(true);
+        btnInserir.setDisable(false);
         limparTxt();
         carregarTableViewChave();
     }

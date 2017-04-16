@@ -37,7 +37,7 @@
               <AnchorPane fx:id="anchorPaneConsulta" minHeight="0.0" minWidth="0.0" prefHeight="303.0" prefWidth="640.0" style="-fx-background-color: #ebebe0;">
                      <children>
                         <Label fx:id="lbDigite" layoutX="11.0" layoutY="15.0" prefHeight="17.0" prefWidth="147.0" text="Digite o nome da pessoa:" />
-                        <TextField fx:id="txtPesquisa" layoutX="155.0" layoutY="10.0" prefHeight="30.0" prefWidth="319.0" />
+                        <TextField fx:id="txtPesquisa" layoutX="155.0" layoutY="10.0" onAction="#btnPesquisar_onAction" prefHeight="30.0" prefWidth="319.0" />
                         <Button fx:id="btnPesquisa" layoutX="481.0" layoutY="6.0" mnemonicParsing="false" onAction="#btnPesquisar_onAction" styleClass="pesquisa_pequena" text="     Pesquisar" />
                         <TableView fx:id="tableView" layoutX="3.0" layoutY="50.0" prefHeight="252.0" prefWidth="634.0">
                            <columns>

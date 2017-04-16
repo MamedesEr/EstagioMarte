@@ -196,6 +196,8 @@ public class FXMLFrmCadastroDepartamentoController implements Initializable {
         tabAlterar.setDisable(false);
         tabPane.getSelectionModel().select(tabAlterar);
         tabConsulta.setDisable(true);
+        btnExcluir.setDisable(true);
+        btnAlterar.setDisable(true);
         txtNome.requestFocus();
     }
     
@@ -207,6 +209,8 @@ public class FXMLFrmCadastroDepartamentoController implements Initializable {
             tabAlterar.setDisable(false);
             tabPane.getSelectionModel().select(tabAlterar);
             tabConsulta.setDisable(true);
+            btnExcluir.setDisable(true);
+            btnInserir.setDisable(true);
             
             txtCodigo.setText(String.valueOf(this.departamento.getIdDepartamento()));
             txtNome.setText(departamento.getNome());
@@ -245,6 +249,7 @@ public class FXMLFrmCadastroDepartamentoController implements Initializable {
         tabAlterar.setDisable(true);
         btnAlterar.setDisable(true);
         btnExcluir.setDisable(true);
+        btnInserir.setDisable(false);
         limparTxt();
         carregarTableViewDepartamento();
     }

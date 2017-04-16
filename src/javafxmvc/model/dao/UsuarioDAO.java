@@ -31,7 +31,7 @@ public class UsuarioDAO {
     
     public boolean inserir(Usuario usuario) {
         String sql = "INSERT INTO usuario(login, senha, nome, cpf, telefone, email, id_departamento, id_cargo)"
-                +    "VALUES(?,?,?,?,?,?)";
+                +    "VALUES(?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, usuario.getLogin());
@@ -150,6 +150,51 @@ public class UsuarioDAO {
             }
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return retorno;
+    }
+    
+    public List<Usuario> pesquisar(String nome)
+    {
+        this.nome = nome;
+        String sql = "SELECT * FROM  usuario WHERE UPPER(NOME) LIKE '%"+ nome +"%' ORDER BY nome";
+        List<Usuario> retorno = new ArrayList<>();
+        try 
+        {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            ResultSet resultado = stmt.executeQuery();
+            while (resultado.next())
+            {
+                Usuario usuario = new Usuario();
+                Departamento departamento = new Departamento();
+                Cargo cargo = new Cargo();
+                usuario.setIdUsuario(resultado.getInt("id_usuario"));
+                usuario.setLogin(resultado.getString("login"));
+                usuario.setSenha(resultado.getString("senha"));
+                usuario.setNome(resultado.getString("nome"));
+                usuario.setCpf(resultado.getString("cpf"));
+                usuario.setTelefone(resultado.getString("telefone"));
+                usuario.setEmail(resultado.getString("email"));
+                departamento.setIdDepartamento(resultado.getInt("id_departamento"));
+                cargo.setIdCargo(resultado.getInt("id_cargo"));
+                
+                //Obtendo os dados completos de Departamento associada ao Usuario
+                DepartamentoDAO departamentoDAO = new DepartamentoDAO();
+                departamentoDAO.setConnection(connection);
+                departamento = departamentoDAO.buscar(departamento);         
+                
+                //Obtendo os dados completos de cargo associada ao Usuario
+                CargoDAO cargoDAO = new CargoDAO();
+                cargoDAO.setConnection(connection);
+                cargo = cargoDAO.buscar(cargo);
+                
+                usuario.setDepartamento(departamento);
+                usuario.setCargo(cargo);
+                retorno.add(usuario);
+            }
+        } catch (SQLException ex) 
+        {
+            Logger.getLogger(PessoaDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return retorno;
     }
