@@ -26,6 +26,14 @@
     -fx-background-position: 2,0;  
 }
 
+.button.inicio{
+    -fx-pref-height: 68px;
+    -fx-pref-width: 148px;
+    -fx-background-image: url(bt_inicio.png);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 2,0;  
+}
+
 .button.emprestimo{
     -fx-pref-height: 68px;
     -fx-pref-width: 148px;    

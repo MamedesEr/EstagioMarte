@@ -1,7 +1,5 @@
 package javafxmvc.model.database;
 
-import javafxmvc.model.database.Database;
-
 public class DatabaseFactory {
     public static Database getDatabase(String nome){
         if(nome.equals("postgresql")){

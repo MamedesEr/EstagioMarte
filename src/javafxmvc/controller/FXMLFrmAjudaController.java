@@ -24,9 +24,9 @@ public class FXMLFrmAjudaController {
 
     @FXML
     void btnSobre_onAction() throws IOException {
-//        AnchorPane abrirAnchorPane = (AnchorPane) FXMLLoader.load(getClass().getResource
-//                                            ("/javafxmvc/view/FrmSobre.fxml"));
-//        anchorPane.getChildren().setAll(abrirAnchorPane);
+        AnchorPane abrirAnchorPane = (AnchorPane) FXMLLoader.load(getClass().getResource
+                                            ("/javafxmvc/view/FrmSobre.fxml"));
+        anchorPane.getChildren().setAll(abrirAnchorPane);
     }
    
 }

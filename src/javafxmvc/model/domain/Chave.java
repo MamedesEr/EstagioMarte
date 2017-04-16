@@ -1,16 +1,16 @@
 package javafxmvc.model.domain;
 
-/**
- *
- * @author Mattheus
- */
+import javafx.scene.image.ImageView;
+
 public class Chave {
     private int idChave;
     private String identificador;
     private String descricao;
     private String status;
     private int id_emprestimo;
-    
+    //
+    private ImageView imagem;
+    //*
     public Chave(){
         
     }
@@ -22,7 +22,15 @@ public class Chave {
         this.status = status;
         this.id_emprestimo = id_emprestimo;
     }
+    //
+    public ImageView getImagem() {
+        return imagem;
+    }
     
+    public void setImagem(ImageView imagem) {
+        this.imagem = imagem;
+    }    
+    //*
     public String getDescricao() {
         return descricao;
     }

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="anchorPane" minHeight="0.0" minWidth="0.0" prefHeight="525.0" prefWidth="640.0" style="-fx-background-color: white;" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmvc.controller.FXMLFrmAjudaController">
+   <children>
+      <Label fx:id="lbD5" alignment="CENTER" layoutX="11.0" layoutY="322.0" prefHeight="17.0" prefWidth="640.0" text="Renan Jesus">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbD4" alignment="CENTER" layoutX="10.0" layoutY="292.0" prefHeight="17.0" prefWidth="640.0" text="Otavio Alves">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbD3" alignment="CENTER" layoutX="10.0" layoutY="262.0" prefHeight="17.0" prefWidth="640.0" text="Mattheus Nunes Araújo">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbD2" alignment="CENTER" layoutX="10.0" layoutY="232.0" prefHeight="17.0" prefWidth="640.0" text="Mamades Eronildes ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbD1" alignment="CENTER" layoutX="10.0" layoutY="202.0" prefHeight="17.0" prefWidth="640.0" text="Andrei Dambros">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Text fx:id="textDesenvolvedores" layoutX="10.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="                                            Desenvolvedores" wrappingWidth="640.0">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="textSistema" layoutX="10.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="                                                    Sistema" wrappingWidth="640.0">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Text>
+      <Label fx:id="lbSistema" alignment="CENTER" layoutX="10.0" layoutY="94.0" prefHeight="17.0" prefWidth="640.0" text="Controle de Chaves DAEE 1.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutY="429.0" prefHeight="96.0" prefWidth="640.0">
+         <children>
+            <Button fx:id="btnVoltar" layoutX="255.0" layoutY="19.0" mnemonicParsing="false" onAction="#btnVoltar_onAction" styleClass="voltar" text="       Voltar">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

@@ -113,7 +113,7 @@ public class FXMLFrmLoginController implements Initializable{
                         Principal.login.close();
                     } else {
                         Alert dialogoErro = new Alert(Alert.AlertType.ERROR);
-                        dialogoErro.setTitle("Mensagem de error:");
+                        dialogoErro.setTitle("Mensagem de error");
                         dialogoErro.setHeaderText("Senha incorreta!");
                         dialogoErro.setContentText("Digite sua senha corretamente.");
                         dialogoErro.showAndWait();
@@ -122,7 +122,7 @@ public class FXMLFrmLoginController implements Initializable{
                     }
                 } else {
                     Alert dialogoErro = new Alert(Alert.AlertType.ERROR);
-                    dialogoErro.setTitle("Mensagem de error:");
+                    dialogoErro.setTitle("Mensagem de error");
                     dialogoErro.setHeaderText("Login não encontrato!");
                     dialogoErro.setContentText("Digite um login válido.");
                     dialogoErro.showAndWait();
@@ -132,7 +132,7 @@ public class FXMLFrmLoginController implements Initializable{
                 }     
             }catch (SQLException ex){
                 Alert dialogoErro = new Alert(Alert.AlertType.ERROR);
-                dialogoErro.setTitle("Mensagem de error:");
+                dialogoErro.setTitle("Mensagem de error");
                 dialogoErro.setHeaderText(login);
                 dialogoErro.setContentText("Falha ao realizar login");
                 dialogoErro.showAndWait();
@@ -140,7 +140,7 @@ public class FXMLFrmLoginController implements Initializable{
         } else{
             if(login.length()!= 1 && senha.length() != 0){
               Alert dialogoErro = new Alert(Alert.AlertType.ERROR);
-              dialogoErro.setTitle("Mensagem de error:");
+              dialogoErro.setTitle("Mensagem de error");
               dialogoErro.setHeaderText("Campo login é obrigatório!");
               dialogoErro.setContentText("Digite um login válido.");
               dialogoErro.showAndWait();
@@ -150,7 +150,7 @@ public class FXMLFrmLoginController implements Initializable{
             } else {
                 if(login.length()!= 0 && senha.length() != 1){
                   Alert dialogoErro = new Alert(Alert.AlertType.ERROR);
-              dialogoErro.setTitle("Mensagem de error:");
+              dialogoErro.setTitle("Mensagem de error");
               dialogoErro.setHeaderText("Campo senha é obrigatório!");
               dialogoErro.setContentText("Digite sua senha corretamente.");
               dialogoErro.showAndWait();
@@ -159,7 +159,7 @@ public class FXMLFrmLoginController implements Initializable{
                 }else {
                     if(login.length()!= 1 && senha.length() != 1){
                         Alert dialogoErro = new Alert(Alert.AlertType.ERROR);
-                        dialogoErro.setTitle("Mensagem de error:");
+                        dialogoErro.setTitle("Mensagem de error");
                         dialogoErro.setHeaderText("Campo login e senha são obrigatórios!");
                         dialogoErro.setContentText("Digite seu login e senha corretamente.");
                         dialogoErro.showAndWait();

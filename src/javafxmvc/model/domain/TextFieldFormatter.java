@@ -4,10 +4,6 @@ import java.text.ParseException;
 import javafx.scene.control.TextField;
 import javax.swing.text.MaskFormatter;
 
-/**
- *
- * @author AlvesOtavio
- */
 public class TextFieldFormatter {
    private final MaskFormatter mf;
         private TextField tf;

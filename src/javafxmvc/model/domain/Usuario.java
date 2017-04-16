@@ -1,9 +1,5 @@
 package javafxmvc.model.domain;
 
-/**
- *
- * @author Mattheus
- */
 public class Usuario {
     
     private int idUsuario;

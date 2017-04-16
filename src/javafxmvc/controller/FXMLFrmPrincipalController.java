@@ -11,10 +11,12 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -25,6 +27,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -104,10 +107,10 @@ public class FXMLFrmPrincipalController implements Initializable{
 
     @FXML
     private TableColumn<Chave, String> tableColumnChaves;
-
+    //
     @FXML
     private TableColumn<Chave, String> tableColumnStatus;
-    
+    //*
     private List <Chave> listChaves;
     private ObservableList <Chave> observableListChaves;
     private Stage dialogStage;
@@ -116,6 +119,12 @@ public class FXMLFrmPrincipalController implements Initializable{
     private final Connection connection = database.conectar();
     private final ChaveDAO chaveDAO = new ChaveDAO();
     private final EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
+    
+//    private final ImageView chaveDisponivel = new ImageView("javafxmvc/imagem/status_disponivel.png");
+//    private final ImageView chaveIndisponivel = new ImageView("javafxmvc/imagem/status_indisponivel.png");
+//    private final Chave conteudo = new Chave();
+    
+    
     String estado;
     static int id_chave;
     int id_usuario;
@@ -127,6 +136,8 @@ public class FXMLFrmPrincipalController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         chaveDAO.setConnection(connection);
+        checkBoxDisponivel.setSelected(true);
+        checkBoxIndispinivel.setSelected(true);
         carregarTableViewChave();
         
         // Listen acionado diante de quaisquer alterações na seleção de itens do TableView
@@ -137,11 +148,22 @@ public class FXMLFrmPrincipalController implements Initializable{
     public void carregarTableViewChave() {
         tableColumnChaves.setCellValueFactory(new PropertyValueFactory<>("identificador"));
         tableColumnStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
-
+     
+        /*
+        String status;
+        status = String.valueOf(new PropertyValueFactory<>("status"));
+        if(status.compareTo("Disponível") > 0){
+            conteudo.setImagem(chaveDisponivel);
+            observableListChaves.add(conteudo);
+            tableColumnStatus.setCellValueFactory(new PropertyValueFactory<>("imagem"));       
+        }
+        */
+       
         listChaves = chaveDAO.listar();
 
-        observableListChaves = FXCollections.observableArrayList(listChaves);
+        observableListChaves = FXCollections.observableArrayList(listChaves);       
         tableViewChaves.setItems(observableListChaves);
+        
     }
     
     public void selecionarItemTableViewChaves(Chave chave){
@@ -164,12 +186,49 @@ public class FXMLFrmPrincipalController implements Initializable{
         tableColumnChaves.setCellValueFactory(new PropertyValueFactory<>("identificador"));
         tableColumnStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 
+        /*
         listChaves = chaveDAO.pesquisar(filtro);
 
         observableListChaves = FXCollections.observableArrayList(listChaves);
         tableViewChaves.setItems(observableListChaves);
+        
         btnEmprestimo.setDisable(true);
         btnDevolucao.setDisable(true);
+        */
+        if(checkBoxDisponivel.isSelected()){
+            if(checkBoxIndispinivel.isSelected()){
+                listChaves = chaveDAO.pesquisar(filtro);
+
+                observableListChaves = FXCollections.observableArrayList(listChaves);
+                tableViewChaves.setItems(observableListChaves);
+        
+                btnEmprestimo.setDisable(true);
+                btnDevolucao.setDisable(true);
+            }else{
+                listChaves = chaveDAO.pesquisarChaveDisponivel(filtro);
+
+                observableListChaves = FXCollections.observableArrayList(listChaves);
+                tableViewChaves.setItems(observableListChaves);
+        
+                btnEmprestimo.setDisable(true);
+                btnDevolucao.setDisable(true);            
+            }
+        }else if(checkBoxIndispinivel.isSelected()){
+            listChaves = chaveDAO.pesquisarChaveIndisponivel(filtro);
+            
+            observableListChaves = FXCollections.observableArrayList(listChaves);
+            tableViewChaves.setItems(observableListChaves);
+            
+            btnEmprestimo.setDisable(true);
+            btnDevolucao.setDisable(true);    
+        } else{
+            //Informar ao usuario que necessita selecionar algum status da chave para efetuar a pesquisa
+            Alert dialogoErro = new Alert(Alert.AlertType.INFORMATION);
+            dialogoErro.setTitle("Mensagem informativa");
+            dialogoErro.setHeaderText("É necessário marcar pelo menos um status da chave");
+            dialogoErro.setContentText("O status pode ser 'Chave Disponível', 'Chave Indisponível' ou ambas opções.");
+            dialogoErro.showAndWait();
+        }
     }
     
     @FXML

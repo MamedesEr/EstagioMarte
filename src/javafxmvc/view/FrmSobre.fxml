@@ -1,64 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
 <?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="465.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmvc.controller.FXMLFrmSobreController">
-   <center>
-      <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-         <children>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <ImageView fx:id="imgDanca" fitHeight="103.0" fitWidth="297.0" layoutX="194.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../imagem/ifmt.png" />
-                     </image>
-                  </ImageView>
-                  <Text fx:id="lbSistema" layoutX="320.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sistema">
-                     <font>
-                        <Font name="System Bold Italic" size="20.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="196.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ControleDeChavesDAEE 1.0 ">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="lbDesen" layoutX="279.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Desenvolvedores">
-                     <font>
-                        <Font name="System Bold Italic" size="20.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="215.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mattheus Nunes Araújo">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="243.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Andrei Dambros">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="231.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mamades Eronildes ">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="260.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Otavio Alves">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Text>
-                  <Text layoutX="262.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Renan Jesus">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Text>
-               </children>
-            </AnchorPane>
-         </children>
-      </StackPane>
-   </center>
-</BorderPane>
+<AnchorPane fx:id="anchorPane" prefHeight="525.0" prefWidth="640.0" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="lbSistema" alignment="CENTER" layoutY="84.0" prefHeight="17.0" prefWidth="640.0" text="Controle de Chaves DAEE 1.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Text fx:id="textSistema" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="                                                    Sistema" wrappingWidth="640.0">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Text>
+      <Text fx:id="textDesenvolvedores" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="                                            Desenvolvedores" wrappingWidth="640.0">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Text>
+      <Label fx:id="lbD1" alignment="CENTER" layoutY="192.0" prefHeight="17.0" prefWidth="640.0" text="Andrei Dambros">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbD2" alignment="CENTER" layoutY="222.0" prefHeight="17.0" prefWidth="640.0" text="Mamades Eronildes ">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbD3" alignment="CENTER" layoutY="252.0" prefHeight="17.0" prefWidth="640.0" text="Mattheus Nunes Araújo">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbD4" alignment="CENTER" layoutY="282.0" prefHeight="17.0" prefWidth="640.0" text="Otavio Alves">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="lbD5" alignment="CENTER" layoutX="1.0" layoutY="312.0" prefHeight="17.0" prefWidth="640.0" text="Renan Jesus">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -10,10 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafxmvc.model.domain.Cargo;
 
-/**
- *
- * @author Mattheus
- */
+
 public class CargoDAO {
     private Connection connection;
     String nome;

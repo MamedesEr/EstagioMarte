@@ -100,7 +100,7 @@
                               </LinearGradient>
                            </textFill>
                         </Button>
-                        <Button fx:id="btnInicio" disable="true" layoutX="3.0" layoutY="25.0" mnemonicParsing="false" onAction="#btnInicio_onAction" styleClass="voltar" text="        Início" />
+                        <Button fx:id="btnInicio" disable="true" layoutX="3.0" layoutY="25.0" mnemonicParsing="false" onAction="#btnInicio_onAction" styleClass="inicio" text="        Início" />
                      </children>
                   </Group>
                </children>

@@ -1,16 +1,12 @@
 package javafxmvc.model.database;
 
-import javafxmvc.model.database.Database;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author Mattheus Nunes
- */
+
 public class DatabasePostgreSQL implements Database {
     private Connection connection;
 

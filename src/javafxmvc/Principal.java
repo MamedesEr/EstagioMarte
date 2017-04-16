@@ -7,10 +7,6 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-/**
- *
- * @author Mattheus Nunes
- */
 public class Principal extends Application {
     
     public static void main(String[] args) {

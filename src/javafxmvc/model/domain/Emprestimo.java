@@ -3,10 +3,6 @@ package javafxmvc.model.domain;
 import java.sql.Time;
 import java.time.LocalDate;
 
-/**
- *
- * @author Mattheus
- */
 public class Emprestimo {
     
     private int idEmprestimo;

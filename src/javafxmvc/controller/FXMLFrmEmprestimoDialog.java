@@ -36,10 +36,6 @@ import javafxmvc.model.domain.TextFieldFormatter;
 import javafxmvc.model.domain.Usuario;
 
 
-/**
- *
- * @author Mattheus
- */
 public class FXMLFrmEmprestimoDialog implements Initializable{
     
     @FXML

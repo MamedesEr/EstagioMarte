@@ -37,10 +37,7 @@ import javafxmvc.model.domain.Emprestimo;
 import javafxmvc.model.domain.Pessoa;
 import javafxmvc.model.domain.Usuario;
 
-/**
- *
- * @author Mattheus
- */
+
 public class FXMLFrmPrincipalController2 implements Initializable{
     
     @FXML

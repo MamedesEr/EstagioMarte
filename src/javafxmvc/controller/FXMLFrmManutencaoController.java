@@ -16,10 +16,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-/**
- *
- * @author Mattheus
- */
+
 public class FXMLFrmManutencaoController implements Initializable{
     
     @FXML

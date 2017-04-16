@@ -10,10 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafxmvc.model.domain.Chave;
 
-/**
- *
- * @author Mattheus
- */
+
 public class ChaveDAO {
     private Connection connection;
     String nome;
@@ -112,7 +109,7 @@ public class ChaveDAO {
     
     public List<Chave> pesquisar(String nome) {
         this.nome = nome;
-        String sql = "SELECT * FROM  chave WHERE UPPER(IDENTIFICADOR) LIKE '%"+ nome +"%' ORDER BY identificador";
+        String sql = "SELECT * FROM chave WHERE UPPER(IDENTIFICADOR) LIKE '%"+ nome +"%' ORDER BY identificador";
         List<Chave> retorno = new ArrayList<>();
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -130,4 +127,46 @@ public class ChaveDAO {
         }
         return retorno;
     }
+    
+    public List<Chave> pesquisarChaveDisponivel(String nome) {
+        this.nome = nome;
+        String sql = "SELECT * FROM chave WHERE UPPER(IDENTIFICADOR) LIKE '%"+ nome +"%' AND status='Disponível' ORDER BY identificador";
+        List<Chave> retorno = new ArrayList<>();
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            ResultSet resultado = stmt.executeQuery();
+            while (resultado.next()) {
+                Chave chave = new Chave();
+                chave.setIdChave(resultado.getInt("id_chave"));
+                chave.setIdentificador(resultado.getString("identificador"));
+                chave.setDescricao(resultado.getString("descricao"));
+                chave.setStatus(resultado.getString("status"));
+                retorno.add(chave);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ChaveDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return retorno;
+    }
+    
+    public List<Chave> pesquisarChaveIndisponivel(String nome) {
+        this.nome = nome;
+        String sql = "SELECT * FROM chave WHERE UPPER(IDENTIFICADOR) LIKE '%"+ nome +"%' AND status='Indisponível' ORDER BY identificador";
+        List<Chave> retorno = new ArrayList<>();
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            ResultSet resultado = stmt.executeQuery();
+            while (resultado.next()) {
+                Chave chave = new Chave();
+                chave.setIdChave(resultado.getInt("id_chave"));
+                chave.setIdentificador(resultado.getString("identificador"));
+                chave.setDescricao(resultado.getString("descricao"));
+                chave.setStatus(resultado.getString("status"));
+                retorno.add(chave);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ChaveDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return retorno;
+    }    
 }
