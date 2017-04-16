@@ -32,5 +32,10 @@ public class Cargo {
     public void setIdCargo(int idCargo) {
         this.idCargo = idCargo;
     }
+
+    @Override
+    public String toString() {
+        return this.descricao;
+    }
     
 }

@@ -82,5 +82,8 @@ public class Departamento {
         this.email = email;
     }
     
-    
+    @Override
+    public String toString() {
+        return this.nome;
+    }
 }

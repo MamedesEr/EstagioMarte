@@ -34,8 +34,8 @@ public class PessoaDAO
 
     public boolean inserir(Pessoa pessoa) 
     {
-        String sql = "INSERT INTO pessoa(nome, cpf, telefone, email) "
-                + "VALUES(?,?,?,?)";
+        String sql = "INSERT INTO pessoa(nome, cpf, telefone, email, id_departamento, id_cargo) "
+                + "VALUES(?,?,?,?,?,?)";
         try
         {
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -43,6 +43,8 @@ public class PessoaDAO
             stmt.setString(2, pessoa.getCpf());
             stmt.setString(3, pessoa.getTelefone());
             stmt.setString(4, pessoa.getEmail());
+            stmt.setInt(5, pessoa.getDepartamento().getIdDepartamento());
+            stmt.setInt(6, pessoa.getCargo().getIdCargo());
             stmt.execute();
             return true;
         } catch (SQLException ex) 
@@ -54,7 +56,7 @@ public class PessoaDAO
     
     public boolean alterar(Pessoa pessoa)
     {
-        String sql = "UPDATE pessoaSET nome=?, cpf=?, telefone=?, email=? "
+        String sql = "UPDATE pessoa SET nome=?, cpf=?, telefone=?, email=?, id_departamento=?, id_cargo=?"
                 + "WHERE id_pessoa=?";
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
@@ -62,10 +64,13 @@ public class PessoaDAO
             stmt.setString(2, pessoa.getCpf());
             stmt.setString(3, pessoa.getTelefone());
             stmt.setString(4, pessoa.getEmail());
+            stmt.setInt(5, pessoa.getDepartamento().getIdDepartamento());
+            stmt.setInt(6, pessoa.getCargo().getIdCargo());
+            stmt.setInt(7, pessoa.getIdPessoa());
             stmt.execute();
             return true;
         } catch (SQLException ex) {
-            Logger.getLogger(DepartamentoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PessoaDAO.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
     }
@@ -96,11 +101,25 @@ public class PessoaDAO
             while (resultado.next()) 
             {   
                 Pessoa pessoa = new Pessoa();
+                Departamento departamento = new Departamento();
+                Cargo cargo = new Cargo();
+                
                 pessoa.setIdPessoa      (resultado.getInt("id_pessoa"));
                 pessoa.setNome          (resultado.getString("nome"));
                 pessoa.setCpf           (resultado.getString("cpf"));
                 pessoa.setTelefone      (resultado.getString("telefone"));
                 pessoa.setEmail         (resultado.getString("email"));
+                
+                DepartamentoDAO departamentoDAO = new DepartamentoDAO();
+                departamentoDAO.setConnection(connection);                
+                departamento = departamentoDAO.buscar(departamento);
+                
+                CargoDAO cargoDAO = new CargoDAO();
+                cargoDAO.setConnection(connection);                
+                cargo = cargoDAO.buscar(cargo);
+                
+                pessoa.setDepartamento(departamento);
+                pessoa.setCargo(cargo);
                 retorno.add(pessoa);
             }
         } catch (SQLException ex)
@@ -127,7 +146,7 @@ public class PessoaDAO
             }
         } catch (SQLException ex) 
         {
-            Logger.getLogger(DepartamentoDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PessoaDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return retorno;
     }

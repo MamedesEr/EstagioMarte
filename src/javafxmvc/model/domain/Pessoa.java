@@ -10,19 +10,23 @@ public class Pessoa {
     private String cpf;
     private String telefone;
     private String email;
+    private Departamento departamento;
+    private Cargo cargo;
     
     public Pessoa(){
         
     }
-    
-    public Pessoa(int idPessoa, String nome, String cpf, String telefone, String email) {
+
+    public Pessoa(int idPessoa, String nome, String cpf, String telefone, String email, Departamento departamento, Cargo cargo) {
         this.idPessoa = idPessoa;
         this.nome = nome;
         this.cpf = cpf;
         this.telefone = telefone;
         this.email = email;
+        this.departamento = departamento;
+        this.cargo = cargo;
     }
-
+    
     public String getEmail() {
         return email;
     }
@@ -66,5 +70,21 @@ public class Pessoa {
     @Override
     public String toString() {
         return this.nome;
+    }
+
+    public Departamento getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(Departamento departamento) {
+        this.departamento = departamento;
+    }
+
+    public Cargo getCargo() {
+        return cargo;
+    }
+
+    public void setCargo(Cargo cargo) {
+        this.cargo = cargo;
     }
 }
