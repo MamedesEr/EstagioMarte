@@ -7,6 +7,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -84,6 +87,13 @@ public class FXMLFrmEmprestimoDialog implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         pessoaDAO.setConnection(connection);
         carregarComboBoxPessoa();
+        LocalDate dt = LocalDate.now();
+        LocalTime hr = LocalTime.now();
+        //String dataAtual = dt.getDayOfMonth() + "/" + dt.getMonth() + "/" + dt.getYear();
+        String horaAtual = hr.getHour() + ":" + hr.getMinute() + ":" + hr.getSecond();
+        datePickerDataEmprestimo.setValue(dt);
+        datePickerDataPrevista.setValue(dt);
+        txtHoraEmprestimo.setText(horaAtual);
     }
     
     public void carregarComboBoxPessoa() {
@@ -91,7 +101,7 @@ public class FXMLFrmEmprestimoDialog implements Initializable{
         observableListPessoa = FXCollections.observableArrayList(listPessoa);
         comboBoxPessoa.setItems(observableListPessoa);
     }
-
+    
     public Stage getDialogStage() {
         return dialogStage;
     }

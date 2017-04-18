@@ -3,6 +3,8 @@ package javafxmvc.controller;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -51,7 +53,12 @@ public class FXMLFrmDevolucaoDialog implements Initializable{
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+        LocalDate dt = LocalDate.now();
+        LocalTime hr = LocalTime.now();
+        //String dataAtual = dt.getDayOfMonth() + "/" + dt.getMonth() + "/" + dt.getYear();
+        String horaAtual = hr.getHour() + ":" + hr.getMinute() + ":" + hr.getSecond();
+        datePickerDataDevolucao.setValue(dt);
+        txtHoraDevolucao.setText(horaAtual);
     }
     
     public Stage getDialogStage() {
