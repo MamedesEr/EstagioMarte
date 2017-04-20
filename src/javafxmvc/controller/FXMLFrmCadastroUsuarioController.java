@@ -339,6 +339,7 @@ public class FXMLFrmCadastroUsuarioController implements Initializable{
             tabConsulta.setDisable(false);
             btnAlterar.setDisable(true);
             btnExcluir.setDisable(true);
+            btnInserir.setDisable(false);
         }
     }
     
