@@ -3,7 +3,10 @@ package javafxmvc.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -33,12 +36,16 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafxmvc.model.dao.ChaveDAO;
 import javafxmvc.model.dao.EmprestimoDAO;
+import javafxmvc.model.dao.PessoaDAO;
+import javafxmvc.model.dao.UsuarioDAO;
 import javafxmvc.model.database.Database;
 import javafxmvc.model.database.DatabaseFactory;
 import javafxmvc.model.domain.Chave;
 import javafxmvc.model.domain.Emprestimo;
 import javafxmvc.model.domain.Pessoa;
 import javafxmvc.model.domain.Usuario;
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.SimpleEmail;
 
 public class FXMLFrmPrincipalController implements Initializable{
 
@@ -104,6 +111,9 @@ public class FXMLFrmPrincipalController implements Initializable{
 
     @FXML
     private Button btnPesquisar;
+    
+    @FXML
+    private Button btnEnviar;
 
     @FXML
     private TableColumn<Chave, String> tableColumnChaves;
@@ -112,7 +122,9 @@ public class FXMLFrmPrincipalController implements Initializable{
     private TableColumn<Chave, String> tableColumnStatus;
     //*
     private List <Chave> listChaves;
+    private List <Emprestimo> listEmprestimos;
     private ObservableList <Chave> observableListChaves;
+    private ObservableList <Emprestimo> observableListE;
     private Stage dialogStage;
     
     private final Database database = DatabaseFactory.getDatabase("postgresql");
@@ -136,6 +148,7 @@ public class FXMLFrmPrincipalController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         chaveDAO.setConnection(connection);
+        emprestimoDAO.setConnection(connection);
         checkBoxDisponivel.setSelected(true);
         checkBoxIndispinivel.setSelected(true);
         carregarTableViewChave();
@@ -323,6 +336,19 @@ public class FXMLFrmPrincipalController implements Initializable{
         btnInicio.setDisable(true);
     }
     
+    @FXML
+    void btnEnviarEmail_onAction (ActionEvent evento) throws IOException, EmailException {
+        sendEmail();
+        tabPane.getSelectionModel().select(tabControle);
+        tabControle.setDisable(false);
+        tabAjuda.setDisable(true);
+        tabManutencao.setDisable(true);
+        btnDevolucao.setDisable(true);
+        btnEmprestimo.setDisable(true);
+        carregarTableViewChave();
+        btnInicio.setDisable(true);
+    }
+    
     public boolean showFXMLFrmEmprestimoDialog(Emprestimo emprestimo) throws IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(FXMLFrmEmprestimoDialog.class.getResource("/javafxmvc/view/FrmEmprestimoDialog.fxml"));
@@ -363,5 +389,59 @@ public class FXMLFrmPrincipalController implements Initializable{
         // Mostra o Dialog e espera até que o usuário o feche
         dialogStage.showAndWait();
         return controller.isButtonConfirmarClicked();
+    }
+    
+    public void sendEmail() throws EmailException {
+        
+        String sql = "SELECT * FROM emprestimo Where dt_devolucao isnull";
+        List<Emprestimo> retorno = new ArrayList<>();
+        try {
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            ResultSet resultado = stmt.executeQuery();
+            while (resultado.next()) {
+                Emprestimo emprestimo = new Emprestimo();
+                Chave chave = new Chave();
+                Pessoa pessoa = new Pessoa();
+               
+                pessoa.setIdPessoa(resultado.getInt("id_pessoa"));
+                chave.setIdChave(resultado.getInt("id_chave"));
+
+                PessoaDAO pessoaDAO = new PessoaDAO();
+                pessoaDAO.setConnection(connection);                
+                pessoa = pessoaDAO.buscar(pessoa);
+
+                ChaveDAO chDAO = new ChaveDAO();
+                chDAO.setConnection(connection);
+                chave = chDAO.buscar(chave);
+
+                emprestimo.setPessoa(pessoa);
+                emprestimo.setChave(chave);
+                retorno.add(emprestimo);
+                
+                SimpleEmail email = new SimpleEmail();
+                //Utilize o hostname do seu provedor de email
+                System.out.println("alterando hostname...");
+                email.setHostName("smtp.gmail.com");
+                //Quando a porta utilizada não é a padrão (gmail = 465)
+                email.setSmtpPort(465);
+                //Adicione os destinatários
+                email.addTo(pessoa.getEmail(), pessoa.getNome());
+                //Configure o seu email do qual enviará
+                email.setFrom("ifmt.daee@gmail.com", "Departamento DAEE");
+                //Adicione um assunto
+                email.setSubject("Devolução Chave DAEE");
+                //Adicione a mensagem do email
+                email.setMsg("Este e-mail é para informar para devolver a chave do Laboratorio: "+chave.getIdentificador());
+                //Para autenticar no servidor é necessário chamar os dois métodos abaixo
+                System.out.println("autenticando...");
+                email.setSSL(true);
+                email.setAuthentication("ifmt.daee@gmail.com", "daeeifmt2017");
+                System.out.println("enviando...");
+                email.send();
+                System.out.println("Email enviado!");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(EmprestimoDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

@@ -75,45 +75,46 @@ public class EmprestimoDAO
   
     public List<Emprestimo> listar()
     {
-        String sql = "SELECT * FROM emprestimo ORDER BY descricao";
+        String sql = "SELECT * FROM emprestimo Where dt_devolucao isnull";
         List<Emprestimo> retorno = new ArrayList<>();
         try {
             PreparedStatement stmt = connection.prepareStatement(sql);
             ResultSet resultado = stmt.executeQuery();
             while (resultado.next()) {
+                Emprestimo emprestimo = new Emprestimo();
                 Usuario usuario = new Usuario();
                 Chave chave = new Chave();
                 Pessoa pessoa = new Pessoa();
-                Emprestimo emprestimo = new Emprestimo();
-                
+
                 emprestimo.setIdEmprestimo(resultado.getInt("id_emprestimo"));
                 emprestimo.setDescricao(resultado.getString("descricao"));
-                emprestimo.setDtDevolucao(resultado.getDate("dt_devolucao").toLocalDate());
-                emprestimo.setHrDevolucao(resultado.getTime("hr_devolucao"));
+//                emprestimo.setDtDevolucao(resultado.getDate("dt_devolucao").toLocalDate());
+//                emprestimo.setHrDevolucao(resultado.getTime("hr_devolucao"));
                 emprestimo.setDtEmprestimo(resultado.getDate("dt_emprestimo").toLocalDate());
                 emprestimo.setHrEmprestimo(resultado.getTime("hr_emprestimo"));
                 emprestimo.setDtPrevisaoEntrega(resultado.getDate("dt_prev_entrega").toLocalDate());
                 emprestimo.setHrPrevisaoEntrega(resultado.getTime("hr_prev_devolucao"));
-                
+                pessoa.setIdPessoa(resultado.getInt("id_pessoa"));
+                usuario.setIdUsuario(resultado.getInt("id_usuario_emprestou"));
+                chave.setIdChave(resultado.getInt("id_chave"));
+
                 UsuarioDAO usuarioDAO = new UsuarioDAO();
                 usuarioDAO.setConnection(connection);                
                 usuario = usuarioDAO.buscar(usuario);
-                
+
                 PessoaDAO pessoaDAO = new PessoaDAO();
                 pessoaDAO.setConnection(connection);                
                 pessoa = pessoaDAO.buscar(pessoa);
-                
+
                 ChaveDAO chaveDao = new ChaveDAO();
                 chaveDao.setConnection(connection);
                 chave = chaveDao.buscar(chave);
-                
+
                 emprestimo.setUsuario(usuario);
                 emprestimo.setPessoa(pessoa);
                 emprestimo.setChave(chave);
-                retorno.add(emprestimo);             
-                
-                               
-               }
+                retorno.add(emprestimo);                            
+            }
         } catch (SQLException ex) {
             Logger.getLogger(EmprestimoDAO.class.getName()).log(Level.SEVERE, null, ex);
         }

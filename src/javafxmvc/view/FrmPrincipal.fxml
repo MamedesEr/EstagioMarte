@@ -141,6 +141,19 @@
                               </Label>
                               <CheckBox fx:id="checkBoxDisponivel" layoutX="81.0" layoutY="52.0" mnemonicParsing="false" text="Chave Disponível" />
                               <CheckBox fx:id="checkBoxIndispinivel" layoutX="313.0" layoutY="52.0" mnemonicParsing="false" text="Chave Indisponível" />
+                              <Button fx:id="btnEmail" layoutX="450.0" layoutY="42.0" mnemonicParsing="false" onAction="#btnEnviarEmail_onAction" prefHeight="12.0" styleClass="pesquisa_pequena" text="    Enviar">
+                                 <font>
+                                    <Font name="Times New Roman Bold" size="14.0" />
+                                 </font>
+                                 <textFill>
+                                    <LinearGradient endX="1.0" endY="1.0" startX="1.0" startY="0.9523809523809523">
+                                       <stops>
+                                          <Stop color="#4a4646" />
+                                          <Stop color="WHITE" offset="1.0" />
+                                       </stops>
+                                    </LinearGradient>
+                                 </textFill>
+                              </Button>
                            </children>
                         </AnchorPane>
                      </content>
