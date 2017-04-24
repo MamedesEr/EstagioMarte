@@ -1,5 +1,7 @@
 package javafxmvc.controller;
 
+import java.awt.Desktop;
+import java.io.File;
 import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,7 +11,7 @@ import javafx.scene.layout.AnchorPane;
 
 public class FXMLFrmAjudaController {
    @FXML
-    private Button btnTutorial;
+    private Button btnManual;
 
     @FXML
     private AnchorPane anchorPane;
@@ -18,8 +20,9 @@ public class FXMLFrmAjudaController {
     private Button btnSobre;
 
     @FXML
-    void btnTutorial_onAction(ActionEvent event) {
-
+    void btnManual_onAction(ActionEvent event) throws IOException {
+        Desktop desktop = Desktop.getDesktop();    
+        desktop.open(new File("C:\\teste.pdf"));
     }
 
     @FXML
