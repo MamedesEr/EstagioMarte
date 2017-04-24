@@ -194,6 +194,17 @@
     -fx-background-repeat: no-repeat;
     -fx-background-position: 2,0;  
 }
+
+.button.email{
+    -fx-background-color: #f0f5f5;
+    -fx-border-color: #f0f5f5;
+    
+    -fx-pref-height: 38px;
+    -fx-pref-width: 37px;    
+    -fx-background-image: url(bt_email.png);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 2,0;  
+}
 .table-view{
     -fx-alignment:center
 }

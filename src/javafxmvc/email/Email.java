@@ -29,7 +29,7 @@ public class Email {
         //Para autenticar no servidor é necessário chamar os dois métodos abaixo
         System.out.println("autenticando...");
         email.setSSL(true);
-       email.setAuthentication("ifmt.daee@gmail.com", "daeeifmt2017");
+        email.setAuthentication("ifmt.daee@gmail.com", "daeeifmt2017");
         System.out.println("enviando...");
         email.send();
         System.out.println("Email enviado!");

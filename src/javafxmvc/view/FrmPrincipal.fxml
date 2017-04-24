@@ -109,7 +109,7 @@
               <tabs>
                 <Tab fx:id="tabControle" text="   Controle   ">
                      <content>
-                      <AnchorPane fx:id="anchorPaneControle" minHeight="0.0" minWidth="0.0" prefHeight="522.0" prefWidth="225.0">
+                      <AnchorPane fx:id="anchorPaneControle" minHeight="0.0" minWidth="0.0" prefHeight="522.0" prefWidth="225.0" styleClass="email">
                            <children>
                               <TableView fx:id="tableViewChaves" layoutY="82.0" prefHeight="434.0" prefWidth="630.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="82.0">
                                 <columns>
@@ -121,7 +121,7 @@
                                  </columnResizePolicy>
                               </TableView>
                               <TextField fx:id="txtPesquisar" layoutX="81.0" layoutY="10.0" onAction="#btnPesquisar_onAction" prefHeight="30.0" prefWidth="353.0" promptText="Digite parte do nome da chave" />
-                              <Button fx:id="btnPesquisar" layoutX="450.0" layoutY="5.0" mnemonicParsing="false" onAction="#btnPesquisar_onAction" styleClass="pesquisa_pequena" text="    Pesquisar">
+                              <Button fx:id="btnPesquisar" layoutX="442.0" layoutY="5.0" mnemonicParsing="false" onAction="#btnPesquisar_onAction" styleClass="pesquisa_pequena" text="    Pesquisar">
                                  <font>
                                     <Font name="Times New Roman Bold" size="14.0" />
                                  </font>
@@ -141,7 +141,7 @@
                               </Label>
                               <CheckBox fx:id="checkBoxDisponivel" layoutX="81.0" layoutY="52.0" mnemonicParsing="false" text="Chave Disponível" />
                               <CheckBox fx:id="checkBoxIndispinivel" layoutX="313.0" layoutY="52.0" mnemonicParsing="false" text="Chave Indisponível" />
-                              <Button fx:id="btnEmail" layoutX="450.0" layoutY="42.0" mnemonicParsing="false" onAction="#btnEnviarEmail_onAction" prefHeight="12.0" styleClass="pesquisa_pequena" text="    Enviar">
+                              <Button fx:id="btnEmail" layoutX="597.0" layoutY="42.0" mnemonicParsing="false" onAction="#btnEnviarEmail_onAction" prefHeight="12.0" styleClass="email">
                                  <font>
                                     <Font name="Times New Roman Bold" size="14.0" />
                                  </font>
