@@ -182,7 +182,7 @@ public class FXMLFrmEmprestimoDialog implements Initializable{
     @FXML
     public void tfHoraRetiradaReleased(){
         TextFieldFormatter tff = new TextFieldFormatter();
-        tff.setMask("##:##:##");
+        tff.setMask("##:##:## ");
         tff.setCaracteresValidos("0123456789");
         tff.setTf(txtHoraEmprestimo);
         tff.formatter();
@@ -191,7 +191,7 @@ public class FXMLFrmEmprestimoDialog implements Initializable{
     @FXML
     public void tfHoraPrevistaRelased(){
     TextFieldFormatter tff = new TextFieldFormatter();
-        tff.setMask("##:##:##");
+        tff.setMask("##:##:## ");
         tff.setCaracteresValidos("0123456789");
         tff.setTf(txtHoraPrevista);
         tff.formatter();    

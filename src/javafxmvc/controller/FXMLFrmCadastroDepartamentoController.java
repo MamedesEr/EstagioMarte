@@ -26,6 +26,7 @@ import javafxmvc.model.dao.DepartamentoDAO;
 import javafxmvc.model.database.Database;
 import javafxmvc.model.database.DatabaseFactory;
 import javafxmvc.model.domain.Departamento;
+import javafxmvc.model.domain.TextFieldFormatter;
 
 public class FXMLFrmCadastroDepartamentoController implements Initializable {
     @FXML
@@ -290,6 +291,15 @@ public class FXMLFrmCadastroDepartamentoController implements Initializable {
             btnExcluir.setDisable(true);
             btnInserir.setDisable(false);
         }
+    }
+    
+    @FXML
+    public void tfTelefoneRelased(){
+        TextFieldFormatter tff = new TextFieldFormatter();
+        tff.setMask("(##)#####-#### ");
+        tff.setCaracteresValidos("0123456789");
+        tff.setTf(txtTelefone);
+        tff.formatter();    
     }
     
      //Validar entrada de dados para o cadastro

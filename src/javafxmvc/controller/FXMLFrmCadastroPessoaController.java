@@ -30,6 +30,7 @@ import javafxmvc.model.database.DatabaseFactory;
 import javafxmvc.model.domain.Cargo;
 import javafxmvc.model.domain.Departamento;
 import javafxmvc.model.domain.Pessoa;
+import javafxmvc.model.domain.TextFieldFormatter;
 
 public class FXMLFrmCadastroPessoaController implements Initializable{
     @FXML
@@ -318,6 +319,24 @@ public class FXMLFrmCadastroPessoaController implements Initializable{
             btnExcluir.setDisable(true);
             btnInserir.setDisable(false);
         }
+    }
+    
+    @FXML
+    public void tfTelefoneRelased(){
+        TextFieldFormatter tff = new TextFieldFormatter();
+        tff.setMask("(##)#####-#### ");
+        tff.setCaracteresValidos("0123456789");
+        tff.setTf(txtTelefone);
+        tff.formatter();    
+    }
+    
+    @FXML
+    public void tfCPFRelased(){
+        TextFieldFormatter tff = new TextFieldFormatter();
+        tff.setMask("###.###.###-## ");
+        tff.setCaracteresValidos("0123456789");
+        tff.setTf(txtCPF);
+        tff.formatter();    
     }
     
      //Validar entrada de dados para o cadastro

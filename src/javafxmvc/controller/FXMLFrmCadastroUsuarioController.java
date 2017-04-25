@@ -29,6 +29,7 @@ import javafxmvc.model.database.Database;
 import javafxmvc.model.database.DatabaseFactory;
 import javafxmvc.model.domain.Cargo;
 import javafxmvc.model.domain.Departamento;
+import javafxmvc.model.domain.TextFieldFormatter;
 import javafxmvc.model.domain.Usuario;
 
 public class FXMLFrmCadastroUsuarioController implements Initializable{
@@ -343,6 +344,24 @@ public class FXMLFrmCadastroUsuarioController implements Initializable{
         }
     }
     
+    @FXML
+    public void tfTelefoneRelased(){
+        TextFieldFormatter tff = new TextFieldFormatter();
+        tff.setMask("(##)#####-#### ");
+        tff.setCaracteresValidos("0123456789");
+        tff.setTf(txtTelefone);
+        tff.formatter();    
+    }
+    
+    @FXML
+    public void tfCPFRelased(){
+        TextFieldFormatter tff = new TextFieldFormatter();
+        tff.setMask("###.###.###-## ");
+        tff.setCaracteresValidos("0123456789");
+        tff.setTf(txtCPF);
+        tff.formatter();    
+    }
+    
      //Validar entrada de dados para o cadastro
     private boolean validarEntradaDeDados() {
         String errorMessage = "";
@@ -383,6 +402,8 @@ public class FXMLFrmCadastroUsuarioController implements Initializable{
     }
     
     public void limparTxt(){
+        txtLogin.setText("");
+        txtSenha.setText("");
         txtCodigo.setText("");
         txtNome.setText("");
         txtCPF.setText("");

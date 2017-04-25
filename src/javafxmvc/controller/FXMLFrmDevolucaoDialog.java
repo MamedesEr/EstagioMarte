@@ -126,7 +126,7 @@ public class FXMLFrmDevolucaoDialog implements Initializable{
     @FXML
     public void tfHoradevolucaoReleased(){
         TextFieldFormatter tff =new TextFieldFormatter();
-        tff.setMask("##:##:##");
+        tff.setMask("##:##:## ");
         tff.setCaracteresValidos("0123456789");
         tff.setTf(txtHoraDevolucao);
         tff.formatter(); 

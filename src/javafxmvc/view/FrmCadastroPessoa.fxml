@@ -66,9 +66,9 @@
                         </AnchorPane>
                         <TextField fx:id="txtNome" layoutX="99.0" layoutY="63.0" prefHeight="30.0" prefWidth="360.0" />
                         <Label fx:id="lbNome" alignment="CENTER_RIGHT" layoutX="12.0" layoutY="68.0" prefHeight="17.0" prefWidth="80.0" text="Nome:" />
-                        <TextField fx:id="txtCPF" layoutX="99.0" layoutY="102.0" prefHeight="30.0" prefWidth="360.0" />
+                        <TextField fx:id="txtCPF" layoutX="99.0" layoutY="102.0" onKeyReleased="#tfCPFRelased" prefHeight="30.0" prefWidth="360.0" />
                         <Label fx:id="lbCPF" alignment="CENTER_RIGHT" layoutX="12.0" layoutY="107.0" prefHeight="17.0" prefWidth="80.0" text="CPF:" />
-                        <TextField fx:id="txtTelefone" layoutX="99.0" layoutY="141.0" prefHeight="30.0" prefWidth="360.0" />
+                        <TextField fx:id="txtTelefone" layoutX="99.0" layoutY="141.0" onKeyReleased="#tfTelefoneRelased" prefHeight="30.0" prefWidth="360.0" />
                         <Label fx:id="lbTelefone" alignment="CENTER_RIGHT" layoutX="11.0" layoutY="146.0" prefHeight="17.0" prefWidth="81.0" text="Telefone:" />
                         <Label fx:id="lbEmail" alignment="CENTER_RIGHT" layoutX="11.0" layoutY="185.0" prefHeight="17.0" prefWidth="81.0" text="E-mail:" />
                         <TextField fx:id="txtEmail" layoutX="99.0" layoutY="180.0" prefHeight="30.0" prefWidth="360.0" />

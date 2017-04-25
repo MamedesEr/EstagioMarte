@@ -66,7 +66,7 @@
                         <TextField fx:id="txtSigla" layoutX="99.0" layoutY="101.0" prefHeight="30.0" prefWidth="360.0" />
                         <TextField fx:id="txtChefia" layoutX="99.0" layoutY="138.0" prefHeight="30.0" prefWidth="360.0" />
                         <Label fx:id="lbChefia" alignment="CENTER_RIGHT" layoutX="11.0" layoutY="143.0" prefHeight="17.0" prefWidth="81.0" text="Chefia:" />
-                        <TextField fx:id="txtTelefone" layoutX="99.0" layoutY="176.0" prefHeight="30.0" prefWidth="360.0" />
+                        <TextField fx:id="txtTelefone" layoutX="99.0" layoutY="176.0" onKeyReleased="#tfTelefoneRelased" prefHeight="30.0" prefWidth="360.0" />
                         <Label fx:id="lbTelefone" alignment="CENTER_RIGHT" layoutX="11.0" layoutY="181.0" prefHeight="17.0" prefWidth="81.0" text="Telefone:" />
                         <Label fx:id="lbEmail" alignment="CENTER_RIGHT" layoutX="11.0" layoutY="219.0" prefHeight="17.0" prefWidth="81.0" text="E-mail:" />
                         <TextField fx:id="txtEmail" layoutX="99.0" layoutY="214.0" prefHeight="30.0" prefWidth="360.0" />
