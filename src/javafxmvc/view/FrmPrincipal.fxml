@@ -153,6 +153,12 @@
                                        </stops>
                                     </LinearGradient>
                                  </textFill>
+                                 <tooltip>
+                                    <Tooltip fx:id="toolTipEnviar" anchorLocation="WINDOW_TOP_RIGHT" autoHide="true" contentDisplay="CENTER" style="-fx-background-color: #66cc00;" text="Enviar e-mail &#10;aos pendentes" textOverrun="LEADING_ELLIPSIS" y="0.0">
+                                       <font>
+                                          <Font name="Arial Bold" size="14.0" />
+                                       </font></Tooltip>
+                                 </tooltip>
                               </Button>
                            </children>
                         </AnchorPane>

@@ -4,10 +4,21 @@
     -fx-font-size: 11pt;
     
     -fx-background-color: #66cc00;
-    -fx-border-color: #ccccff;
+    -fx-background-radius: 22;
+    -fx-border-color: none;
     
     -fx-text-fill: #ffffff;    
     
+}
+
+.button:hover{
+    -fx-background-color: #73e600;
+    -fx-text-decoration: none;
+}
+
+.button:pressed{
+    -fx-background-color: none;
+    -fx-text-fill: #000000;
 }
 
 .button.entrar{
@@ -64,7 +75,8 @@
     
     -fx-background-image: url(bt_pesquisa_peq.png);
     -fx-background-repeat: no-repeat;
-    -fx-background-position: 5,0;  
+    -fx-background-position: 5,0;
+    -fx-background-radius: 12;
 }
 
 .button.manutencao{

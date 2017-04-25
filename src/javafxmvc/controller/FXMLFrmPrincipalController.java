@@ -14,7 +14,6 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -28,22 +27,20 @@ import javafx.scene.control.TabPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafxmvc.model.dao.ChaveDAO;
 import javafxmvc.model.dao.EmprestimoDAO;
 import javafxmvc.model.dao.PessoaDAO;
-import javafxmvc.model.dao.UsuarioDAO;
 import javafxmvc.model.database.Database;
 import javafxmvc.model.database.DatabaseFactory;
 import javafxmvc.model.domain.Chave;
 import javafxmvc.model.domain.Emprestimo;
 import javafxmvc.model.domain.Pessoa;
-import javafxmvc.model.domain.Usuario;
 import org.apache.commons.mail.EmailException;
 import org.apache.commons.mail.SimpleEmail;
 
@@ -121,6 +118,9 @@ public class FXMLFrmPrincipalController implements Initializable{
     @FXML
     private TableColumn<Chave, String> tableColumnStatus;
     //*
+    @FXML
+    private Tooltip toolTipEnviar;
+
     private List <Chave> listChaves;
     private List <Emprestimo> listEmprestimos;
     private ObservableList <Chave> observableListChaves;
@@ -131,15 +131,10 @@ public class FXMLFrmPrincipalController implements Initializable{
     private final Connection connection = database.conectar();
     private final ChaveDAO chaveDAO = new ChaveDAO();
     private final EmprestimoDAO emprestimoDAO = new EmprestimoDAO();
-    
-//    private final ImageView chaveDisponivel = new ImageView("javafxmvc/imagem/status_disponivel.png");
-//    private final ImageView chaveIndisponivel = new ImageView("javafxmvc/imagem/status_indisponivel.png");
-//    private final Chave conteudo = new Chave();
-    
-    
+      
     String estado;
     static int id_chave;
-    int id_usuario;
+    int id_usuario;    
     
     public Integer retornaIdChave(){
         return id_chave;
@@ -161,17 +156,7 @@ public class FXMLFrmPrincipalController implements Initializable{
     public void carregarTableViewChave() {
         tableColumnChaves.setCellValueFactory(new PropertyValueFactory<>("identificador"));
         tableColumnStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
-     
-        /*
-        String status;
-        status = String.valueOf(new PropertyValueFactory<>("status"));
-        if(status.compareTo("Disponível") > 0){
-            conteudo.setImagem(chaveDisponivel);
-            observableListChaves.add(conteudo);
-            tableColumnStatus.setCellValueFactory(new PropertyValueFactory<>("imagem"));       
-        }
-        */
-       
+           
         listChaves = chaveDAO.listar();
 
         observableListChaves = FXCollections.observableArrayList(listChaves);       
@@ -199,15 +184,6 @@ public class FXMLFrmPrincipalController implements Initializable{
         tableColumnChaves.setCellValueFactory(new PropertyValueFactory<>("identificador"));
         tableColumnStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
 
-        /*
-        listChaves = chaveDAO.pesquisar(filtro);
-
-        observableListChaves = FXCollections.observableArrayList(listChaves);
-        tableViewChaves.setItems(observableListChaves);
-        
-        btnEmprestimo.setDisable(true);
-        btnDevolucao.setDisable(true);
-        */
         if(checkBoxDisponivel.isSelected()){
             if(checkBoxIndispinivel.isSelected()){
                 listChaves = chaveDAO.pesquisar(filtro);
@@ -338,6 +314,7 @@ public class FXMLFrmPrincipalController implements Initializable{
     
     @FXML
     void btnEnviarEmail_onAction (ActionEvent evento) throws IOException, EmailException {
+        //Mandar e-mail
         sendEmail();
         tabPane.getSelectionModel().select(tabControle);
         tabControle.setDisable(false);
