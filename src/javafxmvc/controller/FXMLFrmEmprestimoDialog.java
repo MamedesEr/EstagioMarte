@@ -182,7 +182,7 @@ public class FXMLFrmEmprestimoDialog implements Initializable{
     @FXML
     public void tfHoraRetiradaReleased(){
         TextFieldFormatter tff = new TextFieldFormatter();
-        tff.setMask("##:##:## ");
+        tff.setMask("##:##:##");
         tff.setCaracteresValidos("0123456789");
         tff.setTf(txtHoraEmprestimo);
         tff.formatter();
@@ -191,7 +191,7 @@ public class FXMLFrmEmprestimoDialog implements Initializable{
     @FXML
     public void tfHoraPrevistaRelased(){
     TextFieldFormatter tff = new TextFieldFormatter();
-        tff.setMask("##:##:## ");
+        tff.setMask("##:##:##");
         tff.setCaracteresValidos("0123456789");
         tff.setTf(txtHoraPrevista);
         tff.formatter();    
@@ -207,9 +207,12 @@ public class FXMLFrmEmprestimoDialog implements Initializable{
         if (datePickerDataEmprestimo.getValue() == null) {
             errorMessage += "Data inválida!\n";
         }
-        if (txtHoraEmprestimo.getText()== null) {
-            errorMessage += "Hora inválida!\n";
+        if (txtHoraEmprestimo.getText()== null || txtHoraEmprestimo.getText().length() == 0) {
+            errorMessage += "Hora do empréstimo inválido!\n";
         }
+        if (txtHoraPrevista.getText()== null || txtHoraPrevista.getText().length() == 0) {
+            errorMessage += "Hora prevista de devolução inválida!\n";
+        }        
         if (errorMessage.length() == 0) {
             return true;
         } else {

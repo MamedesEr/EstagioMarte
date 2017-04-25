@@ -126,7 +126,7 @@ public class FXMLFrmDevolucaoDialog implements Initializable{
     @FXML
     public void tfHoradevolucaoReleased(){
         TextFieldFormatter tff =new TextFieldFormatter();
-        tff.setMask("##:##:## ");
+        tff.setMask("##:##:##");
         tff.setCaracteresValidos("0123456789");
         tff.setTf(txtHoraDevolucao);
         tff.formatter(); 
@@ -140,8 +140,8 @@ public class FXMLFrmDevolucaoDialog implements Initializable{
         if (datePickerDataDevolucao.getValue() == null) {
             errorMessage += "Data inválida!\n";
         }
-        if (txtHoraDevolucao.getText()== null) {
-            errorMessage += "Hora inválida!\n";
+        if (txtHoraDevolucao.getText()== null || txtHoraDevolucao.getText().length() == 0) {
+            errorMessage += "Hora da devolução inválida!\n";
         }
         if (errorMessage.length() == 0) {
             return true;

@@ -332,7 +332,7 @@ public class FXMLFrmPrincipalController implements Initializable{
         AnchorPane page = (AnchorPane) loader.load();
         // Criando um Estágio de Diálogo (Stage Dialog)
         Stage dialogStage = new Stage();
-        dialogStage.setTitle("Registro de Emprestimo");
+        dialogStage.setTitle("Registro de Empréstimo");
         Image applicationIcon = new Image(getClass().getResourceAsStream("/javafxmvc/imagem/ifmt.png"));
         dialogStage.getIcons().add(applicationIcon);
         Scene scene = new Scene(page);

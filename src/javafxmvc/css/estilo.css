@@ -79,6 +79,10 @@
     -fx-background-radius: 12;
 }
 
+.button.pesquisa_pequena:hover{
+    -fx-rotate: 2;
+}
+
 .button.manutencao{
     -fx-pref-height: 68px;
     -fx-pref-width: 148px;    
