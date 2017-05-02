@@ -15,7 +15,7 @@
       <Button fx:id="buttonConfirmar" layoutX="97.0" layoutY="268.0" mnemonicParsing="false" onAction="#handleButtonConfirmar" styleClass="confirmar" text="            Confirmar" />
       <Button fx:id="buttonCancelar" layoutX="355.0" layoutY="268.0" mnemonicParsing="false" onAction="#handleButtonCancelar" styleClass="cancelar" text="           Cancelar" />
       <Label alignment="CENTER_RIGHT" layoutX="18.0" layoutY="86.0" prefHeight="17.0" prefWidth="111.0" text="Hora da Retirada:" />
-      <Label alignment="CENTER_RIGHT" layoutX="348.0" layoutY="85.0" prefHeight="17.0" prefWidth="80.0" text="Hora Prevista:" />
+      <Label alignment="CENTER_RIGHT" layoutX="279.0" layoutY="85.0" prefHeight="17.0" prefWidth="149.0" text="Hora Prevista de Devolução:" />
       <Label alignment="CENTER_RIGHT" layoutX="279.0" layoutY="143.0" prefHeight="17.0" prefWidth="149.0" text="Data Prevista de Devolução:" />
       <Label layoutX="18.0" layoutY="144.0" text="Data de Empréstimo:" />
       <Label alignment="CENTER_RIGHT" layoutX="17.0" layoutY="26.0" prefHeight="17.0" prefWidth="111.0" text="Pessoa:" />

@@ -156,7 +156,7 @@ public class FXMLFrmPrincipalController implements Initializable{
     public void carregarTableViewChave() {
         tableColumnChaves.setCellValueFactory(new PropertyValueFactory<>("identificador"));
         tableColumnStatus.setCellValueFactory(new PropertyValueFactory<>("status"));
-           
+
         listChaves = chaveDAO.listar();
 
         observableListChaves = FXCollections.observableArrayList(listChaves);       

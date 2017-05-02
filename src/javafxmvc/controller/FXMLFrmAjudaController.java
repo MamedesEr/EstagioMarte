@@ -21,8 +21,8 @@ public class FXMLFrmAjudaController {
 
     @FXML
     void btnManual_onAction(ActionEvent event) throws IOException {
-        Desktop desktop = Desktop.getDesktop();    
-        desktop.open(new File("C:\\teste.pdf"));
+        Desktop desktop = Desktop.getDesktop();
+        desktop.open(new File("manual.pdf"));
     }
 
     @FXML

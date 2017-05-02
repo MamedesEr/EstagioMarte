@@ -25,7 +25,7 @@ public class Email {
         //Adicione um assunto
         email.setSubject("Devolução Chave DAEE");
         //Adicione a mensagem do email
-        email.setMsg("Este e-mail é para informar para devolver a chave do Laboratorio: "+chave.getIdentificador());
+        email.setMsg("Este e-mail é para informar para devolver a chave do Laboratório: "+chave.getIdentificador());
         //Para autenticar no servidor é necessário chamar os dois métodos abaixo
         System.out.println("autenticando...");
         email.setSSL(true);

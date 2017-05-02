@@ -79,10 +79,6 @@
     -fx-background-radius: 12;
 }
 
-.button.pesquisa_pequena:hover{
-    -fx-rotate: 2;
-}
-
 .button.manutencao{
     -fx-pref-height: 68px;
     -fx-pref-width: 148px;    
@@ -221,6 +217,29 @@
     -fx-background-repeat: no-repeat;
     -fx-background-position: 2,0;  
 }
+
+.button.email:hover{
+    -fx-background-color: #f0f5f5;
+    -fx-border-color: #f0f5f5;
+    
+    -fx-pref-height: 38px;
+    -fx-pref-width: 37px;    
+    -fx-background-image: url(bt_email2.png);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 2,0;  
+}
+
+.button.email:pressed{
+    -fx-background-color: #f0f5f5;
+    -fx-border-color: #f0f5f5;
+    
+    -fx-pref-height: 38px;
+    -fx-pref-width: 37px;    
+    -fx-background-image: url(bt_email3.png);
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 2,0;  
+}
+
 .table-view{
     -fx-alignment:center
 }
