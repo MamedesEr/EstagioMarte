@@ -66,7 +66,7 @@ public class FXMLFrmLoginController implements Initializable{
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
-        stage.setTitle("Sistema Controle de Chaves");
+        stage.setTitle("Sistema de Controle de Chaves");
         stage.setResizable(false);
         stage.show();
         

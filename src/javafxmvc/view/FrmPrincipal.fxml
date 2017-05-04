@@ -74,7 +74,7 @@
                               </LinearGradient>
                            </textFill>
                         </Button>
-                        <Button fx:id="btnManutencao" layoutX="3.0" layoutY="271.0" mnemonicParsing="false" onAction="#btnManutencao_onAction" prefHeight="68.0" prefWidth="148.0" styleClass="manutencao" text="         Manutenção" textAlignment="CENTER">
+                        <Button fx:id="btnManutencao" disable="true" layoutX="3.0" layoutY="271.0" mnemonicParsing="false" onAction="#btnManutencao_onAction" prefHeight="68.0" prefWidth="148.0" styleClass="manutencao" text="         Manutenção" textAlignment="CENTER">
                            <font>
                               <Font name="Times New Roman Bold" size="18.0" />
                            </font>

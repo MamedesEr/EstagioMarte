@@ -51,5 +51,10 @@
             <Font size="20.0" />
          </font>
       </Label>
+      <Label fx:id="lbSistema1" alignment="CENTER_RIGHT" layoutY="459.0" prefHeight="17.0" prefWidth="640.0" text="30/03/2017">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

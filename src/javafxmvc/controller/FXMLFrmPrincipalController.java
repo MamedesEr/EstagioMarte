@@ -151,6 +151,13 @@ public class FXMLFrmPrincipalController implements Initializable{
         // Listen acionado diante de quaisquer alterações na seleção de itens do TableView
         tableViewChaves.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> selecionarItemTableViewChaves(newValue));
+        FXMLFrmLoginController id = new FXMLFrmLoginController();
+        id_usuario = id.retornaID();
+        if(id_usuario == 1){
+            btnManutencao.setDisable(false);
+        }else{
+            btnManutencao.setDisable(true);
+        }
     }
     
     public void carregarTableViewChave() {
@@ -408,7 +415,7 @@ public class FXMLFrmPrincipalController implements Initializable{
                 //Adicione um assunto
                 email.setSubject("Devolução Chave DAEE");
                 //Adicione a mensagem do email
-                email.setMsg("Este e-mail é para informar para devolver a chave do Laboratorio: "+chave.getIdentificador());
+                email.setMsg("Este e-mail é para informar para devolver a chave do Laboratório: "+chave.getIdentificador());
                 //Para autenticar no servidor é necessário chamar os dois métodos abaixo
                 System.out.println("autenticando...");
                 email.setSSL(true);
