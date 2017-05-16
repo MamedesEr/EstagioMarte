@@ -22,7 +22,7 @@ public class FXMLFrmAjudaController {
     @FXML
     void btnManual_onAction(ActionEvent event) throws IOException {
         Desktop desktop = Desktop.getDesktop();
-        desktop.open(new File("manual.pdf"));
+        desktop.open(new File("manualdousuario.pdf"));
     }
 
     @FXML

@@ -374,7 +374,7 @@ public class FXMLFrmPrincipalController implements Initializable{
         dialogStage.showAndWait();
         return controller.isButtonConfirmarClicked();
     }
-    
+
     public void sendEmail() throws EmailException {
         
         String sql = "SELECT * FROM emprestimo Where dt_devolucao isnull";

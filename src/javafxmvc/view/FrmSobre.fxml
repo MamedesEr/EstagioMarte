@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
@@ -9,7 +10,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="525.0" prefWidth="640.0" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorPane" mouseTransparent="true" prefHeight="525.0" prefWidth="640.0" stylesheets="@../css/estilo.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label fx:id="lbSistema" alignment="CENTER" layoutY="84.0" prefHeight="17.0" prefWidth="640.0" text="Controle de Chaves DAEE 1.0">
          <font>
@@ -26,35 +27,48 @@
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Text>
-      <Label fx:id="lbD1" alignment="CENTER" layoutY="192.0" prefHeight="17.0" prefWidth="640.0" text="Andrei Dambros">
+      <Label fx:id="lbD1" alignment="CENTER" layoutY="192.0" prefHeight="17.0" prefWidth="640.0" text="Andrei Dambros (and.light@gmail.com)">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lbD2" alignment="CENTER" layoutY="222.0" prefHeight="17.0" prefWidth="640.0" text="Mamades Eronildes ">
+      <Label fx:id="lbD2" alignment="CENTER" layoutY="222.0" prefHeight="17.0" prefWidth="640.0" text="Mamedes Eronildes de Castro Junior (mamedeser@gmail.com)">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lbD3" alignment="CENTER" layoutY="252.0" prefHeight="17.0" prefWidth="640.0" text="Mattheus Nunes Araújo">
+      <Label fx:id="lbD3" alignment="CENTER" layoutY="252.0" prefHeight="17.0" prefWidth="640.0" text="Mattheus Nunes Araújo (mattheus_nunes@hotmail.com)">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lbD4" alignment="CENTER" layoutY="282.0" prefHeight="17.0" prefWidth="640.0" text="Otavio Alves">
+      <Label fx:id="lbD4" alignment="CENTER" layoutY="282.0" prefHeight="17.0" prefWidth="640.0" text="Otavio Guimarães Alves (otavioga75@gmail.com)">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lbD5" alignment="CENTER" layoutX="1.0" layoutY="312.0" prefHeight="17.0" prefWidth="640.0" text="Renan Jesus">
+      <Label fx:id="lbD5" alignment="CENTER" layoutX="1.0" layoutY="312.0" prefHeight="17.0" prefWidth="640.0" text="Renan Jesus Mendonça de Souza (mrenanjesus@gmail.com)">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lbSistema1" alignment="CENTER_RIGHT" layoutY="459.0" prefHeight="17.0" prefWidth="640.0" text="30/03/2017">
+      <Label fx:id="lbSistema1" alignment="CENTER_RIGHT" layoutY="494.0" prefHeight="17.0" prefWidth="640.0" text="30/03/2017">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
+      <TextArea cacheShape="false" centerShape="false" editable="false" focusTraversable="false" layoutX="1.0" layoutY="394.0" mouseTransparent="true" prefHeight="98.0" prefWidth="638.0" scaleShape="false" text="O sistema é um software de código aberto e de responsabilidade do Instituto Federal de Educação, Ciência e Tecnologia - Campus Cuiabá - Mato Grosso." wrapText="true">
+         <font>
+            <Font size="20.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="NONE" />
+         </cursor>
+      </TextArea>
+      <Text fx:id="textDesenvolvedores1" layoutX="1.0" layoutY="377.0" strokeType="OUTSIDE" strokeWidth="0.0" text="                                                 Ressalva" wrappingWidth="640.0">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
